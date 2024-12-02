@@ -1,0 +1,58 @@
+.login-way
+    position:relative;
+    padding: 0 32px 0px
+    .el-form-item
+      &.code-item
+        .code-item-btn
+          position: absolute;
+          right: 10px;
+          height: 48px;
+          width: 80px;
+      &.auto-login-item
+        .auto-login-btn-box
+          float: right;
+          margin-top: 2px;
+          span
+            color: #545c63;
+            cursor: pointer;
+            &:hover
+              color: #f20d0d;
+        >>> .el-checkbox
+          margin-right: 0px;
+        >>> .el-form-item__content
+          line-height: unset;
+          color: #9199a1;
+        >>> .el-checkbox__inner
+          &:after
+            content: '';
+            transition: none!important;
+      >>> .el-input__inner
+        height: 48px;
+        border: none;
+        border-radius: 8px;
+        background-color: rgba(28,31,33,.06);
+        font-size: 16px;
+    .login-btn
+      display: block;
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 11px 32px;
+      background-color: #f20d0d;
+      border-radius: 24px;
+      color: #fff;
+      font-size: 16px;
+      text-align: center;
+      cursor: pointer;
+      line-height: 24px;
+      &:hover
+        background-color: #C20A0A;
+      &.is-loading
+        background-color: rgba(242, 13, 13, 0.5);
+        pointer-events: none;
+        cursor: not-allowed;
+    .agreement
+      color: #37f;
+      cursor: pointer;
+    >>> .el-checkbox__label
+      color: #9199a1!important;
