@@ -58,7 +58,7 @@ export default {
   },
   mounted () {
     this.tags = ['Java入门', '前端入门']
-    this.getHotData()
+    // this.getHotData()
   },
   methods: {
     // 实时搜索
