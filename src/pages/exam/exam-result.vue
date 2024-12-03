@@ -6,7 +6,7 @@
       <div v-if="examData.trainingPackageName" class="time">{{ examData.trainingPackageName }}</div>
 
       <el-form class="list" label-position="top" :model="form" disabled>
-        <el-form-item v-for="(item, index) in examData.singleChoiceList" :key="index" :label="`${index + 1}: ${item.content}`">
+        <el-form-item v-for="(item, index) in examData.singleChoiceList" :key="index" :label="`(单选) ${index + 1}: ${item.content}`">
           <div v-for="(q, qI) in item.questionOptions" :key="qI">
             <el-radio-group v-model="form[item.id]" style="margin-right: 20px;">
               <el-radio :label="q.key">{{ q.key }}：{{ q.value }}</el-radio>
@@ -16,7 +16,7 @@
           <div>试题解析: {{ item.parse }}</div>
         </el-form-item>
 
-        <el-form-item v-for="(item, index) in examData.multipleChoicesList" :key="examData.singleChoiceList.length + index" :label="`${examData.singleChoiceList.length + index + 1}: ${item.content}`">
+        <el-form-item v-for="(item, index) in examData.multipleChoicesList" :key="examData.singleChoiceList.length + index" :label="`(多选) ${examData.singleChoiceList.length + index + 1}: ${item.content}`">
           <el-checkbox-group v-model="form[item.id]">
             <el-checkbox v-for="(q, qI) in item.questionOptions" :key="qI" :label="q.key">{{ q.key }}：{{ q.value }}</el-checkbox>
           </el-checkbox-group>
@@ -24,7 +24,7 @@
           <div>试题解析: {{ item.parse }}</div>
         </el-form-item>
 
-        <el-form-item v-for="(item, index) in examData.judgmentList" :key="examData.singleChoiceList.length + examData.multipleChoicesList.length + index" :label="`${examData.singleChoiceList.length + examData.multipleChoicesList.length + index + 1}: ${item.content}`">
+        <el-form-item v-for="(item, index) in examData.judgmentList" :key="examData.singleChoiceList.length + examData.multipleChoicesList.length + index" :label="`(判断) ${examData.singleChoiceList.length + examData.multipleChoicesList.length + index + 1}: ${item.content}`">
           <div v-for="(q, qI) in item.questionOptions" :key="qI">
             <el-radio-group v-model="form[item.id]" style="margin-right: 20px;">
               <el-radio :label="q.key">{{ q.key }}：{{ q.value }}</el-radio>

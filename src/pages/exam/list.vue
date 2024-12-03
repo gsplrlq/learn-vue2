@@ -8,7 +8,7 @@
             {{ item.name }}
           </h2>
           <p class="count">
-            次数：{{ item.examCount }} 次
+            剩余次数：{{ item.examCount }} 次
           </p>
         </div>
         
@@ -20,9 +20,9 @@
           <div>
             <span>总分：{{ item.duration }} 分</span>
             <span>及格分：{{ item.passScores }} 分</span>
-            <span>单选：{{ item.singleChoiceScores }} 分</span>
+            <!-- <span>单选：{{ item.singleChoiceScores }} 分</span>
             <span>多选：{{ item.singleChoiceScores }} 分</span>
-            <span>选择：{{ item.judgmentScores }} 分</span>
+            <span>选择：{{ item.judgmentScores }} 分</span> -->
           </div>
         </div>
 

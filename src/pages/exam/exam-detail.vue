@@ -6,19 +6,19 @@
 
       <template v-if="!result">
         <el-form class="list" label-position="top" :model="form">
-          <el-form-item v-for="(item, index) in examData.singleChoiceList" :key="index" :label="`${index + 1}: ${item.content}`">
+          <el-form-item v-for="(item, index) in examData.singleChoiceList" :key="index" :label="`(单选) ${index + 1}: ${item.content}`">
             <el-radio-group v-for="(q, qI) in item.questionOptions" :key="qI" v-model="form[item.id]" style="margin-right: 20px;">
               <el-radio :label="q.key">{{ q.key }}：{{ q.value }}</el-radio>
             </el-radio-group>
           </el-form-item>
   
-          <el-form-item v-for="(item, index) in examData.multipleChoicesList" :key="examData.singleChoiceList.length + index" :label="`${examData.singleChoiceList.length + index + 1}: ${item.content}`">
+          <el-form-item v-for="(item, index) in examData.multipleChoicesList" :key="examData.singleChoiceList.length + index" :label="`(多选) ${examData.singleChoiceList.length + index + 1}: ${item.content}`">
             <el-checkbox-group v-model="form[item.id]">
               <el-checkbox v-for="(q, qI) in item.questionOptions" :key="qI" :label="q.key">{{ q.key }}：{{ q.value }}</el-checkbox>
             </el-checkbox-group>
           </el-form-item>
   
-          <el-form-item v-for="(item, index) in examData.judgmentList" :key="examData.singleChoiceList.length + examData.multipleChoicesList.length + index" :label="`${examData.singleChoiceList.length + examData.multipleChoicesList.length + index + 1}: ${item.content}`">
+          <el-form-item v-for="(item, index) in examData.judgmentList" :key="examData.singleChoiceList.length + examData.multipleChoicesList.length + index" :label="`(判断) ${examData.singleChoiceList.length + examData.multipleChoicesList.length + index + 1}: ${item.content}`">
             <el-radio-group v-for="(q, qI) in item.questionOptions" :key="qI" v-model="form[item.id]" style="margin-right: 20px;">
               <el-radio :label="q.key">{{ q.key }}：{{ q.value }}</el-radio>
             </el-radio-group>
