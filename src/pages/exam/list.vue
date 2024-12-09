@@ -7,8 +7,8 @@
           <h2 class="name">
             {{ item.name }}
           </h2>
-          <p class="count">
-            剩余次数：{{ item.examCount }} 次
+          <p v-if="item.remainderExamCount" class="count">
+            剩余次数：{{ item.remainderExamCount }} 次
           </p>
         </div>
         
@@ -26,7 +26,7 @@
           </div>
         </div>
 
-        <div v-if="item.examFlag" class="btn" @click="handleLessonClick(item)">开始考试</div>
+        <div v-if="item.examFlag == 'yes'" class="btn" @click="handleLessonClick(item)">开始考试</div>
         <template v-else>
           <div class="right">
             <div class="btn unable">无法考试</div>

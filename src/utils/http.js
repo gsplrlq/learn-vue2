@@ -36,7 +36,14 @@ service.interceptors.response.use(
     }
 
     
-    if (data.code !== 200) {
+    if (data.code === 401) {
+      store.commit('login/SET_SHOW_LOGIN', true)
+      store.dispatch('login/logout')
+      return Promise.resolve({
+        code: -1,
+        msg: data.msg
+      })
+    } else if (data.code !== 200) {
       Message.error(data.msg)
       return Promise.reject(data.msg)
     } else {
