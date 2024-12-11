@@ -1,12 +1,17 @@
 import http from 'utils/http.js'
 
 // 获取验证码
+export function upload (data) {
+  return http.post('/client/fileTable/uploadSign', data)
+}
+
+// 获取验证码
 export function sendSmsCode (data) {
-  return http.post('/smscode/send', data)
+  return http.post('/public/base/smscode/send', data)
 }
 // 验证验证码
 export function verifySmsCode (data) {
-  return http.post('/smscode/verifySmsCode', data)
+  return http.post('/public/base/smscode/verifySmsCode', data)
 }
 
 // 用户登录
@@ -15,7 +20,7 @@ export function userLogin (data) {
 }
 // 用户注册接口
 export function userRegister (data) {
-  return http.post('/client/user/public/registerr', data)
+  return http.post('/client/user/public/register', data)
 }
 
 // 编辑账号绑定信息

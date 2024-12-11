@@ -97,11 +97,11 @@ export default {
       }
       if(this.sort === 'time') params.page.orders = [ {
         "column": "create_time",
-        "asc": true
+        "asc": false
       }]
       if(this.sort === 'persons') params.page.orders = [ {
         "column": "study_count",
-        "asc": true
+        "asc": false
       }]
 
       getLessonList(params).then(res => {

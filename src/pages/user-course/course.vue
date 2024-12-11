@@ -10,7 +10,7 @@
         >{{ tab.title }}</span>
       </dt>
       <template v-if="lessonList.length">
-        <dd v-for="(item,index) in lessonList" :key="index" class="course-item">
+        <dd v-for="(item,index) in lessonList" :key="index" class="course-item" @click="goCourse(item)">
           <div class="img-box">
             <img :src="item.imgUrl" alt="">
           </div>
@@ -99,6 +99,9 @@ export default {
     getTime (item) {
       return (item.progress / 3600).toFixed(0)
     },
+    goCourse (item) {
+      this.$router.push({ path: '/course/' + item.id })
+    },
     goLearn (item) {
       this.$router.push({ path: '/video/' + item.id, query: { videoId: item.videoId }})
     }
@@ -138,6 +141,7 @@ export default {
       align-items: flex-start;
       padding: 30px 0;
       border-bottom: 1px solid #eff1f0;
+      cursor: pointer;
       &:last-child
         border-bottom: none;
       .img-box

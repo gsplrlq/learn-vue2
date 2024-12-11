@@ -1,7 +1,8 @@
+<!-- eslint-disable vue/no-v-html -->
 <template>
   <div class="chapter">
-    <div v-if="catalog.courseDesc" class="chapter-introduce">
-      <pre>{{ catalog.courseDesc }}</pre>
+    <div v-if="catalog.courseContent" class="chapter-introduce">
+      <div v-html="catalog.courseContent"></div>
     </div>
     <div v-for="(item,index) in catalog.chapter" :key="index" class="chapter-item">
       <h2 class="chapter-title">

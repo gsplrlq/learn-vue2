@@ -18,7 +18,7 @@
         </div>
         <div class="comment-content-wrapper">
           <p>
-            <span class="name">{{ comment.userAccount }}</span>
+            <span class="name">{{ comment.userName }}</span>
           </p>
           <p class="content">
             {{ comment.content }}

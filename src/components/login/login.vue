@@ -44,7 +44,12 @@
 // import crypto from 'crypto-js'
 import { mapMutations } from 'vuex'
 // import { userLogin, userRegister } from 'api/user.js'
-import { sendSmsCode, verifySmsCode, userLogin, userRegister } from 'api'
+import { 
+  sendSmsCode, 
+  // verifySmsCode, 
+  userLogin, 
+  userRegister 
+} from 'api'
 
 export default {
   props: {
@@ -52,26 +57,13 @@ export default {
     flag: Boolean
   },
   data () {
-    // const checkcode = (rule, value, callback) => {
-    //   if (!value) {
-    //     callback(new Error('请再次输入密码'))
-    //   } else if (value !== this.loginForm.code) {
-    //     callback(new Error('两次输入的密码不一致'))
-    //   } else {
-    //     callback()
-    //   }
-    // }
     const rules = {
       username: [
-        { required: true, message: '请输入手机号', trigger: 'blur' }
+        { required: true, message: '不能为空', trigger: 'blur' }
       ],
       code: [
-        { required: true, message: '请输入' + this.index === 0 && this.flag ? '密码' : '验证码', trigger: 'blur' }
+        { required: true, message: '不能为空', trigger: 'blur' }
       ],
-      // ckcode: [
-      //   { required: true, message: '请再次输入密码', trigger: 'blur' },
-      //   { validator: checkcode, trigger: 'blur' }
-      // ]
     }
     return {
       isLoading: false,
@@ -134,15 +126,16 @@ export default {
       this.$refs['loginForm'].validate((valid) => {
         if (valid) {
           if(this.index === 1 || !this.flag) {
-            const params = {
-              "option": 1,
-              "phone": this.loginForm.username,
-              "type": "client",
-              "code": this.loginForm.code,
-            }
-            verifySmsCode(params).then(res => {
-              res.data && this.handleBtnClick()
-            })
+            this.handleBtnClick()
+            // const params = {
+            //   "option": 1,
+            //   "phone": this.loginForm.username,
+            //   "type": "client",
+            //   "code": this.loginForm.code,
+            // }
+            // verifySmsCode(params).then(res => {
+            //   res.success && this.handleBtnClick()
+            // })
           } else this.handleBtnClick()
         }
       })

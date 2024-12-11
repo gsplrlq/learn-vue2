@@ -71,7 +71,7 @@
           <el-input v-model.trim="editForm.ckpassword" type="password" show-password placeholder="请再次输入密码"></el-input>
         </el-form-item>
         <el-form-item label="头像" prop="avatar">
-          <el-input v-model.trim="editForm.avatar" placeholder=""></el-input>
+          <upload-avatar v-model="editForm.avatar"></upload-avatar>
         </el-form-item>
         <!-- <el-form-item label="微信账号" prop="wechat">
           <el-input v-model.trim="editForm.wechat" placeholder="请输入微信账号"></el-input>
@@ -87,11 +87,15 @@
 <script>
 import { updateUserBinds } from 'api'
 import { mapActions, mapMutations, mapGetters } from 'vuex'
+import uploadAvatar from "components/upload-avatar/index.vue";
 export default {
   props: {
     userinfo: {
       type: Object
     }
+  },
+  components: {
+    uploadAvatar
   },
   data () {
     const validatePassword = (rule, value, callback) => {
@@ -110,13 +114,13 @@ export default {
       mobile: [
         { required: true, message: '请输入手机号', trigger: 'blur' }
       ],
-      password: [
-        { required: true, message: '请输入密码', trigger: 'blur' }
-      ],
-      ckpassword: [
-        { required: true, message: '请再次输入密码', trigger: 'blur' },
-        { validator: validatePassword, trigger: 'blur' }
-      ]
+      // password: [
+      //   { required: true, message: '请输入密码', trigger: 'blur' }
+      // ],
+      // ckpassword: [
+      //   { required: true, message: '请再次输入密码', trigger: 'blur' },
+      //   { validator: validatePassword, trigger: 'blur' }
+      // ]
     }
     return {
       rules: rules,

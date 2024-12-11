@@ -12,6 +12,13 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     config.headers.token = store.getters.userInfo.token || ''
+    // config.headers.Accept = "application/json, text/plain, */*"
+    // config.headers['Content-Type'] = "application/json"
+    // config.headers['X-Requested-With'] = "XMLHttpRequest"
+    config.headers['Content-Type'] = 'application/json'; // 设置请求的Content-Type
+    config.headers['Access-Control-Allow-Origin'] = '*'; // 允许任何源的跨域请求
+    config.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'; // 允许的方法
+    config.headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, X-Auth-Token'; // 允许的头
     return config
   },
   error => {
