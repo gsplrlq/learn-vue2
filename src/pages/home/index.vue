@@ -9,7 +9,7 @@
       <!-- 316 -->
       <mooc-carousel :height="444" trigger="click" @change="handelCarouselChange">
         <mooc-carousel-item v-for="(item,index) in swiperList" :key="index">
-          <img :src="item.imageUrl" class="swiper-img">
+          <img :src="item.imageUrl" class="swiper-img" @click.stop="toJump(item.link)">
         </mooc-carousel-item>
       </mooc-carousel>
       
@@ -107,6 +107,9 @@ export default {
         this.$message.error('接口异常')
       })
     },
+    toJump (url) {
+      window.open(url, '_blank');
+    }
   },
   computed: {
     getBackgroundImage () {

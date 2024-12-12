@@ -34,8 +34,8 @@
               <span class="real">应付：</span>
               <span class="real-price">¥ {{ getTotal }}</span>
             </dt>
-            <dd>支持花呗</dd>
-            <dd>可开发票</dd>
+            <!-- <dd>支持花呗</dd>
+            <dd>可开发票</dd> -->
             <!-- <dd>7天可退款</dd> -->
           </dl>
         </div>

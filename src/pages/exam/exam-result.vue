@@ -20,7 +20,7 @@
           <el-checkbox-group v-model="form[item.id]">
             <el-checkbox v-for="(q, qI) in item.questionOptions" :key="qI" :label="q.key">{{ q.key }}：{{ q.value }}</el-checkbox>
           </el-checkbox-group>
-          <div>试题答案: {{ item.correctAnswer }}</div>
+          <div>试题答案: {{ item.correctAnswer.join('，') }}</div>
           <div>试题解析: {{ item.parse }}</div>
         </el-form-item>
 

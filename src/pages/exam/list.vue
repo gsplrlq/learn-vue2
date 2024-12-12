@@ -7,8 +7,8 @@
           <h2 class="name">
             {{ item.name }}
           </h2>
-          <p v-if="item.remainderExamCount" class="count">
-            剩余次数：{{ item.remainderExamCount }} 次
+          <p class="count">
+            剩余次数：{{ item.remainderExamCount || 0 }} 次
           </p>
         </div>
         
@@ -18,12 +18,21 @@
             <span>时长：{{ item.duration }} 分钟</span>
           </div>
           <div>
-            <span>总分：{{ item.duration }} 分</span>
+            <span>总分：{{ item.totalScores }} 分</span>
             <span>及格分：{{ item.passScores }} 分</span>
             <!-- <span>单选：{{ item.singleChoiceScores }} 分</span>
             <span>多选：{{ item.singleChoiceScores }} 分</span>
             <span>选择：{{ item.judgmentScores }} 分</span> -->
           </div>
+        </div>
+
+        <div v-if="item.examType == 'trainingPackage'">
+          <h2 class="name center">
+            {{ item.trainingPackageName }}
+          </h2>
+          <p class="count center">
+            所属套餐
+          </p>
         </div>
 
         <div v-if="item.examFlag == 'yes'" class="btn" @click="handleLessonClick(item)">开始考试</div>
@@ -89,6 +98,9 @@ export default {
   width: 250px;
   margin-right: 15px;
   margin-bottom: 5px;
+}
+.center {
+  text-align: center;
 }
 .list-item .count {
   font-size: 14px;

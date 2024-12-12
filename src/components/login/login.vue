@@ -23,12 +23,12 @@
             <span>找回密码</span>
           </div>
         </template>
-        <template v-else>
+        <!-- <template v-else>
           <el-checkbox v-model="loginForm.argement">
             同意
           </el-checkbox>
           <span class="agreement">《注册协议》</span>
-        </template>
+        </template> -->
       </el-form-item>
     </el-form>
     <button
@@ -72,7 +72,7 @@ export default {
         username: '15802920105',
         code: 'Aa123456',
         auto: true,
-        argement: false
+        argement: true
       },
       totalSecond: 60,
       second: 60,
@@ -188,7 +188,7 @@ export default {
         username: '',
         code: '',
         auto: true,
-        argement: false
+        argement: true
       }
     },
     flag () {
@@ -197,7 +197,7 @@ export default {
         username: '',
         code: '',
         auto: true,
-        argement: false
+        argement: true
       }
     }
   },

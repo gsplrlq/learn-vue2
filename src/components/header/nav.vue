@@ -37,7 +37,7 @@ export default {
       float: left;
       &.active
         .nav-link
-          color: #07111b;
+          color: #f01414;
       .nav-link
         display: block;
         position: relative;
@@ -45,6 +45,7 @@ export default {
         height: 72px;
         line-height: 72px
         color: $font-second-color;
+        font-weight: 600;
         .nav-icon
           position: absolute;
           top: 14px;

@@ -4,7 +4,7 @@
     <lesson-search :title.sync="title" />
 
     <!-- 导航 -->
-    <lesson-nav :list="navList" />
+    <lesson-nav :list="navList" :params.sync="params" />
 
     <!-- 列表 -->
     <lesson-list :list="lessonList" :sort.sync="sort" @change="getLessonListData" />
@@ -29,11 +29,23 @@ export default {
       size: 15,
       total: 0,
       lessonList: [],
-      navList: [{
-        code: '',
-        name: '全部',
-        typeCategoryList: []
-      }],
+      navList: [
+        {
+          code: '',
+          name: '全部',
+          typeCategoryList: []
+        },
+        {
+          code: 'public',
+          name: '公开',
+          typeCategoryList: []
+        },
+        {
+          code: 'trainingPackage',
+          name: '套餐',
+          typeCategoryList: []
+        },
+      ],
     }
   },
   mounted () {
@@ -49,10 +61,12 @@ export default {
     getLessonListData () {
       const params = {
         name: this.title,
+        examType: this.params.category,
         page: {
           size: this.size,
           current: this.page,
-        }
+        },
+        status: 1
       }
       getExamList(params).then(res => {
         let { data } = res

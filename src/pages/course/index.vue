@@ -10,7 +10,7 @@
     </div>
 
     <!-- 导航模块 -->
-    <course-nav v-if="navList.length" :list="navList" :params.sync="params" />
+    <course-nav v-if="navList.length" ref="courseNav" :list="navList" :params.sync="params" />
     
     <!-- 课程列表 -->
     <course-list :list="courseList" :sort.sync="sort" />
@@ -78,6 +78,14 @@ export default {
       getLessonNav().then(res => {
         let { data } = res
         this.navList = data
+        
+        if (this.$route.query.pcode) {
+          this.params.category = this.$route.query.code
+          this.params.direction = this.$route.query.pcode
+          this.$nextTick(() => {
+            this.$refs.courseNav.initData(this.params)
+          })
+        }
       }).catch(() => {
         this.navList = []
       })

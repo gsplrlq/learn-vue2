@@ -13,6 +13,7 @@
             v-for="(tag, index) in tags"
             :key="index"
             class="tag"
+            @click="$router.push({ path:'/course', query: { courseType: 1, code: tag.code, pcode: tag.pcode }})"
           >
             {{ tag.name }}
           </li>
@@ -21,7 +22,7 @@
     </div>
 
     <div class="nav-course">
-      <div v-for="(lesson,index) in lessons" :key="index" class="course-item" @click="handleCourseClick">
+      <div v-for="(lesson,index) in lessons" :key="index" class="course-item" @click="handleCourseClick(lesson.id)">
         <div class="img-box">
           <img :src="lesson.imgUrl" width="64" height="42" alt="">
         </div>
@@ -59,8 +60,8 @@ export default {
     },
   },
   methods: {
-    handleCourseClick () {
-      this.$router.push('/lesson')
+    handleCourseClick (id) {
+      this.$router.push('/course/' + id)
     }
   }
 }

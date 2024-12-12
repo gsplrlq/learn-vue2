@@ -78,7 +78,7 @@
           扫一扫二维码进行支付
         </div>
         <!-- 微信支付二维码 -->
-        <div id="qrcodeImg" ref="qrCodeUrl"></div>
+        <div v-if="way !== 'ali'" id="qrcodeImg" ref="qrCodeUrl"></div>
         <!-- 支付宝支付二维码 -->
         <iframe 
           v-if="way === 'ali'"
@@ -178,6 +178,7 @@ export default {
     },
     closePayDialog (){  // 关闭支付窗口
       this.modal3 = false;
+      this.isDisabled = false
       clearInterval(this.timer);    // 清除定时器
     },
     getResult () {

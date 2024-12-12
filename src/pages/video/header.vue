@@ -8,7 +8,7 @@
         <h2 class="title">
           {{ base.title }}
         </h2>
-        <div>{{ base.overview }}</div>
+        <div class="overview">{{ base.overview }}</div>
         <div class="information">
           <div v-if="base.teacher" class="teacher">
             <img :src="base.teacher.avatar" class="avatar" alt="">
@@ -78,6 +78,10 @@ export default {
           font-size: 32px;
           color: #fff;
           line-height: 48px;
+        .overview
+          color: rgba(255,255,255,0.8);
+          font-size: 14px;
+          line-height: 24px;
         .information
           .teacher
             vertical-align: middle;

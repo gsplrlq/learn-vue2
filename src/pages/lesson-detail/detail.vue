@@ -1,6 +1,7 @@
+<!-- eslint-disable vue/no-v-html -->
 <template>
   <div>
-    <pre> {{ data.details }} </pre>
+    <div v-html="data.details"></div>
   </div>
 </template>
 <script>

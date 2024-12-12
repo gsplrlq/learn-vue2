@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <div class="list">
-      <div v-for="(item, index) in data.courseList" :key="index" class="list-item" @click="handleLessonClick(item)">
-        <h2>{{ item.name }}</h2>
-      </div>
+  <div class="list">
+    <div v-for="(item, index) in data.courseList" :key="index" class="list-item" @click="handleLessonClick(item)">
+      <h2>{{ item.name }}</h2>
     </div>
   </div>
 </template>
@@ -35,8 +33,10 @@ export default {
 .list {
   display: flex;
   align-items: center;
+  flex-flow: row wrap;
 }
 .list-item {
+  width: 200px;
   padding: 20px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
   border-radius: 4px;
@@ -46,6 +46,7 @@ export default {
   color: #303133;
   transition: .3s;
   margin-right: 20px;
+  margin-bottom: 20px;
   cursor: pointer;
 }
 .list-item:hover {

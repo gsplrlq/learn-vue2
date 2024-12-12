@@ -108,7 +108,7 @@ export default {
       { id: 1, title: '全部', status: ''},
       { id: 2, title: '未支付', status: 1},
       { id: 3, title: '已完成', status: 2},
-      { id: 4, title: '已失效', status: 3}
+      { id: 4, title: '已关闭', status: 3}
     ]
     this.getOrderListData()
   },

@@ -31,7 +31,7 @@
         <div class="scores">{{ result.scores }}</div>
         <div class="result" :class="result.examResult">{{ result.examResult === 'qualified' ? '合格' : '不合格' }}</div>
         <div>
-          <el-button type="primary">查看考试详情</el-button>
+          <el-button type="primary" @click="toDetail">查看考试详情</el-button>
           <el-button type="danger" @click="exit">退出考试</el-button>
         </div>
       </template>

@@ -4,8 +4,11 @@
       <template v-if="filterList.length">
         <div v-for="(item,index) in filterList" :key="index" class="list-item">
           <div class="info first">
-            <h2 class="title">{{ item.examName }} ({{ item.examType }})</h2>
-            <div class="plan">所属套餐: {{ item.trainingPackageName }}</div>
+            <h2 class="title">
+              {{ item.examName }} 
+              <el-tag :type="getType(item)" size="small">{{ item.examType === 'trainingPackage' ? '套餐' : '公开' }}</el-tag>
+            </h2>
+            <div v-if="item.trainingPackageName" class="plan">所属套餐: {{ item.trainingPackageName }}</div>
           </div>
 
           <div class="info">
@@ -61,6 +64,9 @@ export default {
     }
   },
   methods: {
+    getType (item) {
+      return item.examType === 'trainingPackage' ? '' : 'success'
+    },
     // 分页值更新
     handlePaginationChange (page) {
       this.page = page

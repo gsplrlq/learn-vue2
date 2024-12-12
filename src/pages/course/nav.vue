@@ -66,6 +66,10 @@ export default {
     ]
   },
   methods: {
+    initData (params) {
+      this.directionIndex = this.directionList.findIndex(d => d.code === params.direction)
+      this.categoryIndex = this.currentLabels.findIndex(d => d.code === params.category)
+    },
     // 导航点击事件
     handleNavClick (type, index) {
       switch (type) {
