@@ -112,6 +112,7 @@ export default {
             type: 'success',
             message: '提交成功!'
           });
+          clearTimeout(this.timer)
         })
       })
     },
@@ -123,6 +124,9 @@ export default {
     }
   },
   components: {
+  },
+  destroyed () {
+    clearTimeout(this.timer)
   }
 }
 </script>

@@ -26,13 +26,8 @@
           </div>
         </div>
 
-        <div v-if="item.examType == 'trainingPackage'">
-          <h2 class="name center">
-            {{ item.trainingPackageName }}
-          </h2>
-          <p class="count center">
-            所属套餐
-          </p>
+        <div v-if="item.examType == 'trainingPackage'" class="trainingPackage">
+          所属套餐: {{ item.trainingPackageName }}
         </div>
 
         <div v-if="item.examFlag == 'yes'" class="btn" @click="handleLessonClick(item)">开始考试</div>
@@ -102,6 +97,12 @@ export default {
 .center {
   text-align: center;
 }
+.list-item .trainingPackage {
+  width: 350px;
+  text-align: center;
+  font-size: 14px;
+  color: #4d555d;
+}
 .list-item .count {
   font-size: 14px;
   color: #4d555d;
@@ -120,10 +121,11 @@ export default {
 
 }
 .list-item .btn {
-  width: 138px;
-  height: 48px;
+  width: 120px;
+  height: 40px;
   text-align: center;
-  line-height: 48px;
+  line-height: 40px;
+  font-size: 14px;
   background-color: #f20d0d;
   border-radius: 24px;
   color: #fff;

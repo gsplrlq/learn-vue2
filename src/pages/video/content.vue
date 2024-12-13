@@ -83,7 +83,7 @@ export default {
       this.player = new Aliplayer(
         {
           license: {
-            domain: "bygo.learnplatform.com", // 申请 License 时填写的域名
+            domain: "bjsyrc.cn", // 申请 License 时填写的域名
             key: "EPSmMyEFEooJZm10S5cf853f03b2b4bd098e11931a4aeeb83" // 申请成功后，在控制台可以看到 License Key
           },
           id: "container",

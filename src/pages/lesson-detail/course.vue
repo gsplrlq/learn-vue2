@@ -1,6 +1,7 @@
 <template>
   <div class="list">
     <div v-for="(item, index) in data.courseList" :key="index" class="list-item" @click="handleLessonClick(item)">
+      <img class="list-item-img" :src="item.imgUrl" alt="">
       <h2>{{ item.name }}</h2>
     </div>
   </div>
@@ -36,8 +37,8 @@ export default {
   flex-flow: row wrap;
 }
 .list-item {
-  width: 200px;
-  padding: 20px;
+  /* width: 200px; */
+  padding: 10px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
   border-radius: 4px;
   border: 1px solid #ebeef5;
@@ -52,7 +53,14 @@ export default {
 .list-item:hover {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .2);
 }
+.list-item-img {
+  width: 216px;
+  height: 120px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
 h2 {
   font-weight: 600;
+  padding: 0 5px;
 }
 </style>

@@ -3,7 +3,7 @@
     <div class="header">
       <div class="header-content m-center">
         <p class="breadcrumb-box">
-          <span>课程 \ {{ base.title }}</span>
+          <span>{{ base.courseType === 2 ? '付费课' : '免费课' }} | {{ base.title }}</span>
         </p>
         <!-- <p class="share-box">
           <span class="iconfont">&#xe716;</span>

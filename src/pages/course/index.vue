@@ -34,7 +34,7 @@ export default {
       navList: [],
       courseList: [],
       page: 1,
-      size: 15,
+      size: 18,
       total: 0
     }
   },

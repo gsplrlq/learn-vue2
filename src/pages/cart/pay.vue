@@ -150,7 +150,7 @@ export default {
         this.openPay(res.data)
       }).catch(() => {
         this.isDisabled = false
-        this.$message.error('接口异常')
+        // this.$message.error('接口异常')
       })
     },
     startTimer () {
@@ -161,6 +161,8 @@ export default {
     },
     // 支付窗口
     openPay (url) {
+      clearInterval(this.timer); 
+
       this.modal3 = true;
       if(this.way === 'wechat') this.qrcode(url)
       else this.payAliQRcode = url
@@ -168,6 +170,8 @@ export default {
       this.startTimer()
     },
     qrcode (url) {  // 前端根据 URL 生成微信支付二维码
+      if(this.$refs.qrCodeUrl) this.$refs.qrCodeUrl.innerHTML = "";
+
       this.$nextTick(() => {
         return new QRCode(this.$refs.qrCodeUrl, {
           text: url,

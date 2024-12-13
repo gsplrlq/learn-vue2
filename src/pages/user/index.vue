@@ -3,7 +3,7 @@
     <div class="user-center-container">
       <div class="user-left-nav">
         <div class="user-avatar">
-          <img :src="userInfo.avatar" alt>
+          <img :src="userInfo.avatar" alt @click="changeAvatar">
         </div>
         <p class="user-name ellipsis">
           {{ userInfo.nickName }}
@@ -32,6 +32,8 @@
         @componentClick="handleComponentClick"
       />
     </div>
+
+    <UserInfo ref="userInfo" :data="userInfo"></UserInfo>
   </div>
 </template>
 <script>
@@ -43,6 +45,7 @@ import MAddress from "./address.vue"
 import { getUserInfo } from 'api/user.js'
 import { ERR_OK } from 'api/config.js'
 import { mapGetters, mapMutations } from 'vuex'
+import UserInfo from "./components/digUserInfo.vue";
 export default {
   data () {
     return {
@@ -91,6 +94,9 @@ export default {
         this.$message.error('接口异常')
       })
     },
+    changeAvatar () {
+      this.$refs.userInfo.open(0)
+    },
     // vuex
     ...mapMutations({
       'setUserInfo': 'login/SET_USER_INFO'
@@ -104,7 +110,8 @@ export default {
     Information,
     Log,
     Authenticate,
-    MAddress
+    MAddress,
+    UserInfo
   }
 };
 </script>
@@ -130,6 +137,7 @@ export default {
         border: 4px solid #d9dde1;
         box-sizing: border-box;
         border-radius: 50%;
+        cursor: pointer;
         & > img
           dispaly: block;
           width: 100%;

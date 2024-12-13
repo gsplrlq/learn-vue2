@@ -97,7 +97,7 @@ export default {
       if (!this.timer && this.second === this.totalSecond) {
         // 发送请求，获取验证码
         const params = {
-          "option": 1,
+          "option": this.flag ? 2 : 1,
           "phone": this.loginForm.username,
           "type": "client"
         }

@@ -31,7 +31,7 @@
             <span class="number"><i class="iconfont">&#xe607;</i>{{ item.studyCount }}</span>
           </p>
           <p class="desc">
-            {{ item.introduction }}
+            {{ item.courseDesc }}
           </p>
          
           <p v-if="item.courseType == 1">

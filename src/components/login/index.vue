@@ -21,7 +21,7 @@
         <span class="phone-login" @click="loginFlag = !loginFlag">{{ threeTitle }}</span>
         <span class="three-way-item">
           <!-- <i class="iconfont weibo">&#xe653;</i> -->
-          <i class="iconfont wechart">&#xe646;</i>
+          <!-- <i class="iconfont wechart">&#xe646;</i> -->
           <!-- <i class="iconfont qq">&#xe6a0;</i> -->
         </span>
       </div>

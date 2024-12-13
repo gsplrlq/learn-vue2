@@ -55,18 +55,21 @@
           <div class="fast-nav" @click.stop="showUserInfo = false">
             <router-link to="/user">
               <div class="fast-nav-item">
+                <i class="el-icon-user"></i>
                 <!-- <i class="iconfont">&#xe680;</i> -->
                 个人信息
               </div>
             </router-link>
             <router-link to="/user/course">
               <div class="fast-nav-item">
+                <i class="el-icon-date"></i>
                 <!-- <i class="iconfont">&#xe60e;</i> -->
                 我的课程
               </div>
             </router-link>
             <router-link to="/order">
               <div class="fast-nav-item">
+                <i class="el-icon-s-order"></i>
                 <!-- <i class="iconfont">&#xe611;</i> -->
                 订单中心
               </div>
@@ -80,18 +83,21 @@
 
             <router-link :to="{ path:'/user/course', query: { nav: 1 }}">
               <div class="fast-nav-item">
+                <i class="el-icon-s-platform"></i>
                 <!-- <i class="iconfont">&#xe680;</i> -->
                 我的考试
               </div>
             </router-link>
             <router-link :to="{ path:'/user/course', query: { nav: 2 }}">
               <div class="fast-nav-item">
+                <i class="el-icon-s-claim"></i>
                 <!-- <i class="iconfont">&#xe680;</i> -->
                 我的证书
               </div>
             </router-link>
             <router-link :to="{ path:'/user/course', query: { nav: 3 }}">
               <div class="fast-nav-item">
+                <i class="el-icon-tickets"></i>
                 <!-- <i class="iconfont">&#xe680;</i> -->
                 我的笔记
               </div>

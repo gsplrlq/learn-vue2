@@ -27,7 +27,7 @@
               <!-- <span>笔记{{ item.notes }}</span>
               <span>问答{{ item.questions }}</span>
               <span>评价{{ item.codes }}</span> -->
-              <span class="learn-btn" @click="goLearn(item)">继续学习</span>
+              <span class="learn-btn" @click.stop="goLearn(item)">继续学习</span>
             </p>
           </div>
         </dd>
