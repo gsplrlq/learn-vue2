@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
   <div>
-    <div v-html="data.details"></div>
+    <div style="overflow: hidden;" v-html="data.details"></div>
   </div>
 </template>
 <script>

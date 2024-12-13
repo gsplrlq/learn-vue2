@@ -106,6 +106,7 @@ export default {
       align-items: flex-start;
       .info-left
         flex: 1;
+        max-width: calc(100% - 300px);
       .info-right
         flex: 0 0 300px;
         margin-left: 40px;
