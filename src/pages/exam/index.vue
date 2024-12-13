@@ -10,14 +10,14 @@
     <lesson-list :list="lessonList" :sort.sync="sort" @change="getLessonListData" />
     
     <!-- 分页 -->
-    <pagination :total="total" :page.sync="page" :size="size" @change="handlePaginationChange" />
+    <!-- <pagination :total="total" :page.sync="page" :size="size" @change="handlePaginationChange" /> -->
   </div>
 </template>
 <script>
 import LessonSearch from './search.vue'
 import LessonNav from './nav.vue'
 import LessonList from './list.vue'
-import Pagination from 'components/pagination/pagination.vue'
+// import Pagination from 'components/pagination/pagination.vue'
 import { getExamList } from 'api'
 export default {
   data () {
@@ -26,7 +26,7 @@ export default {
       title: '',
       params: {},
       page: 1,
-      size: 15,
+      size: 9999,
       total: 0,
       lessonList: [],
       navList: [
@@ -93,7 +93,7 @@ export default {
     LessonSearch,
     LessonNav,
     LessonList,
-    Pagination
+    // Pagination
   }
 }
 </script>
