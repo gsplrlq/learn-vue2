@@ -1,7 +1,8 @@
+<!-- eslint-disable vue/no-v-html -->
 <template>
   <div class="comment">
     <div class="comment-container">
-      <div v-if="catalog.hasStudy" class="search-btn" @click="getQa">
+      <div v-if="catalog.hasStudy" class="search-btn" @click="dialogFormVisible = true">
         添加笔记
       </div>
     </div>
@@ -20,9 +21,8 @@
           <p>
             <span class="name">{{ comment.userName }}</span>
           </p>
-          <p class="content">
-            {{ comment.content }}
-          </p>
+          <div class="content" v-html="comment.content">
+          </div>
           <p>
             <span class="time">时间：{{ comment.createTime }}</span>
           </p>
@@ -31,6 +31,18 @@
     </ul>
 
     <el-empty v-if="commentList.length == 0"></el-empty>
+
+    <el-dialog title="笔记" :visible.sync="dialogFormVisible" width="400px" @close="close">
+      <el-form ref="form" :model="form">
+        <el-form-item label="内容" :label-width="90" :rules="[ { required: true, message: '内容不能为空'} ]">
+          <el-input v-model="form.content" type="textarea" autocomplete="off" style="width: 300px;"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="close">取 消</el-button>
+        <el-button type="primary" @click="submitForm">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -47,6 +59,11 @@ export default {
   data () {
     return {
       commentList: [],
+      dialogFormVisible: false,
+      form: {
+        courseId: this.$route.params.id,
+        content: ''
+      },
     }
   },
   mounted () {
@@ -89,6 +106,28 @@ export default {
         })
       })
     },
+    submitForm () {
+      this.$refs['form'].validate((valid) => {
+        if (valid) {
+          getLessonNoteCreate({
+            "courseId": this.$route.params.id,
+            "content": this.form.content
+          }).then(() => {
+            this.$message({
+              type: 'success',
+              message: '提交成功'
+            });
+            this.close()
+            this.getLessonComment()
+          })
+        }
+      });
+    },
+    close () {
+      this.form.content = ''
+      this.dialogFormVisible = false
+      this.$refs['form'].resetFields();
+    }
   }
 }
 </script>
@@ -140,6 +179,7 @@ export default {
             .name
               color: #787d82;
               font-weight: 700;
+              margin-bottom: 8px;
             .score, .time
               float: right;
             .time

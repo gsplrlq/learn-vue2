@@ -14,9 +14,10 @@
         <h2 class="title">
           {{ base.title }}
         </h2>
+        <div class="overview">{{ base.courseDesc }}</div>
         <div class="information">
-          <div v-if="base.teacher" class="teacher">
-            <img :src="base.teacher.avatar" class="avatar" alt="">
+          <div class="teacher">
+            <!-- <img :src="base.teacher.avatar" class="avatar" alt="">
             <div class="teacher-introduce">
               <p class="name">
                 {{ base.teacher.name }}
@@ -24,12 +25,12 @@
               <p class="job">
                 {{ base.teacher.job }}
               </p>
-            </div>
+            </div> -->
             <dl>
-              <dd>难度：{{ base.hard.text }}</dd>
-              <dd>时长：{{ base.hours || 0 }}小时</dd>
-              <dd>学习人数：{{ base.persons }}</dd>
-              <dd>综合评分：{{ base.score || 100 }}%</dd>
+              <!-- <dd>难度：{{ base.hard.text }}</dd> -->
+              <dd>时长：{{ base.durationStr || 0 }}</dd>
+              <dd>学习人数：{{ base.studyCount }}</dd>
+              <dd>综合评分：{{ base.score || 0 }}</dd>
             </dl>
           </div>
         </div>
@@ -83,6 +84,10 @@ export default {
           font-size: 32px;
           color: #fff;
           line-height: 48px;
+        .overview
+          color: rgba(255,255,255,0.8);
+          font-size: 14px;
+          line-height: 24px;
         .information
           .teacher
             vertical-align: middle;
@@ -102,12 +107,12 @@ export default {
                 font-size: 12px;
             dl
               flex: 1;
-              margin-left: 50px;
+              margin-top: 10px;
               dd
                 display: inline-block;
                 vertical-align: middle;
-                margin: 0 10px;
-                font-size: 12px;
+                margin-right: 20px;
+                font-size: 16px;
                 font-weight: 700;
                 color: rgba(255,255,255,0.8);
 </style>

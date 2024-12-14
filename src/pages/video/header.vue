@@ -8,7 +8,7 @@
         <h2 class="title">
           {{ base.title }}
         </h2>
-        <div class="overview">{{ base.overview }}</div>
+        <div class="overview">{{ base.courseDesc }}</div>
         <div class="information">
           <div v-if="base.teacher" class="teacher">
             <img :src="base.teacher.avatar" class="avatar" alt="">
