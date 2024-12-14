@@ -33,8 +33,11 @@
     <el-empty v-if="commentList.length == 0"></el-empty>
 
     <el-dialog title="笔记" :visible.sync="dialogFormVisible" width="400px" @close="close">
-      <el-form ref="form" :model="form">
-        <el-form-item label="内容" :label-width="90" :rules="[ { required: true, message: '内容不能为空'} ]">
+      <el-form ref="form" :model="form" :rules="{
+        content: [ { required: true, message: '内容不能为空'} ]
+      }" 
+      >
+        <el-form-item label="内容" prop="content">
           <el-input v-model="form.content" type="textarea" autocomplete="off" style="width: 300px;"></el-input>
         </el-form-item>
       </el-form>

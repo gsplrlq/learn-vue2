@@ -94,7 +94,9 @@ export default {
       })
     },
     getRate (item) {
-      return (item.progress / item.duration).toFixed(2) * 100
+      if(!item.progress) return 0
+      
+      return ((item.progress / item.duration) * 100).toFixed(2)
     },
     getTime (item) {
       return (item.progress / 3600).toFixed(0)
