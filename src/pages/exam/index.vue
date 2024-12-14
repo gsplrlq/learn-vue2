@@ -70,8 +70,8 @@ export default {
       }
       getExamList(params).then(res => {
         let { data } = res
-        this.lessonList = data.records
-        this.total = data.total
+        this.lessonList = data
+        this.total = data.length
       }).catch(() => {
         this.lessonList = []
         this.total = 0
