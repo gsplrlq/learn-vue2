@@ -62,7 +62,6 @@
   </div>
 </template>
 <script>
-import { mapActions, mapMutations, mapGetters } from 'vuex'
 import UserInfo from "./components/digUserInfo.vue";
 export default {
   props: {
@@ -92,17 +91,6 @@ export default {
     handleEditClick (type) {
       this.$refs.userInfo.open(type)
     },
-    // vuex
-    ...mapActions({
-      'logout': 'login/logout'
-    }),
-    ...mapMutations({
-      'showLogin': 'login/SET_SHOW_LOGIN' 
-    })
-  },
-  computed: {
-    // vuex
-    ...mapGetters(['userInfo'])
   },
   beforeDestroy () {
     clearTimeout(this.timer)

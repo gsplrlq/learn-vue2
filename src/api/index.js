@@ -23,10 +23,24 @@ export function userRegister (data) {
   return http.post('/client/user/public/register', data)
 }
 
-// 编辑账号绑定信息
-export function updateUserBinds (data) {
-  return http.post('/client/user/user/update', data)
+// 账号信息
+export function getUserInfo () {
+  return http.get('/client/user/user/getUserInfo')
 }
+// 编辑账号绑定信息
+export function updateUserAvatar (data) {
+  return http.post('/client/user/user/updateAttr', data)
+}
+export function updateUserPhone (data) {
+  return http.post('/client/user/user/updatePhone', data)
+}
+export function updateUserPwd (data) {
+  return http.post('/client/user/user/updatePwd', data)
+}
+export function updateUserName (data) {
+  return http.post('/client/user/user/updateUserName', data)
+}
+
 
 // 获取用户课程信息接口
 export function getUserCourse (data) {
