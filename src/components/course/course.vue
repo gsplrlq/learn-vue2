@@ -51,8 +51,8 @@ export default {
   },
   methods: {
     // 课程点击事件
-    handleCourseClick () {
-      this.$router.push(`/lesson`)
+    handleCourseClick (item) {
+      this.$router.push(`/course/` + item.id)
     } 
   }
 }

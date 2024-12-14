@@ -2,7 +2,7 @@
   <div class="lesson-detail-header">
     <div class="m-center">
       <p class="bread-crumb">
-        培训套餐 \ {{ base.title }}
+        培训套餐 | {{ base.title }}
       </p>
       <p class="title">
         {{ base.title }}
