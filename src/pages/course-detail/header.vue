@@ -14,7 +14,7 @@
         <h2 class="title">
           {{ base.title }}
         </h2>
-        <div class="overview">{{ base.courseDesc }}</div>
+        <div class="overview" :title="base.courseDesc">{{ base.courseDesc }}</div>
         <div class="information">
           <div class="teacher">
             <!-- <img :src="base.teacher.avatar" class="avatar" alt="">
@@ -89,6 +89,9 @@ export default {
           color: rgba(255,255,255,0.8);
           font-size: 14px;
           line-height: 24px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         .information
           .teacher
             vertical-align: middle;

@@ -1,8 +1,7 @@
-<!-- eslint-disable vue/no-v-html -->
 <template>
   <div class="chapter">
-    <div v-if="catalog.courseContent" class="chapter-introduce">
-      <div v-html="catalog.courseContent"></div>
+    <div v-if="catalog.courseContent" class="chapter-introduce" v-html="catalog.courseContent">
+      <!-- <div :innerHTML="catalog.courseContent"></div> -->
     </div>
     <div v-for="(item,index) in catalog.chapter" :key="index" class="chapter-item">
       <h2 class="chapter-title">
@@ -95,7 +94,7 @@ export default {
             & > span
               &:nth-child(2)
                 flex: 1;
-          &:hover
+          &:not(.disabled):hover
             background-color: rgba(242,13,13,.05);
             border-radius: 4px;
             color: #f20d0d;

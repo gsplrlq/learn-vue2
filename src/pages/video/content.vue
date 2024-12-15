@@ -44,6 +44,7 @@ import ThePlayer from "components/video/ThePlayer.vue";
 // import VideoList from "components/video/VideoList.vue";
 // import { videoList } from "components/video/testVideoList";
 import { getLessonChapter, getVideoAuth, createStudyHistory } from "api";
+import { setTimeout } from "core-js";
 export default {
   name: 'XXX', // XXX
   props: {
@@ -121,6 +122,33 @@ export default {
             }
             this.update(this.videoList[index + 1]);
           });
+          player.on('ready', () => {
+            player.seek(this.playObj.progress)
+          });
+          // 付费课静止拖动
+          if(this.courseDetail.courseType === 2) {
+            let lastTime = 0;
+            player.on('timeupdate', () => {
+              if (!player.tag.seeking) {
+                // 更新最近一次的播放位置
+                lastTime = player.getCurrentTime();
+              }
+            })
+
+            player.on('seeking', () => {
+              var delta = player.getCurrentTime() - lastTime;
+              if (Math.abs(delta) > 0.01) {
+                console.log("Seeking is disabled");
+                // 判断为拖动，自动跳回原来的位置
+                // (iOS QQ浏览器无效，因为QQ浏览器不支持获取和修改currentTime属性)
+                player.tag.currentTime = lastTime;
+              }
+            });
+
+            player.on('ended', () => {
+                lastTime = 0;
+            });
+          }
         },
       );
     },
@@ -152,17 +180,14 @@ export default {
     },
     getVideo () {
       getVideoAuth({ videoId: this.playObj.videoId, courseId: this.$route.params.id }).then(res => {
-        if (res.code === 400) {
-          this.$router.go(-1);
-          return;
-        }
         this.playObj.playauth = res.data
         this.createPlayer(this.playObj);
-        this.$nextTick(() => {
-          this.playObj.progress && this.player.seek(this.playObj.progress)
-        })
 
         this.startTimer()
+      }).catch(() => {
+        setTimeout(() => {
+          this.$router.go(-1);
+        }, 3000);
       })
     },
     startTimer () {
