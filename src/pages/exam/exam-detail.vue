@@ -80,12 +80,28 @@ export default {
       }, 1000);
     },
     getClose () {
-      this.$alert('考试时间已结束, 请退出本次考试。（并自动交卷）', '提醒', {
-        confirmButtonText: '确定',
-        callback: () => {
-          this.exit()
-        }
-      });
+      let questionReqList = []
+      for (const questionId in this.form) {
+        const value = this.form[questionId];
+
+        questionReqList.push({ questionId, userOptions: typeof value === 'string' ? [value] : value })
+      }
+      let params = {
+        "examId": this.examData.id,
+        "trainingPackageId": this.$route.query.trainingPackageId,
+        "questionReqList": questionReqList
+      }
+      putExam(params).then(res => {
+        this.$alert('考试时间已结束, 请退出本次考试。（并自动交卷）', '提醒', {
+          confirmButtonText: '确定',
+          callback: () => {
+            // this.exit()
+            let { data } = res
+            this.result = data
+          }
+        });
+      })
+
     },
     submit () {
       this.$confirm('确定提交本次考试，无法撤回，是否继续？', '提示', {

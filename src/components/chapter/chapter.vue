@@ -12,7 +12,7 @@
         {{ item.introduction }}
       </p>
       <ul>
-        <li v-for="(term, index) in item.chapterList" :key="index" class="term-item" :class="{'disabled': catalog.trainingPackage}" @click="toLearn(term, catalog)">
+        <li v-for="(term, index) in item.chapterList" :key="index" class="term-item" :class="{'disabled': catalog.courseType === 2}" @click="toLearn(term, catalog)">
           <p>
             <span class="iconfont play">&#xe615;</span>
             <span>{{ term.title }}({{ term.duration | filterSecond }})</span>
@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     toLearn (lastest, course) {
-      if(course.trainingPackage) return
+      if(course.courseType === 2) return
 
       this.$router.push({ path: '/video/' + course.id, query: { videoId: lastest.videoId }})
     }

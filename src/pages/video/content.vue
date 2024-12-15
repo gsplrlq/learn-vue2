@@ -151,7 +151,11 @@ export default {
       })
     },
     getVideo () {
-      getVideoAuth({ videoId: this.playObj.videoId }).then(res => {
+      getVideoAuth({ videoId: this.playObj.videoId, courseId: this.$route.params.id }).then(res => {
+        if (res.code === 400) {
+          this.$router.go(-1);
+          return;
+        }
         this.playObj.playauth = res.data
         this.createPlayer(this.playObj);
         this.$nextTick(() => {
