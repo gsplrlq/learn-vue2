@@ -52,7 +52,7 @@ export default {
   name: 'XXX', // XXX
   props: {
     data: {
-      type: Object
+      type: Object || String
     }
   },
   computed: {

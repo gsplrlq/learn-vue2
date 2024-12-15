@@ -115,7 +115,7 @@ export default {
   /* flex: 1; */
 }
 .info.first {
-  width: 80%;
+  width: 40%;
 }
 .title {
   font-size: 18px;

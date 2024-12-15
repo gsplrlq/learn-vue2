@@ -19,7 +19,7 @@
         <div class="share-item wechart">
           <span class="share-img" />
           <p>官方微信</p>
-          <div class="wechart-code" />
+          <img src="../../assets/images/ercode.png" class="wechart-code" />
         </div>
       </div>
     </div>
@@ -125,9 +125,7 @@ export default {
             left: -67px;
             bottom: 65px;
             width: 172px;
-            height: 212px;
-            background: url('https://www.imooc.com/static/img/common/elevator.png?t=2') no-repeat;
-            background-position: 0px 0px;
+            height: 172px;
             transform-origin: bottom;
             transform: scale(0);
             transition: all 0.15s linear;

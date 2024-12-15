@@ -2,7 +2,7 @@
   <div class="content m-center">
     <div class="exam">
       <div class="name">{{ examData.examName }}</div>
-      <div class="time">得分: {{ examData.singleChoiceScores + examData.multipleChoicesScores + examData.judgmentScores }}</div>
+      <div class="time">得分: {{ examData.scores }}</div>
       <div v-if="examData.trainingPackageName" class="time">{{ examData.trainingPackageName }}</div>
 
       <el-form class="list" label-position="top" :model="form" disabled>
