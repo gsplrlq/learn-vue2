@@ -125,8 +125,8 @@ export default {
           player.on('ready', () => {
             player.seek(this.playObj.progress)
           });
-          // 付费课静止拖动
-          if(this.courseDetail.courseType === 2) {
+          // 套餐付费课静止拖动
+          if(this.courseDetail.courseType === 2 && this.courseDetail.trainingPackage) {
             let lastTime = 0;
             player.on('timeupdate', () => {
               if (!player.tag.seeking) {
