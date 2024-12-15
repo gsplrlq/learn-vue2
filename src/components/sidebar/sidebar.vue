@@ -21,7 +21,7 @@
       <li class="sidebar-item">
         <i class="iconfont">&#xe628;</i>
         <span class="sidebar-text">官方微信</span>
-        <div class="wechat-code code" />
+        <img src="../../assets/images/ercode.png" class="wechart-code code" />
       </li>
       <li v-show="showBackTop" class="sidebar-item" @click="handleBackTopClick">
         <i class="iconfont">&#xe612;</i>
@@ -106,12 +106,12 @@ export default {
         right: 56px;
         bottom: -4px;
         width: 172px;
-        height: 212px;
+        height: 172px;
+        padding: 20px;
         opacity: 0;
         transform-origin: 100% 100%;
         transform: scale(0);
         transition: all 0.3s ease-in-out;
-        background: url('https://www.imooc.com/static/img/common/elevator.png?t=2') no-repeat 0 0;
         &.app-code
           bottom: -2px;
           background-position: 0 -220px;
