@@ -61,7 +61,9 @@ export default {
   methods: {
     // 考试点击事件
     handleLessonClick (lesson) {
-      this.$router.push(`/exam/${lesson.id}`)
+      const path = {path: `/exam/${lesson.id}` }
+      if(lesson.trainingPackageId) path.query = {trainingPackageId: lesson.trainingPackageId}
+      this.$router.push(path)
     }
   },
   components: {

@@ -101,8 +101,7 @@ export default {
         }
         let params = {
           "examId": this.examData.id,
-          "trainingPackageId": this.examData.trainingPackageId,
-          "trainingPackageName": this.examData.trainingPackageName,
+          "trainingPackageId": this.$route.query.trainingPackageId,
           "questionReqList": questionReqList
         }
         putExam(params).then(res => {

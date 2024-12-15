@@ -154,7 +154,9 @@ export default {
       getVideoAuth({ videoId: this.playObj.videoId }).then(res => {
         this.playObj.playauth = res.data
         this.createPlayer(this.playObj);
-        this.playObj.progress && this.player.seek(this.playObj.progress)
+        this.$nextTick(() => {
+          this.playObj.progress && this.player.seek(this.playObj.progress)
+        })
 
         this.startTimer()
       })

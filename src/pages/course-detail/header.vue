@@ -80,6 +80,7 @@ export default {
           .iconfont
             font-size: 24px;
         .title
+          margin-top: 0px;
           margin-bottom: 8px;
           font-size: 32px;
           color: #fff;

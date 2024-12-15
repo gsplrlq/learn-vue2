@@ -171,14 +171,14 @@ export default {
             background-color: #eee;
         .comment-content-wrapper
           flex: 1;
+          .content
+            margin-top: 4px;
+            margin-bottom: 8px;
+            line-height: 24px;
           & > p
             font-size: 14px;
             color: #14191e;
             line-height: 24px;
-            &.content
-              margin-top: 4px;
-              margin-bottom: 8px;
-              line-height: 28px;
             .name
               color: #787d82;
               font-weight: 700;
