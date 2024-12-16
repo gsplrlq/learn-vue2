@@ -14,7 +14,7 @@
         </template>
         <span v-else class="login-tab-item">快速注册</span>
 
-        <span class="login-close iconfont" @click="setShowLogin(false)">&#xe619;</span>
+        <span class="login-close iconfont" @click="handleMaskClick">&#xe619;</span>
       </div>
       <component :is="componentName" :index="currentTabIndex" :flag="loginFlag" />
       <div v-show="componentName!='qrcode-way'" class="three-login-way">
@@ -48,6 +48,8 @@ export default {
   methods: {
     // 遮罩点击
     handleMaskClick () {
+      this.currentTabIndex = 0
+      this.loginFlag = true
       this.$emit('maskClick')
     },
     // 二维码点击事件

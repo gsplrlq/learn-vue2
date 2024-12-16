@@ -16,8 +16,8 @@
             <span class="iconfont play">&#xe615;</span>
             <span>{{ term.title }}({{ term.duration | filterSecond }})</span>
             <span class="right">
-              <i v-if="term.progress == 100" class="iconfont complete">&#xe60f;</i>
-              <span v-else-if="term.progress > 0 && term.progress < 100" class="doning">
+              <i v-if="term.percent == 100" class="iconfont complete">&#xe60f;</i>
+              <span v-else-if="term.percent > 0 && term.percent < 100" class="doning">
                 最近学习
                 <i class="iconfont">&#xe601;</i>
               </span>
