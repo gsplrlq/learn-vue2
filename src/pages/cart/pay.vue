@@ -123,10 +123,10 @@ export default {
   },
   created () {
     this.payWayList = [
-      {
-        "type": 'ali',
-        "name": "支付宝",
-      },
+      // {
+      //   "type": 'ali',
+      //   "name": "支付宝",
+      // },
       {
         "type": 'wechat',
         "name": "微信",

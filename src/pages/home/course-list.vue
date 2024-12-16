@@ -50,16 +50,16 @@ export default {
   created () {
     this.bannerList = {
       new: [
-        { 
-          title: "最新课程",
-          subtitle: "最新课程",
-          url: "https://img.mukewang.com/5cbd837c0001b18b05670108.jpg"
-        },
-        { 
-          title: "最新课程",
-          subtitle: "最新课程",
-          url: "https://img.mukewang.com/5bf224930001991905670108.jpg"
-        }
+        // { 
+        //   title: "最新课程",
+        //   subtitle: "最新课程",
+        //   url: "https://img.mukewang.com/5cbd837c0001b18b05670108.jpg"
+        // },
+        // { 
+        //   title: "最新课程",
+        //   subtitle: "最新课程",
+        //   url: "https://img.mukewang.com/5bf224930001991905670108.jpg"
+        // }
       ],
       easy: [
         { 

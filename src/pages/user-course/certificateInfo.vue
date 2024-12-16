@@ -4,7 +4,7 @@
       <template v-if="filterList.length">
         <div v-for="(item,index) in filterList" :key="index" class="list-item">
           <div class="info first">
-            <h2 class="title">{{ item.certificateName }}</h2>
+            <h2 class="title" :title="item.certificateName">{{ item.certificateName }}</h2>
             <div class="plan">考试名称: {{ item.examName }}</div>
           </div>
   
@@ -102,7 +102,7 @@ export default {
   /* flex: 1; */
 }
 .info.first {
-  width: 80%;
+  width: 350px;
 }
 .title {
   font-size: 18px;

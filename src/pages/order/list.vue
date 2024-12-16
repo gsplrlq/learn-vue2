@@ -161,7 +161,7 @@ export default {
     },
     // 订单支付
     handlePayClick (order) {
-      this.$router.push(`/cart/pay/${order.code}`)
+      this.$router.push(`/cart/pay/${order.orderSn}`)
     },
     // 获取用户订单列表
     getOrderListData () {

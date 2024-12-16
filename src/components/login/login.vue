@@ -69,8 +69,10 @@ export default {
       isLoading: false,
       rules: rules,
       loginForm: {
-        username: '15802920105',
-        code: 'Aa123456',
+        // username: '15802920105',
+        username: '',
+        // code: 'Aa123456',
+        code: '',
         auto: true,
         argement: true
       },
