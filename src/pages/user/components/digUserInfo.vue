@@ -25,6 +25,23 @@
         <el-form-item v-if="type === 0" label="头像" prop="avatar">
           <upload-avatar v-model="editForm.avatar"></upload-avatar>
         </el-form-item>
+
+        <el-form-item v-if="type === 4" label="身份证号" prop="idCard">
+          <el-input v-model.trim="editForm.idCard" placeholder="请输入身份证号"></el-input>
+        </el-form-item>
+
+        <el-form-item v-if="type === 5" label="地区" prop="addressCode">
+          <el-cascader
+            v-model="editForm.addressCode"
+            placeholder="请选择地区"
+            size="large"
+            :options="regionData"
+          >
+          </el-cascader>
+        </el-form-item>
+        <el-form-item v-if="type === 5" label="详细地址" prop="address">
+          <el-input v-model.trim="editForm.address" placeholder="请输入详细地址"></el-input>
+        </el-form-item>
         <!-- <el-form-item label="微信账号" prop="wechat">
           <el-input v-model.trim="editForm.wechat" placeholder="请输入微信账号"></el-input>
         </el-form-item> -->
@@ -37,11 +54,14 @@
   </div>
 </template>
 <script>
+import { regionData } from 'element-china-area-data'
 import { 
   updateUserAvatar,
   updateUserPhone,
   updateUserPwd,
-  updateUserName 
+  updateUserName,
+  updateUserIdCard,
+  updateUserAddress
 } from 'api'
 import { sendSmsCode, getUserInfo } from 'api'
 import { mapActions, mapMutations } from 'vuex'
@@ -63,6 +83,7 @@ export default {
   },
   data () {
     return {
+      regionData,
       type: '',
       rules: [],
       dialogVisible: false,
@@ -73,7 +94,10 @@ export default {
         code: '',
         password: '',
         ckpassword: '',
-        avatar: ''
+        avatar: '',
+        address: '',
+        addressCode: [],
+        idCard: '',
       },
       totalSecond: 60,
       second: 60,
@@ -96,7 +120,12 @@ export default {
         }; break;
         case 2: this.rules = {
           mobile: [
-            { required: true, message: '请输入手机号', trigger: 'blur' }
+            { required: true, message: '请输入手机号', trigger: 'blur' },
+            {
+              pattern: /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/,
+              //pattern: /^1[3456789]\d{9}$/,
+              message: "请输入正确的手机号",
+            },
           ],
           code: [
             { required: true, message: '请输入验证码', trigger: 'blur' }
@@ -119,6 +148,24 @@ export default {
             }, trigger: 'blur' }
           ]
         }; break;
+        case 5: this.rules = {
+          address: [
+            { required: true, message: '请输入地址', trigger: 'blur' }
+          ],
+          addressCode: [
+            { required: true, message: '请选择地区', trigger: 'change' }
+          ]
+        }; break;
+        case 4: this.rules = {
+          idCard: [
+            {
+              pattern: /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/,
+              message: "请输入正确的身份证号",
+              trigger: 'blur'
+            },
+          ]
+        }; break;
+
       
         default: break;
       }
@@ -131,6 +178,10 @@ export default {
         password: '',
         ckpassword: '',
         avatar: this.data.avatar,
+        
+        address: this.data.address,
+        addressCode: this.data.addressCode,
+        idCard: this.data.idCard,
       }
       this.$nextTick(() => {
         this.$refs.editForm.resetFields()
@@ -180,6 +231,8 @@ export default {
         case 1: url = updateUserName; break;
         case 2: url = updateUserPhone; break;
         case 3: url = updateUserPwd; break;
+        case 4: url = updateUserIdCard; break;
+        case 5: url = updateUserAddress; break;
           
         default:
           break;

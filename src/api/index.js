@@ -40,6 +40,12 @@ export function updateUserPwd (data) {
 export function updateUserName (data) {
   return http.post('/client/user/user/updateUserName', data)
 }
+export function updateUserIdCard (data) {
+  return http.post('/client/user/user/updateIdCard', data)
+}
+export function updateUserAddress (data) {
+  return http.post('/client/user/user/updateAddress', data)
+}
 
 
 // 获取用户课程信息接口

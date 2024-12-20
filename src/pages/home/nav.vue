@@ -78,7 +78,7 @@ export default {
   .home-nav-container
     position: relative;
     width: 216px;
-    height: 444px;
+    height: 555px;
     background-color:#2b333b;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;

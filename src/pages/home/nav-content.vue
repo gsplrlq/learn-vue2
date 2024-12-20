@@ -75,7 +75,7 @@ export default {
     top: 0;
     left: 216px;
     width: 768px;
-    height: 444px;
+    height: 555px;
     background-color: #fff;
     .tags
       position: relative;

@@ -1,8 +1,6 @@
 <template>
   <div class="chapter">
-    <div v-if="catalog.courseContent" class="chapter-introduce" v-html="catalog.courseContent">
-      <!-- <div :innerHTML="catalog.courseContent"></div> -->
-    </div>
+    <div v-if="catalog.courseContent" class="chapter-introduce" v-html="catalog.courseContent"></div>
     <div v-for="(item,index) in catalog.chapter" :key="index" class="chapter-item">
       <h2 class="chapter-title">
         {{ item.title }}

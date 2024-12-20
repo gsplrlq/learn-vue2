@@ -15,7 +15,7 @@
         </mooc-button> -->
       </dt>
       <dd class="bind-item">
-        <i class="iconfont">&#xe60e;</i>
+        <i class="el-icon el-icon-user"></i>
         <div class="bind-introduction">
           <p class="bind-title">
             <span class="bind-type">用户</span>
@@ -35,6 +35,29 @@
           <p class="bind-subtitle">可用手机号加密码登录</p>
         </div>
         <el-button type="text" @click="handleEditClick(2)">修改</el-button>
+      </dd>
+      <dd class="bind-item">
+        <i class="el-icon el-icon-postcard"></i>
+        <div class="bind-introduction">
+          <p class="bind-title">
+            <span class="bind-type">身份证</span>
+            {{ userinfo.idCard }}
+          </p>
+          <p class="bind-subtitle">用户身份证号</p>
+        </div>
+        <el-button type="text" @click="handleEditClick(4)">修改</el-button>
+      </dd>
+      <dd class="bind-item">
+        <i class="el-icon el-icon-location-information"></i>
+        <div class="bind-introduction">
+          <p class="bind-title">
+            <span class="bind-type">地址</span>
+            {{ addresscode }}
+            {{ userinfo.address }}
+          </p>
+          <p class="bind-subtitle">用户详细地址: 省市区 + 详细地址</p>
+        </div>
+        <el-button type="text" @click="handleEditClick(5)">修改</el-button>
       </dd>
       <dd class="bind-item">
         <i class="iconfont">&#xe61e;</i>
@@ -62,6 +85,7 @@
   </div>
 </template>
 <script>
+import { codeToText } from 'element-china-area-data'
 import UserInfo from "./components/digUserInfo.vue";
 export default {
   props: {
@@ -74,6 +98,19 @@ export default {
   },
   data () {
     return {
+      codeToText,
+    }
+  },
+  computed: {
+    addresscode () {
+      let str = ''
+      if (this.userinfo.addressCode) {
+        this.userinfo.addressCode.forEach(code => {
+          str += this.codeToText[code]
+        })
+      }
+      return str
+      // return codeToText[this.userinfo.addresscode]
     }
   },
   methods: {
@@ -149,6 +186,15 @@ export default {
       padding: 0 15px;
       border-top: 1px solid #d0d6d9;
       .iconfont
+        flex: 0 0 60px
+        width: 60px;
+        height: 100%;
+        line-height: 88px;
+        margin-right: 20px;
+        font-size: 36px;
+        color: #d9dde1;
+        text-align: center;
+      .el-icon
         flex: 0 0 60px
         width: 60px;
         height: 100%;

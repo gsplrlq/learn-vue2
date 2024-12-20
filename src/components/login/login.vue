@@ -163,6 +163,7 @@ export default {
         this.$message.success(`${tips}成功`)
         this.loginForm = {}
         data._id = '67345953cce63d545c57c2a7'
+        this.$emit('close')
         // 缓存用户数据
         this.setUserInfo(data)
         // 关闭弹窗

@@ -16,7 +16,7 @@
 
         <span class="login-close iconfont" @click="handleMaskClick">&#xe619;</span>
       </div>
-      <component :is="componentName" :index="currentTabIndex" :flag="loginFlag" />
+      <component :is="componentName" :index="currentTabIndex" :flag="loginFlag" @close="handleMaskClick" />
       <div v-show="componentName!='qrcode-way'" class="three-login-way">
         <span class="phone-login" @click="loginFlag = !loginFlag">{{ threeTitle }}</span>
         <span class="three-way-item">

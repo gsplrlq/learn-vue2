@@ -7,7 +7,7 @@
     <div class="home-container m-center">
       <Nav />
       <!-- 316 -->
-      <mooc-carousel :height="444" trigger="click" @change="handelCarouselChange">
+      <mooc-carousel :height="555" trigger="click" @change="handelCarouselChange">
         <mooc-carousel-item v-for="(item,index) in swiperList" :key="index">
           <img :src="item.imageUrl" class="swiper-img" :class="{'click': !!item.link}" @click.stop="toJump(item.link)">
         </mooc-carousel-item>
@@ -183,7 +183,7 @@ export default {
         .swiper-img
           display: block;
           width: 100%;
-          height: 444px;
+          height: 555px;
           border-top-right-radius: 8px;
           &.click
             cursor: pointer;
