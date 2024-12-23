@@ -35,8 +35,10 @@ import store from './store/index.js'
 import ElementUI, { MessageBox } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
+import { message } from '@/utils/resetMessage';
 
 Vue.prototype.$msgbox = MessageBox;
+Vue.prototype.$message  = message;
 Vue.prototype.$alert = MessageBox.alert;
 Vue.prototype.$confirm = MessageBox.confirm;
 

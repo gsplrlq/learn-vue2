@@ -43,7 +43,7 @@ export default {
     }
   },
   created () {
-    this.loginFlag = this.loginAction === 'login'
+    this.loginFlag = !(this.loginAction === 'register')
   },
   methods: {
     // 遮罩点击
