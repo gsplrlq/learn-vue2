@@ -104,7 +104,6 @@ export default {
         this.lessonData = data
       }).catch(() => {
         this.lessonData = {}
-        this.$message.error('接口异常')
       })
     },
     toJump (url) {

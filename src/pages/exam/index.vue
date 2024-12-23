@@ -75,7 +75,6 @@ export default {
       }).catch(() => {
         this.lessonList = []
         this.total = 0
-        this.$message.error('接口异常')
       })
     }
   },

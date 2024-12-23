@@ -30,14 +30,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     let {status, data} = response
-    if (status === 401) {
-      store.commit('login/SET_SHOW_LOGIN', true)
-      store.dispatch('login/logout')
-      return Promise.resolve({
-        code: -1,
-        msg: data.msg
-      })
-    } else if (status !== 200) {
+    if (status !== 200) {
       Message.error('网络异常，请刷新或者重试!')
       return Promise.reject('网络异常')
     }
@@ -58,6 +51,16 @@ service.interceptors.response.use(
     }
   },
   error => {
+    let {status, data} = error.response
+    if (status === 401) {
+      store.commit('login/SET_SHOW_LOGIN', true)
+      store.dispatch('login/logout')
+      return Promise.resolve({
+        code: -1,
+        msg: data.msg
+      })
+    }
+    
     return Promise.reject(error)
   }
 )

@@ -63,7 +63,6 @@ export default {
       }).catch(() => {
         this.navList = []
         this.current = {}
-        this.$message.error('接口异常')
       })
     }
   },

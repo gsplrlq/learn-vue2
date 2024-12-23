@@ -107,7 +107,6 @@ export default {
           this.$message.error(msg)
         }
       }).catch(() => {
-        this.$message.error('接口异常')
       })
     },
     // 获取积分列表数据
