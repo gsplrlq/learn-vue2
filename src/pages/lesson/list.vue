@@ -104,7 +104,6 @@ export default {
           this.$message.error(msg)
         }
       }).catch(() => {
-        this.$message.error('接口异常')
       })
     },
     // 课程点击事件

@@ -82,7 +82,6 @@ export default {
         }
       }).catch(() => {
         this.navList = []
-        this.$message.error('接口异常')
       })
     },
     // 获取猿问列表数据
@@ -104,7 +103,6 @@ export default {
       }).catch(() => {
         this.articleList = []
         this.total = 0
-        this.$message.error('接口异常')
       })
     }
   },

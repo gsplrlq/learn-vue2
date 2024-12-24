@@ -89,7 +89,6 @@ export default {
         }
       }).catch(() => {
         this.couponList = []
-        this.$message.error('接口异常')
       })
     },
     // 根据状态获取优惠券的背景图片

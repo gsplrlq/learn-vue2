@@ -159,7 +159,6 @@ export default {
           this.$message.error(msg)
         }
       }).catch(() => {
-        this.$message.error('接口异常')
       })
     },
     // 校验收获地址
@@ -183,7 +182,6 @@ export default {
           this.$message.error(msg)
         }
       }).catch(() => {
-        this.$message.error('接口异常')
       })
     },
     // 获取收货地址

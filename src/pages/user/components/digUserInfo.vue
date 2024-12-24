@@ -252,7 +252,6 @@ export default {
           }, 500)
         }
       }).catch(() => {
-        // this.$message.error('接口异常')
         // this.isLoading = false
       })
     },

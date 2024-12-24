@@ -69,7 +69,6 @@ export default {
         this.billList = []
         this.total = 0
         this.count = 0
-        this.$message.error('接口异常')
       })
     }
   },

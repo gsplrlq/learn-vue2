@@ -58,7 +58,6 @@ export default {
         }
       }).catch(() => {
         this.hotList = []
-        this.$message.error('接口异常')
       })
     },
     // 获取导航数据
@@ -68,7 +67,6 @@ export default {
         this.navList = data
       }).catch(() => {
         this.navList = []
-        this.$message.error('接口异常')
       })
     },
     // 获取套餐数据
@@ -89,7 +87,6 @@ export default {
       }).catch(() => {
         this.lessonList = []
         this.total = 0
-        this.$message.error('接口异常')
       })
     }
   },

@@ -150,7 +150,6 @@ export default {
         this.openPay(res.data)
       }).catch(() => {
         this.isDisabled = false
-        // this.$message.error('接口异常')
       })
     },
     startTimer () {

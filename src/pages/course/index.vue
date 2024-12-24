@@ -119,7 +119,6 @@ export default {
       }).catch(() => {
         this.courseList = []
         this.total = 0
-        this.$message.error('接口异常')
       })
     }
   },
