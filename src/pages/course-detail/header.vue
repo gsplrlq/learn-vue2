@@ -17,15 +17,15 @@
         <div class="overview" :title="base.courseDesc">{{ base.courseDesc }}</div>
         <div class="information">
           <div class="teacher">
-            <!-- <img :src="base.teacher.avatar" class="avatar" alt="">
-            <div class="teacher-introduce">
+            <!-- <img :src="base.teacher.avatar" class="avatar" alt=""> -->
+            <div v-if="base.teacherName" class="teacher-introduce">
               <p class="name">
-                {{ base.teacher.name }}
+                教师名称: {{ base.teacherName }}
               </p>
-              <p class="job">
+              <!-- <p class="job">
                 {{ base.teacher.job }}
-              </p>
-            </div> -->
+              </p> -->
+            </div>
             <dl>
               <!-- <dd>难度：{{ base.hard.text }}</dd> -->
               <dd>时长：{{ base.durationStr || 0 }}</dd>
@@ -103,6 +103,7 @@ export default {
               border-radius: 50%;
             .teacher-introduce
               margin-left: 8px;
+              margin-right: 18px;
               .name
                 font-size: 14px;
                 line-height: 24px;
