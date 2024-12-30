@@ -18,15 +18,16 @@
         <div class="information">
           <div class="teacher">
             <!-- <img :src="base.teacher.avatar" class="avatar" alt=""> -->
-            <div v-if="base.teacherName" class="teacher-introduce">
+            <!-- <div v-if="!base.teacherName" class="teacher-introduce">
               <p class="name">
                 教师名称: {{ base.teacherName }}
               </p>
-              <!-- <p class="job">
+              <p class="job">
                 {{ base.teacher.job }}
-              </p> -->
-            </div>
+              </p>
+            </div> -->
             <dl>
+              <dd v-if="base.teacherName">教师名称: {{ base.teacherName }}</dd>
               <!-- <dd>难度：{{ base.hard.text }}</dd> -->
               <dd>时长：{{ base.durationStr || 0 }}</dd>
               <dd>学习人数：{{ base.studyCount }}</dd>
