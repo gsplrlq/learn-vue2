@@ -17,17 +17,18 @@
         <div class="overview" :title="base.courseDesc">{{ base.courseDesc }}</div>
         <div class="information">
           <div class="teacher">
-            <!-- <img :src="base.teacher.avatar" class="avatar" alt=""> -->
-            <!-- <div v-if="!base.teacherName" class="teacher-introduce">
+            <img v-if="base.teacherInfo.avatar" :src="base.teacherInfo.avatar" class="avatar" alt="">
+            <img v-else src="@/assets/images/teacher-avatar.jpg" class="avatar" alt="">
+            <div class="teacher-introduce">
               <p class="name">
-                教师名称: {{ base.teacherName }}
+                {{ base.teacherInfo.userName }}
               </p>
               <p class="job">
-                {{ base.teacher.job }}
+                {{ base.teacherInfo.education }}
               </p>
-            </div> -->
+            </div>
             <dl>
-              <dd v-if="base.teacherName">教师名称: {{ base.teacherName }}</dd>
+              <!-- <dd v-if="base.teacherName">教师名称: {{ base.teacherName }}</dd> -->
               <!-- <dd>难度：{{ base.hard.text }}</dd> -->
               <dd>时长：{{ base.durationStr || 0 }}</dd>
               <dd>学习人数：{{ base.studyCount }}</dd>
@@ -62,7 +63,7 @@ export default {
         height: 100%;
         color: #fff;
         .breadcrumb-box
-          padding: 16px 0 24px 0;
+          padding: 16px 0 15px 0;
           line-height: 24px;
           font-size: 12px;
           color: rgba(255,255,255,0.5);
@@ -93,6 +94,7 @@ export default {
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
+          margin-bottom: 8px;
         .information
           .teacher
             vertical-align: middle;
@@ -100,7 +102,7 @@ export default {
             align-items: center;
             .avatar
               width: 48px;
-              heighth: 48px;
+              height: 48px;
               border-radius: 50%;
             .teacher-introduce
               margin-left: 8px;
