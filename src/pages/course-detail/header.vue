@@ -15,7 +15,7 @@
           {{ base.title }}
         </h2>
         <div class="overview" :title="base.courseDesc">{{ base.courseDesc }}</div>
-        <div class="information">
+        <div v-if="base.teacherInfo" class="information">
           <div class="teacher">
             <img v-if="base.teacherInfo.avatar" :src="base.teacherInfo.avatar" class="avatar" alt="">
             <img v-else src="@/assets/images/teacher-avatar.jpg" class="avatar" alt="">
