@@ -38,6 +38,18 @@ service.interceptors.response.use(
     }
   },
   error => {
+    let {status, data} = error.response
+    if (status === 401) {
+      Message.error(data.msg)
+      setTimeout(() => {
+        store.commit('login/SET_SHOW_LOGIN', true)
+        store.dispatch('login/logout')
+        return Promise.resolve({
+          code: -1,
+          msg: data.msg
+        })
+      }, 1000);
+    }
     return Promise.reject(error)
   }
 )

@@ -194,7 +194,6 @@ export default {
           this.$message.error(msg)
         }
       }).catch(() => {
-        this.$message.error('接口异常')
       })
     },
     // 获取猿问数据
@@ -216,7 +215,6 @@ export default {
         }
       }).catch(() => {
         this.total = 0
-        this.$message.error('接口异常')
       })
     },
     // 获取标签列表
@@ -230,7 +228,6 @@ export default {
           this.$message.error(msg)
         }
       }).catch(() => {
-        this.$message.error('接口异常')
       })
     },
     // 处理标签数据

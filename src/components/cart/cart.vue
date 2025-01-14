@@ -82,7 +82,6 @@ export default {
           this.$message.error(msg)
         }
       }).catch(() => {
-        this.$message.error('接口异常')
       })
     },
     // 获取购物车数据
@@ -97,7 +96,6 @@ export default {
         }
       }).catch(() => {
         this.cartList = []
-        this.$message.error('接口异常')
       })
     }
   },

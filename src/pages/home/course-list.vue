@@ -120,7 +120,7 @@ export default {
   @import '~assets/stylus/variables.styl';
   @import '~assets/stylus/mixin.styl';
   .course-list-container
-    padding: 36px 0 48px;
+    padding: 25px 0;
     .split-banner
       display: flex;
       align-items: center;

@@ -26,13 +26,13 @@
           <mooc-star class="star-box" :value="5" :disabled="true" />
         </span> -->
       </p>
-      <p v-if="item.courseType == 2" class="price">
+      <span v-if="item.courseType == 2" class="price">
         <span>¥ {{ item.price }}</span>
         <template v-if="item.isDiscount">
           <span class="old-price">¥ {{ item.discountPrice }}</span>
           <span class="discount-title">限时优惠</span>
         </template>
-      </p>
+      </span>
       <!-- <p v-else>
         <span>免费</span>
       </p> -->
@@ -66,16 +66,17 @@ export default {
     flex-wrap: wrap;
     .course-item
       position: relative;
-      flex: 0 0 20%;
+      flex: 0 0 25%;
       margin-bottom: 32px;
       cursor: pointer;
+      padding: 0px 16px;
+      box-sizing: border-box;
       &:hover
         .course-name
           color: $theme-red-color;
       .img-box
         position: relative;
-        margin: 0 auto 8px;
-        img-box(216px, 120px)
+        img-box(280px, 150px)
         & > img
           border-radius: 8px;
           &:hover
@@ -109,15 +110,13 @@ export default {
         padding: 0 8px;
         box-sizing: border-box;
       .course-name
-        height: 46px;
         word-break: break-all;
         font-size: 16px;
         font-weight: 700;
-        line-height: 24px;
+        line-height: 28px;
         color: $font-first-color;
         multline-ellipsis(2);
       .info
-        margin-top: 5px;
         font-size: 12px;
         color: $font-four-color;
         line-height: 24px;
@@ -130,10 +129,12 @@ export default {
           font-weight: 600;
 
       .price
+        position: absolute;
+        right: 32px;
+        bottom: 0;
         span
-          color: $font-second-color;
           font-size: 12px;
-          font-weight: 800;
+          font-weight: 600;
           line-height: 24px;
           letter-spacing: 0.5px;
         .old-price

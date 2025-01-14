@@ -143,7 +143,6 @@ export default {
         }
       }).catch(() => {
         this.isLoading = false
-        this.$message.error('接口异常')
       })
     },
     // 充值金额点击事件
@@ -179,7 +178,6 @@ export default {
         this.recharge = [],
         this.total = 0
         this.sum = 0
-        this.$message.error('接口异常')
       })
     }
 

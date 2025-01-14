@@ -5,7 +5,7 @@
         <el-input ref="username" v-model.trim="loginForm.username" placeholder="请输入手机号" clearable />
       </el-form-item>
       <el-form-item v-if="index === 0 && flag" prop="code">
-        <el-input ref="code" v-model.trim="loginForm.code" placeholder="请输入密码" show-code />
+        <el-input ref="code" v-model.trim="loginForm.code" placeholder="请输入密码" show-password />
       </el-form-item>
       <el-form-item v-if="index === 1 || !flag" prop="code" class="code-item">
         <el-input v-model.trim="loginForm.code" placeholder="请输入验证码" :maxlength="6" />

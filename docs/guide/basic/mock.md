@@ -82,44 +82,6 @@ $ npm install axios --save
 ```
 安装完以后，我们需要在`utils`目录下新建`axios.js`文件，并添加拦截代码：
 ```js
-import axios from 'axios'
-import { Message } from 'element-ui'
-import { ERR_OK } from 'api/config.js'
-
-const service = axios.create({
-  timeout: 10000
-})
-
-// 请求拦截
-service.interceptors.request.use(
-  config => {
-    return config
-  },
-  error => {
-    return Promise.reject(error)
-  }
-)
-
-//响应拦截
-service.interceptors.response.use(
-  response => {
-    let {status, data} = response
-    if (status !== 200) {
-      Message.error('网络异常，请刷新或者重试!')
-      return Promise.reject('网络异常!')
-    }
-    if (data.code !== ERR_OK) {
-      Message.error(data.msg || '接口请求异常，请重试!')
-      return Promise.reject(data.msg || '接口异常!')
-    }
-    return Promise.resolve(data)
-  },
-  error => {
-    return Promise.reject(error)
-  }
-)
-
-export default service
 ```
 
 `axios`统一拦截后，我们就可以在`src/api`目录下撰写我们的请求接口了，例如下面的案例：
@@ -184,23 +146,6 @@ service.interceptors.request.use(
 )
 
 //响应拦截
-service.interceptors.response.use(
-  response => {
-    let {status, data} = response
-    if (status !== 200) {
-      Message.error('网络异常，请刷新或者重试!')
-      return Promise.reject('网络异常!')
-    }
-    if (data.code !== ERR_OK) {
-      Message.error(data.msg || '接口请求异常，请重试!')
-      return Promise.reject(data.msg || '接口异常!')
-    }
-    return Promise.resolve(data)
-  },
-  error => {
-    return Promise.reject(error)
-  }
-)
 
 export default service
 ```

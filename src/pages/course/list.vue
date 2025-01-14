@@ -29,22 +29,24 @@
           <p>
             <!-- <span class="rank">{{ item.hard.text }}</span> -->
             <span class="number"><i class="iconfont">&#xe607;</i>{{ item.studyCount }}</span>
+            <span class="right">
+              <span v-if="item.isDiscount" class="new">{{ item.amount }}</span>
+              <span class="old" :class="{'is-discount': item.isDiscount}">¥{{ item.price }}</span>
+            </span>
           </p>
           <p class="desc">
             {{ item.courseDesc }}
           </p>
          
           <p v-if="item.courseType == 1">
-            <span class="price">免费</span>
+            <!-- <span class="price">免费</span> -->
           </p>
           <p v-else class="price">
-            <span v-if="item.isDiscount" class="new">{{ item.amount }}</span>
-            <span class="old" :class="{'is-discount': item.isDiscount}">¥{{ item.price }}</span>
-            <span class="price-right">
+            <!-- <span class="price-right">
               <router-link :to="{ path: '/cart/confirm/' + item.id, query: { type: 1 }}">
                 <div class="cart">购买</div>
               </router-link>
-            </span>
+            </span> -->
           </p>
         </div>
       </li>
@@ -115,7 +117,7 @@ export default {
       padding: 10px 0 20px;
       .list-item
         display: inline-block;
-        margin: 0 15px 25px 0;
+        margin: 0 15px 20px 0;
         vertical-align: top;
         width: 216px;
         cursor: pointer;
@@ -155,11 +157,11 @@ export default {
         .course-content
           padding: 8px;
           .title
-            margin-bottom: 22px;
-            line-height: 24px;
+            line-height: 28px;
             font-size: 16px;
             font-weight: 700;
             color: $font-first-color;
+            margin: 0;
           & > p
             font-size: 12px;
             color: $font-four-color;
@@ -169,6 +171,16 @@ export default {
             .number
               .iconfont
                 font-weight: 700;
+            .right
+              float: right;
+              .new
+                color: $red;
+                font-weight: 700;
+              .old
+                color: $font-second-color;
+                font-weight: 700;
+                &.is-discount
+                  text-decoration: line-through;
             &.price
               color: $font-second-color;
               font-weight: 700;
@@ -179,6 +191,5 @@ export default {
                   &:hover
                     color: $font-second-color;
             &.desc
-              height: 50px;
               multline-ellipsis(2)
 </style>

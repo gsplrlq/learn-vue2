@@ -137,7 +137,6 @@ export default {
             this.$message.error(msg)
           }
         }).catch(() => {
-          this.$message.error('接口异常')
         })
       })
     },
@@ -155,7 +154,6 @@ export default {
           this.$message.success('取消成功')
           this.getOrderListData()
         }).catch(() => {
-          this.$message.error('接口异常')
         })
       })
     },
