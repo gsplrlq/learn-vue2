@@ -150,12 +150,12 @@ export default {
           cursor: pointer;
           &.active
             color: #fff !important;
-            background-color: #ef1515 !important;
+            background-color: #B70005 !important;
             .iconfont
               color: inherit;
           &:hover
             background-color: #f2f4f6;
-            color: #ef1515;
+            color: #B70005;
             .iconfont
               color: inherit;
           .iconfont

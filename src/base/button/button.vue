@@ -103,7 +103,7 @@ export default {
     cursor: pointer;
     .mooc-button-icon
       & + span
-        margin-left: $button-icon-slibings-margin-right; 
+        margin-left: 0; 
     & + &
      margin-left: $button-slibings-margin-right;
     &.mooc-button-default
