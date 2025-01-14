@@ -29,7 +29,7 @@
           <p>
             <!-- <span class="rank">{{ item.hard.text }}</span> -->
             <span class="number"><i class="iconfont">&#xe607;</i>{{ item.studyCount }}</span>
-            <span class="right">
+            <span v-if="item.courseType == 2" class="right">
               <span v-if="item.isDiscount" class="new">{{ item.amount }}</span>
               <span class="old" :class="{'is-discount': item.isDiscount}">¥{{ item.price }}</span>
             </span>
