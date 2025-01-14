@@ -20,8 +20,8 @@
       </li> -->
       <li class="sidebar-item">
         <i class="iconfont">&#xe628;</i>
-        <span class="sidebar-text">官方微信</span>
-        <img src="../../assets/images/ercode.png" class="wechart-code code" />
+        <span class="sidebar-text">公众号</span>
+        <img src="../../assets/images/qrcode.jpg" class="wechart-code code" />
       </li>
       <li v-show="showBackTop" class="sidebar-item" @click="handleBackTopClick">
         <i class="iconfont">&#xe612;</i>

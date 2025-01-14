@@ -115,9 +115,9 @@ export default {
         font-size: 16px;
         cursor: pointer;
         &:hover
-          color: $theme-orange-dark-color;
+          color: $theme-red-color;
         &.active
-          color: $theme-orange-dark-color;
+          color: $theme-red-color;
           &::after
             content: '';
             position: absolute;
@@ -126,7 +126,7 @@ export default {
             margin-left: -8px;
             width: 16px;
             height: 3px;
-            background-color: $theme-orange-dark-color;
+            background-color: $theme-red-color;
             border-radius: 2px;
     .label-list
       margin-top: 24px;
@@ -141,9 +141,9 @@ export default {
         color: $font-second-color;
         cursor: pointer;
         &:hover
-          color: $theme-orange-dark-color;
+          color: $theme-red-color;
           background-color: rgba(204,136,0,.1);
         &.active
-          color: $theme-orange-dark-color;
+          color: $theme-red-color;
           background-color: rgba(204,136,0,.1);
 </style>

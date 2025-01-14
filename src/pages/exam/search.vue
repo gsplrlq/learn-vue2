@@ -72,7 +72,7 @@ export default {
             width: 48px;
             height: 48px;
             line-height: 48px;
-            background-color: $theme-orange-dark-color;
+            background-color: $theme-red-color;
             border-radius: 0 8px 8px 0;
             color: #fff;
             text-align: center;

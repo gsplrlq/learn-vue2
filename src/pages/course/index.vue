@@ -137,6 +137,9 @@ export default {
     .course-search
       padding: 12px 0;
       border-bottom: 1px solid $border-second-color;
+      display: flex;
+      justify-content: space-between;
+      altign-items: center;
       .search-tag
         display: inline-block;
         & > img:nth-child(2)

@@ -13,13 +13,17 @@
         </ul>
       </div>
       <div class="copyright">
-        <p>Copyright© {{ year }} learnlearnlearn.com  京ICP备xxxx号 京公网安备xxxxx号</p>
+        <p>
+          Copyright© {{ year }} 
+          <a href="https://bjsyrc.cn" target="_blank">bjsyrc.cn    </a>
+          <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2024102347号-1</a>
+        </p>
       </div>
       <div class="share">
         <div class="share-item wechart">
           <span class="share-img" />
-          <p>官方微信</p>
-          <img src="../../assets/images/ercode.png" class="wechart-code" />
+          <p>公众号</p>
+          <img src="../../assets/images/qrcode.jpg" class="wechart-code" />
         </div>
       </div>
     </div>
