@@ -85,7 +85,7 @@ export default {
             background-color: #f3f5f7;
             &.like
               background-color: rgba(240,20,20,.1);
-              color: #f01414;
+              color: #B70005;
           .number
             text-align: center;
             font-size: 12px;

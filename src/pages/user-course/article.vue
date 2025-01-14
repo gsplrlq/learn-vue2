@@ -98,8 +98,8 @@ export default {
         &:last-child
           margin-right: 0;
         &.active
-          color: #f01414;
-          border-bottom: 2px solid #f01414;
+          color: #B70005;
+          border-bottom: 2px solid #B70005;
     .article-item
       padding: 30px 0;
       border-bottom: 1px solid #eff1f0;

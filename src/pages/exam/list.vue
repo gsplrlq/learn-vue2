@@ -128,7 +128,7 @@ export default {
   text-align: center;
   line-height: 40px;
   font-size: 14px;
-  background-color: #f20d0d;
+  background-color: #B70005;
   border-radius: 24px;
   color: #fff;
   cursor: pointer;

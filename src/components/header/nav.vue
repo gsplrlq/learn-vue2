@@ -37,7 +37,7 @@ export default {
       float: left;
       &.active
         .nav-link
-          color: #f01414;
+          color: #B70005;
       .nav-link
         display: block;
         position: relative;

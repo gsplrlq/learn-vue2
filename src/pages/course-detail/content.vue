@@ -89,7 +89,7 @@ export default {
       font-weight: 700;
       cursor: pointer;
       &.active
-        color: #f20d0d;
+        color: #B70005;
         &::after {
           content: '';
           display: block;
@@ -97,7 +97,7 @@ export default {
           width: 16px;
           height: 3px;
           border-radius: 15px;
-          background-color: #f20d0d;
+          background-color: #B70005;
         }
   .detail-information
     margin-top: 36px;

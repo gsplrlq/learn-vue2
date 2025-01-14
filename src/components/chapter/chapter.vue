@@ -95,12 +95,12 @@ export default {
           &:not(.disabled):hover
             background-color: rgba(242,13,13,.05);
             border-radius: 4px;
-            color: #f20d0d;
+            color: #B70005;
             .play
-              color: #f20d0d;
+              color: #B70005;
             .right
               & > i
-                color: #f20d0d!important;
+                color: #B70005!important;
           .play
             margin-right: 8px;
             font-size: 24px;

@@ -287,7 +287,7 @@ export default {
         .detail
           float: right;
           font-size: 14px;
-          color: #f01414;
+          color: #B70005;
           cursor: pointer;
       .pay-item
         display: flex;
@@ -319,7 +319,7 @@ export default {
           color: #93999f;
           span
             padding-left: 10px;
-            color: #f01414;
+            color: #B70005;
             font-size: 16px;
       .pay-way-container
         padding: 30px 12px 48px;
@@ -350,8 +350,8 @@ export default {
               bottom: 0;
               width: 0;
               height: 0;
-              border: 10px solid #f01414;
-              border-color: transparent #f01414 #f01414 transparent;
+              border: 10px solid #B70005;
+              border-color: transparent #B70005 #B70005 transparent;
               text-align: center;
               .iconfont
                 z-index: 99;
@@ -362,7 +362,7 @@ export default {
                 color: #fff;
                 font-size: 12px;
             &.active
-              border: 2px solid #f01414;
+              border: 2px solid #B70005;
             &.Alipay
               background-position: 33px -304px;
             &.Wxpay
@@ -393,7 +393,7 @@ export default {
           .left
             float: left;
             .pay-tips
-              color: #f01414;
+              color: #B70005;
               font-size: 14px;
               line-height: 30px;
           .right
@@ -406,7 +406,7 @@ export default {
                 display: inline-block;
                 vertical-align: middle;
                 font-size: 22px;
-                color: #f01414;
+                color: #B70005;
             .pay-btn
               margin-left: auto;
               margin-top: 32px;
@@ -417,7 +417,7 @@ export default {
               outline: none;
               text-align: center;
               line-height: 36px;
-              background-color: #f01414;
+              background-color: #B70005;
               color: #fff;
               font-size: 14px;
               font-weight: 700;
@@ -433,7 +433,7 @@ export default {
               text-align: right;
               cursor: pointer;
               &:hover
-                color: #f01414;
+                color: #B70005;
 </style>
 
 
@@ -450,6 +450,6 @@ export default {
 }
 .pay-for-method-2{
     font-weight: bold;
-    color: #409eff;
+    color: #B70005;
 }
 </style>

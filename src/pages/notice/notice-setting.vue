@@ -20,7 +20,7 @@
           v-for="(subItem, index) in item.data"
           :key="index"
         >
-          <mooc-switch v-model="subItem.value" active-color="#f01414" inactive-color="#9199a1" />{{ subItem.label }}
+          <mooc-switch v-model="subItem.value" active-color="#B70005" inactive-color="#9199a1" />{{ subItem.label }}
         </dd>
       </dl>
       <div slot="footer">

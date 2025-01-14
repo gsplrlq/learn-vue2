@@ -1,6 +1,6 @@
 <template>
   <div class="lesson-search-container">
-    <div class="lesson-search ml-center">
+    <div class="lesson-search m-center">
       <div class="search-box">
         <div class="input-box">
           <el-input v-model="title" type="text" placeholder="搜索感兴趣的考试" class="input" @change="search" />

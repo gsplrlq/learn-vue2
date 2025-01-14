@@ -80,10 +80,10 @@ export default {
           cursor: pointer;
           font-size: 14px;
           &:hover, &.active
-            color: #f01414;
+            color: #B70005;
             .arrow
               &::after
-                border-color: transparent transparent transparent #f01414;
+                border-color: transparent transparent transparent #B70005;
           .arrow
             position: relative;
             top: 10px;

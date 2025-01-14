@@ -279,7 +279,7 @@ export default {
             font-size: 22px;
         &:hover
           .iconfont
-            color: #F01414
+            color: #B70005
       &.userinfo
         position: relative;
         padding: 0 20px 0 15px;
@@ -287,7 +287,7 @@ export default {
         cursor: pointer;
         &:hover
           .img-box
-            box-shadow: 0 0 0 2px #F01414;
+            box-shadow: 0 0 0 2px #B70005;
         .img-box
           margin-top: 22px;
           width: 32px;
@@ -399,5 +399,5 @@ export default {
               font-size: 14px;
               line-height: 24px;
             &:hover
-              color: #F01414;
+              color: #B70005;
 </style>

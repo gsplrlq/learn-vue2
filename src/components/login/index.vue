@@ -83,7 +83,7 @@ export default {
 
 <style lang="stylus" scoped>
   @import '~assets/stylus/mixin.styl';
-  $red = #f20d0d;
+  $red = #B70005;
   .login-container
     z-index: 333;
     position: fixed;
@@ -150,7 +150,7 @@ export default {
           border-right: 1px solid #1a1C1F21
           line-height: 24px;
           font-size: 14px;
-          color: #f20d0d;
+          color: #B70005;
         .three-way-item
           display: inline-block;
           vertical-align: middle;
@@ -163,7 +163,7 @@ export default {
             font-size: 24px;
             cursor: pointer;
             &.weibo:hover
-              color: #f20d0d;
+              color: #B70005;
             &.wechart:hover
               color: #00B33B;
             &.qq:hover

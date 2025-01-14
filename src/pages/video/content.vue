@@ -231,7 +231,7 @@ export default {
   cursor: pointer;
 }
 .course-detail-content .detail-nav .nav-item.active {
-  color: #f20d0d;
+  color: #B70005;
 }
 .course-detail-content .detail-nav .nav-item.active::after {
   content: '';
@@ -240,7 +240,7 @@ export default {
   width: 16px;
   height: 3px;
   border-radius: 15px;
-  background-color: #f20d0d;
+  background-color: #B70005;
 }
 .course-detail-content .detail-information {
   margin-top: 36px;

@@ -166,7 +166,7 @@ export default {
         .confirm-price
           flex: 0 0 280px;
           width: 280px;
-          color: #f01414;
+          color: #B70005;
       .confirm-bottom
         overflow: hidden;
         .left
@@ -184,7 +184,7 @@ export default {
                 margin-left: 50px;
               &.real-price
                 font-size: 24px;
-                color: #f01414;
+                color: #B70005;
                 font-weight: 700;
           dd
             display: inline-block;
@@ -192,17 +192,17 @@ export default {
             margin-right: 12px;
             padding: 6px 12px;
             border-radius: 12px;
-            border: 1px solid #f01414;
+            border: 1px solid #B70005;
             line-height: 1;
             font-size: 12px;
-            color: #f01414;
+            color: #B70005;
             &:last-child
               margin-right: 0;
         .right
           float: right;
           margin-top: 36px;
           padding: 15px 40px;
-          background-color: #f01414;
+          background-color: #B70005;
           border-radius: 24px;
           color: #fff;
           cursor: pointer;

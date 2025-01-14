@@ -192,7 +192,7 @@ export default {
         height: 48px;
         text-align: center;
         line-height: 48px;
-        background-color: #f20d0d;
+        background-color: #B70005;
         border-radius: 24px;
         color: #fff;
         cursor: pointer;
@@ -209,8 +209,8 @@ export default {
           font-weight: 700;
           cursor: pointer;
           &.active
-            color: #f20d0d;
-            border-bottom: 2px solid #f20d0d;
+            color: #B70005;
+            border-bottom: 2px solid #B70005;
       .desc
         color: #93999f;
         font-size: 12px;
@@ -246,7 +246,7 @@ export default {
             font-weight: 700;
             cursor: pointer;
             &:hover
-              color: #f20d0d;
+              color: #B70005;
           & > p
             font-size: 12px;
             color: #545c63;

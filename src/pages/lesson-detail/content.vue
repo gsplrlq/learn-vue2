@@ -99,7 +99,7 @@ export default {
           & > span
             color: #2b333b;
             &.iconfont
-              color: #f01414;
+              color: #B70005;
     .lesson-information
       margin-top: 24px;
       display: flex;
@@ -120,11 +120,11 @@ export default {
           text-align: center;
           font-size: 40px;
           margin-bottom: 16px;
-          color: #f20d0d;
+          color: #B70005;
         .tips-btn
           padding: 11px 32px;
           border-radius: 24px;
-          background-color: #f20d0d;
+          background-color: #B70005;
           text-align: center;
           line-height: 24px;
           font-size: 16px;
@@ -136,10 +136,10 @@ export default {
         .tips-btn-bought
           padding: 11px 32px;
           border-radius: 24px;
-          border: 1px solid #f20d0d;
+          border: 1px solid #B70005;
           text-align: center;
           line-height: 24px;
           font-size: 16px;
-          color: #f20d0d;
+          color: #B70005;
           text-decoration: none;
 </style>

@@ -271,7 +271,7 @@ export default {
         & > span
           display: inline-block;
           margin: 0 10px;
-          color: #f01414;
+          color: #B70005;
           font-size: 12px;
           cursor: pointer;
           line-height: 24px;

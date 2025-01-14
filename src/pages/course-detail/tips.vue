@@ -10,7 +10,7 @@
         :percentage="lastest.percent"
         :show-text="false"
         :height="20"
-        color="#f01414"
+        color="#B70005"
       />
       <p class="latest">
         上次学习至：{{ lastest.chapter }}
@@ -73,7 +73,7 @@ export default {
       text-align: center;
       font-size: 40px;
       margin-bottom: 16px;
-      color: #f20d0d;
+      color: #B70005;
     }
     .learn-info
       padding-bottom: 12px;
@@ -93,7 +93,7 @@ export default {
     .tips-btn
       padding: 11px 32px;
       border-radius: 24px;
-      background-color: #f20d0d;
+      background-color: #B70005;
       text-align: center;
       line-height: 24px;
       font-size: 16px;

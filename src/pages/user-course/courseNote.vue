@@ -118,9 +118,9 @@ export default {
 }
 .view-btn {
   width: 4em;
-  color: #f20d0d;
+  color: #B70005;
   line-height: 20px;
-  border: 1px solid #f20d0d;
+  border: 1px solid #B70005;
   border-radius: 100px;
   padding: 8px 24px;
   transition: all .2s;

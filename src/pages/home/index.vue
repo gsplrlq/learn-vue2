@@ -154,7 +154,7 @@ export default {
           line-height: 40px;
           color: $font-first-color;
           &:hover
-            color: #f20d0d
+            color: #B70005
     margin-top: 32px;
     min-height: 750px;
     .bg-mask

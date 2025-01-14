@@ -32,8 +32,10 @@ import store from './store/index.js'
 // Vue.use(Dialog)
 // Vue.use(Scrollbar)
 
+import 'assets/element/theme/index.css'
 import ElementUI, { MessageBox } from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+// import 'element-ui/lib/theme-chalk/index.css';
+
 Vue.use(ElementUI);
 
 Vue.prototype.$msgbox = MessageBox;

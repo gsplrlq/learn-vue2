@@ -193,7 +193,7 @@ export default {
       padding-top: 5px;
       cursor: pointer;
       &:hover
-        color: #f01414;
+        color: #B70005;
     .cart-list
       margin-top: -40px;
       padding: 0 36px 32px;
@@ -277,7 +277,7 @@ export default {
                   color: rgba(240,20,20,.6);
                   cursor: pointer;
                   &:hover
-                    background-color: #f01414;
+                    background-color: #B70005;
                     color: #fff;
             &.price
               flex: 0 0 188px;
@@ -290,7 +290,7 @@ export default {
                 color: #b7bbbf;
                 cursor: pointer;
                 &:hover
-                  color: #f01414;
+                  color: #B70005;
       .account-box
         overflow: hidden;
         .right
@@ -309,13 +309,13 @@ export default {
               line-height: 24px;
               &.price
                 font-size: 18px;
-                color: #f01414;
+                color: #B70005;
                 font-weight: 700;
                 letter-spacing: 1px;
           .account-btn
             padding: 13px 32px;
             border-radius: 6px;
-            background-color: #f01414;
+            background-color: #B70005;
             border: none;
             outline: none;
             line-height: 24px;

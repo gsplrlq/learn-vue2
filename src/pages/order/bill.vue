@@ -96,7 +96,7 @@ export default {
           border-left: 1px solid #d9dde1;
         & > b
           padding: 0 5px;
-          color: #f01414;
+          color: #B70005;
     .bill-list
       padding: 20px;
       border-radius: 12px;

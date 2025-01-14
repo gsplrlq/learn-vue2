@@ -133,7 +133,7 @@ export default {
     this.timeline = [
       { timestamp: '2015-09-01', color: '#58a', content: '成立' },
       { timestamp: '2016-09-01', color: '#f60', content: '高速发展' },
-      { timestamp: '2018-09-01', color: '#f01414', content: '上市' },
+      { timestamp: '2018-09-01', color: '#B70005', content: '上市' },
       { timestamp: '2019-09-13', color: '#00b43c', content: '至今' }
     ]
   }
@@ -270,7 +270,7 @@ export default {
     this.timeline = [
       { timestamp: '2015-09-01', color: '#58a', size: 'small', content: '成立' },
       { timestamp: '2016-09-01', color: '#f60', size: 'normal', content: '高速发展' },
-      { timestamp: '2018-09-01', color: '#f01414', size: 'medium', content: '上市' },
+      { timestamp: '2018-09-01', color: '#B70005', size: 'medium', content: '上市' },
       { timestamp: '2019-09-13', color: '#00b43c', size: 'large', content: '至今' }
     ]
   }
@@ -339,7 +339,7 @@ export default {
     this.timeline = [
       { timestamp: '2015-09-01', color: '#58a', size: 'small', content: '成立', placement: 'top' },
       { timestamp: '2016-09-01', color: '#f60', size: 'normal', content: '高速发展', placement: 'top' },
-      { timestamp: '2018-09-01', color: '#f01414', size: 'medium', content: '上市', placement: 'top' },
+      { timestamp: '2018-09-01', color: '#B70005', size: 'medium', content: '上市', placement: 'top' },
       { timestamp: '2019-09-13', color: '#00b43c', size: 'large', content: '至今', placement: 'top' }
     ]
   }
@@ -519,7 +519,7 @@ export default {
       this.timeline = [
         { timestamp: '2015-09-01', color: '#58a', size: 'small',  type: 'primary', content: '成立', placement: 'top' },
         { timestamp: '2016-09-01', color: '#f60', size: 'normal', type: 'warning', content: '高速发展', placement: 'top' },
-        { timestamp: '2018-09-01', color: '#f01414', size: 'medium', type: 'danger', content: '上市', placement: 'top' },
+        { timestamp: '2018-09-01', color: '#B70005', size: 'medium', type: 'danger', content: '上市', placement: 'top' },
         { timestamp: '2019-09-13', color: '#00b43c', size: 'large', type: 'success', content: '至今', placement: 'top' }
       ]
     }
@@ -547,7 +547,7 @@ export default {
         height: 20px;
         text-align: center;
         line-height: 20px;
-        background-color: #f01414;
+        background-color: #B70005;
         border-radius: 50%;
         color: #fff;
       .my-dot1

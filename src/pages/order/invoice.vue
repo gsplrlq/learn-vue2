@@ -61,7 +61,7 @@
         .total
           margin: 8px 0 12px;
           font-size: 36px;
-          color: #f01414;
+          color: #B70005;
           font-weight: 700;
           line-height: 48px;
           letter-spacing: 2px;

@@ -260,7 +260,7 @@ export default {
         border-bottom: 1px solid #b7bbbf;
         .iconfont
           margin-right: 5px;
-          color: #f01414;
+          color: #B70005;
           &.delete
             display: none;
             float: right;
@@ -302,7 +302,7 @@ export default {
                 font-size: 14px;
               .order-real-price
                 font-size: 13px;
-                color: #f01414;
+                color: #B70005;
         .order-price-box, .order-status-box
           flex: 0 0 200px;
           width: 200px;
@@ -319,7 +319,7 @@ export default {
           .old
             text-decoration: line-through;
           .real
-            color: #f01414;
+            color: #B70005;
             & > span
               margin-top: 20px;
               margin-left: 20px;
@@ -343,7 +343,7 @@ export default {
             width:120px;
             height:36px;
             border-radius: 18px;
-            background-color: #f01414;
+            background-color: #B70005;
             color: #fff;
             text-align: center;
             line-height: 36px;

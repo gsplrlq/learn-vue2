@@ -154,7 +154,7 @@ export default {
               float: right;
               cursor: pointer;
               &:hover
-                color: #f01414;
+                color: #B70005;
     .empty-box
       height: 284px;
       border-bottom: 1px solid #D3D6D9;
@@ -176,19 +176,19 @@ export default {
           line-height: 24px;
           color: rgba(240,20,20,0.6);
           &:hover
-            color: #f01414;
+            color: #B70005;
     .cart-bottom
       padding: 16px 12px;
       color: #93999f;
       font-size: 12px;
       .text
         &:hover
-          color: #f01414;
+          color: #B70005;
       .account-btn
         float: right;
         padding: 8px 26px;
         border-radius: 24px;
-        background-color: #f01414;
+        background-color: #B70005;
         color: #fff;
         line-height: 16px;
         cursor: pointer;

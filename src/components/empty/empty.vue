@@ -24,5 +24,5 @@ export default {
     .empty-msg
       line-height: 24px;
       font-size: 16px;
-      color: #f01414;
+      color: #B70005;
 </style>

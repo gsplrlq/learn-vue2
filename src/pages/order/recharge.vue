@@ -217,7 +217,7 @@ export default {
         position: relative;
         padding: 28px 32px;
         height: 134px;
-        background: linear-gradient(90deg,#f9662d 0,#f01414 100%);
+        background: linear-gradient(90deg,#f9662d 0,#B70005 100%);
         border-top-left-radius: 12px;
         border-top-right-radius: 12px;
         box-sizing: border-box;
@@ -237,7 +237,7 @@ export default {
             padding: 12px 36px;
             margin-bottom: 20px;
             border-radius: 24px;
-            color: #f01414;
+            color: #B70005;
             background-color: #fff;
             font-weight: 700;
             cursor: pointer;

@@ -60,7 +60,7 @@ $font-four-color = #9199a1;
 
 ### 主题色颜色定义规范
 <div class="container">
-  <div class="theme theme-red">#f01414</div>
+  <div class="theme theme-red">#B70005</div>
   <div class="theme theme-orange">#ff9900</div>
   <div class="theme theme-orange-dark">#787d82</div>
   <div class="theme theme-blue">#9199a1</div>
@@ -73,7 +73,7 @@ $font-four-color = #9199a1;
 
 ```css
 // 主题颜色定义规范
-$theme-red-color = #f01414;
+$theme-red-color = #B70005;
 $theme-orange-color = #ff9900;
 $theme-orange-dark-color = #c80;
 $theme-blue-color = #6698ff;
@@ -388,7 +388,7 @@ import { getHot } from 'src/api/common.js'
         margin-right: 10px;
     .theme
       &.theme-red
-        background-color: #f01414;
+        background-color: #B70005;
       &.theme-orange
         background-color: #ff9900;
       &.theme-orange-dark
