@@ -1,9 +1,6 @@
 <template>
   <div class="empty-container">
-    <img class="empty-img" src="@/assets/images/empty.jpg" alt="">
-    <p class="empty-msg">
-      {{ message }}
-    </p>
+    <el-empty :image-size="200" description="暂无数据"></el-empty>
   </div>
 </template>
 <script>
@@ -24,5 +21,5 @@ export default {
     .empty-msg
       line-height: 24px;
       font-size: 16px;
-      color: #B70005;
+      color: #8a919f;
 </style>

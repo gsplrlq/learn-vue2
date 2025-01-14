@@ -51,7 +51,7 @@
         </div>
       </li>
     </ul>
-    <empty v-else message="暂无相关课程数据"></empty>
+    <empty v-else message="暂无数据"></empty>
   </div>
 </template>
 <script>
