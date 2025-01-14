@@ -142,8 +142,10 @@ export default {
         cursor: pointer;
         &:hover
           color: $theme-red-color;
-          background-color: rgba(204,136,0,.1);
+          background-color: rgba(242, 13, 13, .06);
+          font-weight: 700;
         &.active
           color: $theme-red-color;
-          background-color: rgba(204,136,0,.1);
+          background-color: rgba(242, 13, 13, .06);
+          font-weight: 700;
 </style>
