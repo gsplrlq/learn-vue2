@@ -7,6 +7,9 @@
       <el-form-item v-if="index === 0 && flag" prop="code">
         <el-input ref="code" v-model.trim="loginForm.code" placeholder="请输入密码" show-password />
       </el-form-item>
+      <el-form-item v-if="!flag" prop="password">
+        <el-input ref="password" v-model.trim="loginForm.password" placeholder="请输入密码" show-password />
+      </el-form-item>
       <el-form-item v-if="index === 1 || !flag" prop="code" class="code-item">
         <el-input v-model.trim="loginForm.code" placeholder="请输入验证码" :maxlength="6" />
 
@@ -64,6 +67,9 @@ export default {
       code: [
         { required: true, message: '不能为空', trigger: 'blur' }
       ],
+      password: [
+        { required: true, message: '不能为空', trigger: 'blur' }
+      ],
     }
     return {
       isLoading: false,
@@ -73,6 +79,7 @@ export default {
         username: '',
         // code: 'Aa123456',
         code: '',
+        password: '',
         auto: true,
         argement: true
       },
@@ -146,7 +153,8 @@ export default {
     handleBtnClick () {
       let params = {
         mobile: this.loginForm.username,
-        code: this.loginForm.code
+        code: this.loginForm.code,
+        password:  this.loginForm.password
       }
       // 判断是登陆还是注册
       let func = userRegister
@@ -190,6 +198,7 @@ export default {
       this.loginForm = {
         username: '',
         code: '',
+        password: '',
         auto: true,
         argement: true
       }
@@ -199,6 +208,7 @@ export default {
       this.loginForm = {
         username: '',
         code: '',
+        password: '',
         auto: true,
         argement: true
       }
