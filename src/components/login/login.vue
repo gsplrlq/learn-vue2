@@ -19,9 +19,11 @@
       </el-form-item>
       <el-form-item class="auto-login-item">
         <template v-if="flag">
-          <el-checkbox v-model="loginForm.auto">
+          七天内自动登录
+
+          <!-- <el-checkbox v-model="loginForm.auto">
             七天内自动登录
-          </el-checkbox>
+          </el-checkbox> -->
           <!-- <div class="auto-login-btn-box">
             <span>找回密码</span>
           </div> -->

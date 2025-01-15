@@ -116,6 +116,14 @@ export default {
       this.$prompt('请输入问题', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
+        inputValidator: (value) => {
+          if (value.trim() === '') {
+            return '请输入问题'
+          }
+          if (value.length > 200) {
+            return '问题不能超过200个字符'
+          }
+        }
       }).then(({ value }) => {
         getLessonQaCreate({
           "courseId": this.$route.params.id,
@@ -134,6 +142,14 @@ export default {
       this.$prompt('请输入回复', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
+        inputValidator: (value) => {
+          if (value.trim() === '') {
+            return '请输入回复'
+          }
+          if (value.length > 200) {
+            return '回复不能超过200个字符'
+          }
+        }
       }).then(({ value }) => {
         getLessonQaCreate({
           "courseId": this.$route.params.id,
@@ -273,4 +289,9 @@ export default {
           text-align: center;
           color: #fff;
           font-size: 12px;
+</style>
+<style>
+.el-message-box__errormsg {
+  margin-top: 6px;
+}
 </style>
