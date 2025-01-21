@@ -98,7 +98,7 @@ export default {
 
       evaluationDialogVisible: false,
       evaluationForm: {
-        rating: ''
+        rating: '满意'
       }
     }
   },
