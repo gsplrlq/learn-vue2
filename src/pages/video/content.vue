@@ -52,7 +52,7 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="evaluationDialogVisible = false">取消</el-button>
+        <!-- <el-button @click="evaluationDialogVisible = false">取消</el-button> -->
         <el-button type="primary" @click="submitEvaluation">提交</el-button>
       </div>
     </el-dialog>
