@@ -36,6 +36,26 @@
         </div>
       </div>
     </div>
+
+    <el-dialog
+      title="满意度测评"
+      :visible.sync="evaluationDialogVisible"
+      width="30%"
+    >
+      <el-form :model="evaluationForm">
+        <el-form-item label="请对本课程进行评价">
+          <el-radio-group v-model="evaluationForm.rating">
+            <el-radio label="一般">一般</el-radio>
+            <el-radio label="满意">满意</el-radio>
+            <el-radio label="非常满意">非常满意</el-radio>
+          </el-radio-group>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="evaluationDialogVisible = false">取消</el-button>
+        <el-button type="primary" @click="submitEvaluation">提交</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -43,7 +63,7 @@ import Aliplayer from "aliyun-aliplayer";
 import ThePlayer from "components/video/ThePlayer.vue";
 // import VideoList from "components/video/VideoList.vue";
 // import { videoList } from "components/video/testVideoList";
-import { getLessonChapter, getVideoAuth, createStudyHistory } from "api";
+import { getLessonChapter, getVideoAuth, createStudyHistory, createEvaluation, updateEvaluation } from "api";
 import { setTimeout } from "core-js";
 export default {
   name: 'XXX', // XXX
@@ -74,7 +94,12 @@ export default {
         { title: '问答', componentName: 'question-answer' },
         { title: '笔记', componentName: 'note' },
         { title: '评价', componentName: 'comment' }
-      ]
+      ],
+
+      evaluationDialogVisible: false,
+      evaluationForm: {
+        rating: ''
+      }
     }
   },
   methods: {
@@ -114,13 +139,27 @@ export default {
         (player) => {
           //播放下一个视频
           player.on("ended", () => {
+            clearTimeout(this.timer)
+            console.log("播放结束");
             let index = this.videoList.findIndex(
               (item) => item.videoId === this.playObj.videoId,
             );
-            if (index === -1 || index === this.videoList.length - 1) {
+            if (index === -1) {
               return;
             }
-            this.update(this.videoList[index + 1]);
+            if (index === this.videoList.length - 1 && !this.courseDetail.hasEvaluation) {
+              // 满意度测评
+              createEvaluation({ courseId: this.$route.params.id })
+
+              // 弹框进行满意度测评
+              this.evaluationDialogVisible = true
+
+              this.courseDetail.hasEvaluation = true
+              return;
+            }
+
+            const nextVideo = this.videoList[index + 1];
+            if(nextVideo) this.update(nextVideo);
           });
           player.on('ready', () => {
             player.seek(this.playObj.progress)
@@ -164,9 +203,11 @@ export default {
     update (video) {
       this.playObj = video;
       this.player.dispose(); //销毁
-      this.$router.push({ path: this.$route.path, query: { videoId: video.videoId} })
-      this.getVideo()
-        // this.createPlayer(video); //创建
+
+      this.$nextTick(() => {
+        this.$router.push({ path: this.$route.path, query: { videoId: video.videoId} })
+        this.getVideo();
+      });
     },
     getChapter () {
       getLessonChapter({courseId: this.$route.params.id}).then(res => {
@@ -202,6 +243,12 @@ export default {
         "chapterId": this.playObj.id,
         "fileId": this.playObj.fileId,
         "progress": this.player.getCurrentTime()
+      })
+    },
+    submitEvaluation () {
+      updateEvaluation({ courseId: this.$route.params.id, content: this.evaluationForm.rating }).then(() => {
+        this.$message.success(`提交成功`)
+        this.evaluationDialogVisible = false
       })
     }
   },

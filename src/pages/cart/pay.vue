@@ -67,7 +67,8 @@
     <el-dialog
       title="支付"
       :visible.sync="modal3"
-      width="20%"
+      :width="width"
+      top="5vh"
       :before-close="closePayDialog"
     >
       <div>
@@ -88,9 +89,9 @@
           marginwidth="10" 
           marginheight="10" 
           scrolling="no" 
-          width="220" 
-          height="220"
-          style="overflow: hidden;"
+          width="1200" 
+          height="600"
+          style="overflow: auto;"
         >
         </iframe>
         <div>注：若二维码过期失效，请刷新页面重新进入支付！</div>
@@ -115,7 +116,7 @@ export default {
       payWayList: [],
       cartList: [],
       timer: null,
-
+      width: '400px',
 
       modal3: false,    // 是否打开支付弹窗
       payAliQRcode: '',    // 支付宝codeURL
@@ -163,8 +164,14 @@ export default {
       clearInterval(this.timer); 
 
       this.modal3 = true;
-      if(this.way === 'wechat') this.qrcode(url)
-      else this.payAliQRcode = url
+      if(this.way === 'wechat') {
+        this.width = '400px'
+        this.qrcode(url)
+      }
+      else {
+        this.width = '1300px'
+        this.payAliQRcode = url
+      }
 
       this.startTimer()
     },

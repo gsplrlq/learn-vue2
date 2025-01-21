@@ -115,6 +115,13 @@ export function getVideoAuth (data) {
 export function createStudyHistory (data) {
   return http.post('/client/studyHistory/createOrUpdate', data)
 }
+// 满意度测评
+export function createEvaluation (data) {
+  return http.post('/client/satisfactionEvaluation/create', data)
+}
+export function updateEvaluation (data) {
+  return http.post('/client/satisfactionEvaluation/update', data)
+}
 
 // 课程问答
 export function getLessonQa (data) {
