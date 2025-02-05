@@ -83,7 +83,7 @@
         <!-- 支付宝支付二维码 -->
         <iframe 
           v-if="way === 'ali'"
-          :srcdoc="payAliQRcode" 
+          :src="payAliQRcode" 
           frameborder="no" 
           border="0"
           marginwidth="10" 
@@ -91,7 +91,7 @@
           scrolling="no" 
           width="1200" 
           height="600"
-          style="overflow: auto;"
+          style="overflow: auto; pointer-events: auto;"
         >
         </iframe>
         <div>注：若二维码过期失效，请刷新页面重新进入支付！</div>
@@ -163,14 +163,16 @@ export default {
     openPay (url) {
       clearInterval(this.timer); 
 
-      this.modal3 = true;
       if(this.way === 'wechat') {
+        this.modal3 = true;
         this.width = '400px'
         this.qrcode(url)
       }
       else {
-        this.width = '1300px'
-        this.payAliQRcode = url
+        const newWindow = window.open();
+        newWindow.document.write(url);
+        // this.width = '1300px'
+        // this.payAliQRcode = url
       }
 
       this.startTimer()
