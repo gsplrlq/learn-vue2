@@ -39,16 +39,90 @@
 
     <el-dialog
       title="满意度测评"
+      top="5vh"
       :visible.sync="evaluationDialogVisible"
-      width="30%"
+      width="50%"
     >
-      <el-form :model="evaluationForm">
-        <el-form-item label="请对本课程进行评价">
-          <el-radio-group v-model="evaluationForm.rating">
-            <el-radio label="一般">一般</el-radio>
-            <el-radio label="满意">满意</el-radio>
-            <el-radio label="非常满意">非常满意</el-radio>
+      <el-form ref="form" :model="evaluationForm" label-width="420px" label-position="left" :rules="rules">
+        <el-form-item label="本次培训课程内容，符合岗位技能需求，针对性强：" prop="content1">
+          <el-radio-group v-model="evaluationForm.content1">
+            <el-radio v-for="r in ratingArr" :key="r" :label="r">{{ r }}</el-radio>
           </el-radio-group>
+        </el-form-item>
+        <el-form-item v-if="ValidityShow(evaluationForm.content1)" label="请填写理由和建议：">
+          <el-input v-model="evaluationForm.content1Suggestion" type="textarea"></el-input>
+        </el-form-item>
+
+        <el-form-item label="培训教师专业水平高，对教学内容阐述明确、具体、完整：	" prop="content2">
+          <el-radio-group v-model="evaluationForm.content2">
+            <el-radio v-for="r in ratingArr" :key="r" :label="r">{{ r }}</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item v-if="ValidityShow(evaluationForm.content2)" label="请填写理由和建议：">
+          <el-input v-model="evaluationForm.content2Suggestion" type="textarea"></el-input>
+        </el-form-item>
+
+        <el-form-item label="	实训指导教师实操技能强，实训指导方法灵活：	" prop="content3">
+          <el-radio-group v-model="evaluationForm.content3">
+            <el-radio v-for="r in ratingArr" :key="r" :label="r">{{ r }}</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item v-if="ValidityShow(evaluationForm.content3)" label="请填写理由和建议：">
+          <el-input v-model="evaluationForm.content3Suggestion" type="textarea"></el-input>
+        </el-form-item>
+
+        <el-form-item label="有与培训规模相适应的理论教室、实训场地及设施设备：	" prop="content4">
+          <el-radio-group v-model="evaluationForm.content4">
+            <el-radio v-for="r in ratingArr" :key="r" :label="r">{{ r }}</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item v-if="ValidityShow(evaluationForm.content4)" label="请填写理由和建议：">
+          <el-input v-model="evaluationForm.content4Suggestion" type="textarea"></el-input>
+        </el-form-item>
+
+        <el-form-item label="培训机构的培训过程管理工作规范，要求严格：	" prop="content5">
+          <el-radio-group v-model="evaluationForm.content5">
+            <el-radio v-for="r in ratingArr" :key="r" :label="r">{{ r }}</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item v-if="ValidityShow(evaluationForm.content5)" label="请填写理由和建议：">
+          <el-input v-model="evaluationForm.content5Suggestion" type="textarea"></el-input>
+        </el-form-item>
+
+        <el-form-item label="培训时间和培训方式安排合理：	" prop="content6">
+          <el-radio-group v-model="evaluationForm.content6">
+            <el-radio v-for="r in ratingArr" :key="r" :label="r">{{ r }}</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item v-if="ValidityShow(evaluationForm.content6)" label="请填写理由和建议：">
+          <el-input v-model="evaluationForm.content6Suggestion" type="textarea"></el-input>
+        </el-form-item>
+
+        <el-form-item label="能够按照培训计划安排的内容和课时进行教学：	" prop="content7">
+          <el-radio-group v-model="evaluationForm.content7">
+            <el-radio v-for="r in ratingArr" :key="r" :label="r">{{ r }}</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item v-if="ValidityShow(evaluationForm.content7)" label="请填写理由和建议：">
+          <el-input v-model="evaluationForm.content7Suggestion" type="textarea"></el-input>
+        </el-form-item>
+
+        <el-form-item label="	通过培训提高了技能，对你今后的工作有较大的帮助：	" prop="content8">
+          <el-radio-group v-model="evaluationForm.content8">
+            <el-radio v-for="r in ratingArr" :key="r" :label="r">{{ r }}</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item v-if="ValidityShow(evaluationForm.content8)" label="请填写理由和建议：">
+          <el-input v-model="evaluationForm.content8Suggestion" type="textarea"></el-input>
+        </el-form-item>
+
+        <el-form-item label="你对本次培训的总体评价：	" prop="content9">
+          <el-radio-group v-model="evaluationForm.content9">
+            <el-radio v-for="r in ratingArr" :key="r" :label="r">{{ r }}</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item v-if="ValidityShow(evaluationForm.content9)" label="请填写理由和建议：">
+          <el-input v-model="evaluationForm.content9Suggestion" type="textarea"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -98,8 +172,55 @@ export default {
 
       evaluationDialogVisible: false,
       evaluationForm: {
-        rating: '满意'
-      }
+        content1: "",
+        content2: "",
+        content3: "",
+        content4: "",
+        content5: "",
+        content6: "",
+        content7: "",
+        content8: "",
+        content9: "",
+        content1Suggestion: "",
+        content2Suggestion: "",
+        content3Suggestion: "",
+        content4Suggestion: "",
+        content5Suggestion: "",
+        content6Suggestion: "",
+        content7Suggestion: "",
+        content8Suggestion: "",
+        content9Suggestion: ""
+      },
+      rules: {
+        content1: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+        content2: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+        content3: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+        content4: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+        content5: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+        content6: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+        content7: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+        content8: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+        content9: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+      },
+      ratingArr: ['满意', '比较满意', '一般', '比较不满意', '不满意']
     }
   },
   methods: {
@@ -246,10 +367,17 @@ export default {
       })
     },
     submitEvaluation () {
-      updateEvaluation({ courseId: this.$route.params.id, content: this.evaluationForm.rating }).then(() => {
-        this.$message.success(`提交成功`)
-        this.evaluationDialogVisible = false
+      this.$refs['form'].validate((valid) => {
+        if (!valid) return
+
+        updateEvaluation({ courseId: this.$route.params.id, ...this.evaluationForm }).then(() => {
+          this.$message.success(`提交成功`)
+          this.evaluationDialogVisible = false
+        })
       })
+    },
+    ValidityShow (field) {
+      return field && field.includes('不满意')
     }
   },
   mounted () {
