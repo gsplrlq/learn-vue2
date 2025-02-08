@@ -111,7 +111,7 @@ export default {
         { title: '评价', componentName: 'comment' }
       ],
 
-      evaluationDialogVisible: true,
+      evaluationDialogVisible: false,
       formList,
       evaluationForm: {
         content1: "",
