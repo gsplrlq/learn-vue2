@@ -30,7 +30,7 @@
           <el-input v-model.trim="editForm.idCard" placeholder="请输入身份证号"></el-input>
         </el-form-item>
 
-        <el-form-item v-if="type === 5" label="地区" prop="addressCode">
+        <!-- <el-form-item v-if="type === 5" label="地区" prop="addressCode">
           <el-cascader
             v-model="editForm.addressCode"
             placeholder="请选择地区"
@@ -38,9 +38,9 @@
             :options="regionData"
           >
           </el-cascader>
-        </el-form-item>
-        <el-form-item v-if="type === 5" label="详细地址" prop="address">
-          <el-input v-model.trim="editForm.address" placeholder="请输入详细地址"></el-input>
+        </el-form-item> -->
+        <el-form-item v-if="type === 5" label="详细地址" prop="currentHouseholdLocation">
+          <el-input v-model.trim="editForm.currentHouseholdLocation" placeholder="请输入详细地址"></el-input>
         </el-form-item>
         <!-- <el-form-item label="微信账号" prop="wechat">
           <el-input v-model.trim="editForm.wechat" placeholder="请输入微信账号"></el-input>
@@ -95,8 +95,7 @@ export default {
         password: '',
         ckpassword: '',
         avatar: '',
-        address: '',
-        addressCode: [],
+        currentHouseholdLocation: '',
         idCard: '',
       },
       totalSecond: 60,
@@ -149,12 +148,9 @@ export default {
           ]
         }; break;
         case 5: this.rules = {
-          address: [
+          currentHouseholdLocation: [
             { required: true, message: '请输入地址', trigger: 'blur' }
           ],
-          addressCode: [
-            { required: true, message: '请选择地区', trigger: 'change' }
-          ]
         }; break;
         case 4: this.rules = {
           idCard: [
@@ -179,8 +175,7 @@ export default {
         ckpassword: '',
         avatar: this.data.avatar,
         
-        address: this.data.address,
-        addressCode: this.data.addressCode,
+        currentHouseholdLocation: this.data.currentHouseholdLocation,
         idCard: this.data.idCard,
       }
       this.$nextTick(() => {

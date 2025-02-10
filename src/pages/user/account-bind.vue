@@ -52,10 +52,10 @@
         <div class="bind-introduction">
           <p class="bind-title">
             <span class="bind-type">地址</span>
-            {{ addresscode }}
-            {{ userinfo.address }}
+            <!-- {{ addresscode }} -->
+            {{ userinfo.currentHouseholdLocation }}
           </p>
-          <p class="bind-subtitle">用户详细地址: 省市区 + 详细地址</p>
+          <p class="bind-subtitle">用户详细地址: 详细地址</p>
         </div>
         <el-button type="text" @click="handleEditClick(5)">修改</el-button>
       </dd>
