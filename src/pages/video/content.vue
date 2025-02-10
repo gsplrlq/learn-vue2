@@ -88,15 +88,15 @@ export default {
   },
   data () {
     const formList = [
-      { label: '1，本次培训课程内容，符合岗位技能需求，针对性强：', prop: 'content1', prop2: 'content1Suggestion' },
-      { label: '2，培训教师专业水平高，对教学内容阐述明确、具体、完整：', prop: 'content2', prop2: 'content2Suggestion' },
-      { label: '3，实训指导教师实操技能强，实训指导方法灵活：', prop: 'content3', prop2: 'content3Suggestion' },
-      { label: '4，有与培训规模相适应的理论教室、实训场地及设施设备：', prop: 'content4', prop2: 'content4Suggestion' },
-      { label: '5，培训机构的培训过程管理工作规范，要求严格：', prop: 'content5', prop2: 'content5Suggestion' },
-      { label: '6，培训时间和培训方式安排合理：', prop: 'content6', prop2: 'content6Suggestion' },
-      { label: '7，能够按照培训计划安排的内容和课时进行教学：', prop: 'content7', prop2: 'content7Suggestion' },
-      { label: '8，通过培训提高了技能，对你今后的工作有较大的帮助：', prop: 'content8', prop2: 'content8Suggestion' },
-      { label: '9，你对本次培训的总体评价：', prop: 'content9', prop2: 'content9Suggestion' }
+      { label: '1. 本次培训课程内容，符合岗位技能需求，针对性强：', prop: 'content1', prop2: 'content1Suggestion' },
+      { label: '2. 培训教师专业水平高，对教学内容阐述明确、具体、完整：', prop: 'content2', prop2: 'content2Suggestion' },
+      { label: '3. 实训指导教师实操技能强，实训指导方法灵活：', prop: 'content3', prop2: 'content3Suggestion' },
+      { label: '4. 有与培训规模相适应的理论教室、实训场地及设施设备：', prop: 'content4', prop2: 'content4Suggestion' },
+      { label: '5. 培训机构的培训过程管理工作规范，要求严格：', prop: 'content5', prop2: 'content5Suggestion' },
+      { label: '6. 培训时间和培训方式安排合理：', prop: 'content6', prop2: 'content6Suggestion' },
+      { label: '7. 能够按照培训计划安排的内容和课时进行教学：', prop: 'content7', prop2: 'content7Suggestion' },
+      { label: '8. 通过培训提高了技能，对你今后的工作有较大的帮助：', prop: 'content8', prop2: 'content8Suggestion' },
+      { label: '9. 你对本次培训的总体评价：', prop: 'content9', prop2: 'content9Suggestion' }
     ]
     return {
       timer: null,
