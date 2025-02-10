@@ -55,7 +55,7 @@
             <!-- {{ addresscode }} -->
             {{ userinfo.currentHouseholdLocation }}
           </p>
-          <p class="bind-subtitle">用户详细地址: 详细地址</p>
+          <p class="bind-subtitle">用户详细地址</p>
         </div>
         <el-button type="text" @click="handleEditClick(5)">修改</el-button>
       </dd>
