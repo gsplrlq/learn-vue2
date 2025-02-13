@@ -237,8 +237,13 @@ export default {
           player.on('ready', () => {
             player.seek(this.playObj.progress)
           });
+
           // 套餐付费课静止拖动
-          if(this.courseDetail.courseType === 2 && this.courseDetail.trainingPackage) {
+          // if(this.courseDetail.courseType === 2 && this.courseDetail.trainingPackage) {
+
+          // 禁止拖动
+          const flag = true
+          if(flag) {
             let lastTime = 0;
             player.on('timeupdate', () => {
               if (!player.tag.seeking) {

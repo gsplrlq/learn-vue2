@@ -51,7 +51,7 @@ export default {
     toLearn (lastest, course) {
       if(course.courseType === 2) return
 
-      this.$router.push({ path: '/video/' + course.id, query: { videoId: lastest.videoId }})
+      // this.$router.push({ path: '/video/' + course.id, query: { videoId: lastest.videoId }})
     }
   },
 }
@@ -83,7 +83,6 @@ export default {
           width: 100%;
           padding-left: 12px;
           line-height: 48px;
-          cursor: pointer;
           &.disabled
             cursor: default;
           & > p
@@ -92,15 +91,6 @@ export default {
             & > span
               &:nth-child(2)
                 flex: 1;
-          &:not(.disabled):hover
-            background-color: rgba(242,13,13,.05);
-            border-radius: 4px;
-            color: #B70005;
-            .play
-              color: #B70005;
-            .right
-              & > i
-                color: #B70005!important;
           .play
             margin-right: 8px;
             font-size: 24px;
