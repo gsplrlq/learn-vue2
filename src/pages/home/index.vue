@@ -16,6 +16,8 @@
       <!-- <Banner /> -->
     </div>
 
+    <class-list id="div0" :list="lessonData.classInfoItemList" title="班／级／推／荐" :position="0" />
+
     <!--  实战导航 -->
     <course-list id="div1" :list="lessonData.hotCourseList" title="为／你／推／荐" type="recommend" :position="0" />
 
@@ -35,6 +37,9 @@
     <div class="sidebar">
       <ul class="sidebar-list-left">
         <li class="sidebar-item">
+          <span class="sidebar-text" @click="scrollIntoView('#div0')">班／级／推／荐</span>
+        </li>
+        <li class="sidebar-item">
           <span class="sidebar-text" @click="scrollIntoView('#div1')">为／你／推／荐</span>
         </li>
         <li class="sidebar-item">
@@ -48,6 +53,7 @@
 import Nav from './nav.vue'
 // import Banner from './banner.vue'
 import CourseList from './course-list.vue'
+import ClassList from './class-list.vue'
 // import Article from './article.vue'
 // import Teacher from './teacher.vue'
 // import Student from './student.vue'
@@ -63,6 +69,7 @@ export default {
       articleList: {},
       currentSwiper: '',
       lessonData: {
+        classInfoItemList: [],
         hotCourseList: [],
         newCourseList: []
       }
@@ -102,6 +109,30 @@ export default {
       getHomeCourse().then(res => {
         let { data } = res
         this.lessonData = data
+        this.lessonData.classInfoItemList = [
+      {
+				"id": 0,
+				"name": "1班",
+				"workType": "",
+				"workLevel": "",
+				"teacherName": "",
+				"classSize": 10,
+				"sourceType": 0,
+				"courseName": "444",
+				"courseId": 0
+			},
+      {
+				"id": 0,
+				"name": "2班",
+				"workType": "",
+				"workLevel": "",
+				"teacherName": "",
+				"classSize": 0,
+				"sourceType": 20,
+				"courseName": "3333",
+				"courseId": 0
+			}
+    ]
       }).catch(() => {
         this.lessonData = {}
       })
@@ -123,6 +154,7 @@ export default {
     Nav,
     // Banner,
     CourseList,
+    ClassList
     // Article,
     // Teacher,
     // Student

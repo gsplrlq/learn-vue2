@@ -27,6 +27,7 @@
 
     <!-- 课程列表 -->
     <course-list v-if="list.length" class="course-list" :list="list" />
+    <el-empty v-else />
   </div>
 </template>
 <script>

@@ -4,7 +4,7 @@
     <lesson-search :title.sync="title" />
 
     <!-- 导航 -->
-    <lesson-nav :list="navList" :params.sync="params" />
+    <!-- <lesson-nav :list="navList" :params.sync="params" /> -->
 
     <!-- 列表 -->
     <lesson-list :list="lessonList" :sort.sync="sort" @change="getLessonListData" />
@@ -15,7 +15,7 @@
 </template>
 <script>
 import LessonSearch from './search.vue'
-import LessonNav from './nav.vue'
+// import LessonNav from './nav.vue'
 import LessonList from './list.vue'
 // import Pagination from 'components/pagination/pagination.vue'
 import { getExamList } from 'api'
@@ -61,7 +61,7 @@ export default {
     getLessonListData () {
       const params = {
         name: this.title,
-        examType: this.params.category,
+        // examType: this.params.category,
         page: {
           size: this.size,
           current: this.page,
@@ -70,8 +70,8 @@ export default {
       }
       getExamList(params).then(res => {
         let { data } = res
-        this.lessonList = data
-        this.total = data.length
+        this.lessonList = data.records
+        this.total = data.records.length
       }).catch(() => {
         this.lessonList = []
         this.total = 0
@@ -90,7 +90,7 @@ export default {
   },
   components: {
     LessonSearch,
-    LessonNav,
+    // LessonNav,
     LessonList,
     // Pagination
   }

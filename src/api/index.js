@@ -185,7 +185,7 @@ export function getTrainDetail (id) {
 
 // 在线考试
 export function getExamList (data) {
-  return http.post('/client/examInfo/userExamList', data)
+  return http.post('/client/examInfo/page', data)
 }
 export function getExamDetail (id) {
   return http.get(`/client/examInfo/startExam/${id}`)

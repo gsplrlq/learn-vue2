@@ -13,7 +13,7 @@
         </div>
         
         <div class="content">
-          <div v-if="item.openingTime" class="time">时间：{{ item.openingTime }} 至 {{ item.closeTime }}</div>
+          <!-- <div v-if="item.openingTime" class="time">时间：{{ item.openingTime }} 至 {{ item.closeTime }}</div> -->
           <div class="time">
             <span>时长：{{ item.duration }} 分钟</span>
           </div>
@@ -28,6 +28,9 @@
 
         <div v-if="item.examType == 'trainingPackage'" class="trainingPackage">
           所属套餐: {{ item.trainingPackageName }}
+        </div>
+        <div v-if="item.courseName" class="trainingPackage">
+          所属课程: {{ item.courseName }}
         </div>
 
         <div v-if="item.examFlag == 'yes'" class="btn" @click="handleLessonClick(item)">开始考试</div>
