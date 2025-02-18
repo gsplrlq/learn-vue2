@@ -196,3 +196,11 @@ export function putExam (data) {
 export function getExamResult (id) {
   return http.get(`/client/userExam/details/${id}`)
 }
+
+// 签到
+export function getSignIn (trainingCourseId) {
+  return http.get(`/client/offlineTrainingCourse/detail/${trainingCourseId}`)
+}
+export function submitSignIn (data) {
+  return http.post('/client/offlineTrainingCourse/submit', data)
+}
