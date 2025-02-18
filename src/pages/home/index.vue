@@ -109,30 +109,6 @@ export default {
       getHomeCourse().then(res => {
         let { data } = res
         this.lessonData = data
-        this.lessonData.classInfoItemList = [
-      {
-				"id": 0,
-				"name": "1班",
-				"workType": "",
-				"workLevel": "",
-				"teacherName": "",
-				"classSize": 10,
-				"sourceType": 0,
-				"courseName": "444",
-				"courseId": 0
-			},
-      {
-				"id": 0,
-				"name": "2班",
-				"workType": "",
-				"workLevel": "",
-				"teacherName": "",
-				"classSize": 0,
-				"sourceType": 20,
-				"courseName": "3333",
-				"courseId": 0
-			}
-    ]
       }).catch(() => {
         this.lessonData = {}
       })

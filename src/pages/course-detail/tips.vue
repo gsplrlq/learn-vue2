@@ -22,7 +22,7 @@
         <div class="tips-btn">点击购买</div>
       </router-link>
     </template>
-    <router-link v-else :to="{ path: '/video/' + lastest.id, query: { videoId: lastest.videoId }}">
+    <router-link v-else :to="{ path: '/video/' + lastest.id, query: { videoId: lastest.videoId, class: $route.query.class }}">
       <div class="tips-btn">
         {{ lastest.hasStudy ? '继续学习' : '开始学习' }}
       </div>

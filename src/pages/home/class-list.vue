@@ -10,10 +10,14 @@
     <!-- 列表 -->
     <template v-if="list.length">
       <el-row :gutter="12">
-        <el-col v-for="(course, index) in list" :key="index" :span="6" @click="handleCourseClick(course)">
+        <el-col v-for="(course, index) in list" :key="index" :span="6">
           <el-card class="course-item">
-            <h3>{{ course.name }}</h3>
-            <p>人数: {{ course.classSize }}</p>
+            <div slot="header" class="clearfix">
+              <span>{{ course.name }}</span>
+              <el-button style="float: right; padding: 3px 0" type="text" @click="handleCourseClick(course)">查看详情</el-button>
+            </div>
+            <p>班主任: {{ course.teacherName }}</p>
+            <p>班级人数: {{ course.classSize }}</p>
             <p>课程名称: {{ course.courseName }}</p>
           </el-card>
         </el-col>
@@ -60,4 +64,6 @@ export default {
   @import '~assets/stylus/mixin.styl';
   .course-list-container
     padding: 25px 0;
+    .course-item
+     cursor pointer
 </style>
