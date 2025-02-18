@@ -31,9 +31,9 @@ import { getSignIn, submitSignIn } from 'api';
 export default {
   data () {
     return {
-      courseName: '22',
-      trainingCourseName: '11',
-      phoneNumber: '33',
+      courseName: '',
+      trainingCourseName: '',
+      phoneNumber: '',
       success: false
     };
   },
