@@ -27,6 +27,11 @@
         {{ lastest.hasStudy ? '继续学习' : '开始学习' }}
       </div>
     </router-link>
+    <router-link v-if="lastest.allFinished" :to="{ path: '/exam' }">
+      <div class="tips-btn" style="margin-top: 20px;">
+        考试预约
+      </div>
+    </router-link>
     
 
     <!-- 课程须知 -->
