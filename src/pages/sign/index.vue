@@ -72,14 +72,17 @@ h1 {
 }
 
 .form-group {
-  text-align: center;
+  /* text-align: center; */
   margin-bottom: 15px;
-  font-size: 20px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
 }
 
 label {
   display: block;
   margin-bottom: 5px;
+  width: 120px;
 }
 
 input {

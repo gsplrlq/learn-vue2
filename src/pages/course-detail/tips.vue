@@ -22,11 +22,10 @@
         <div class="tips-btn">点击购买</div>
       </router-link>
     </template>
-    <router-link v-else :to="{ path: '/video/' + lastest.id, query: { videoId: lastest.videoId, class: $route.query.class }}">
-      <div class="tips-btn">
-        {{ lastest.hasStudy ? '继续学习' : '开始学习' }}
-      </div>
-    </router-link>
+    
+    <div v-else class="tips-btn" @click="handleClick">
+      {{ lastest.hasStudy ? '继续学习' : '开始学习' }}
+    </div>
     <router-link v-if="lastest.allFinished" :to="{ path: '/exam' }">
       <div class="tips-btn" style="margin-top: 20px;">
         考试预约
@@ -64,6 +63,17 @@ export default {
       default () {
         return {}
       }
+    }
+  },
+  methods: {
+    handleClick () {
+      if(!this.lastest.videoId) {
+        return this.$message.error('暂无视频')
+      }
+      if(!this.lastest.classId) {
+        return this.$message.error('您未加入当前课程所在班级，请联系管理员。')
+      }
+      this.$router.push(`/video/${this.lastest.id}?videoId=${this.lastest.videoId}&class=${this.$route.query.class}`)
     }
   }
 }

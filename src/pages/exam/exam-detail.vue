@@ -36,19 +36,117 @@
         </div>
       </template>
     </div>
+
+    <el-dialog
+      title="满意度测评"
+      top="5vh"
+      :visible.sync="evaluationDialogVisible"
+      width="1000px"
+    > 
+      <el-form ref="form" :model="evaluationForm" label-width="420px" label-position="left" :rules="rules">
+        <div v-for="item in formList" :key="item.prop">
+          <el-form-item :label="item.label" :prop="item.prop">
+            <el-radio-group v-model="evaluationForm[item.prop]" @change="contentChange(evaluationForm[item.prop], item.prop2)">
+              <el-radio v-for="r in ratingArr" :key="r" :label="r">{{ r }}</el-radio>
+            </el-radio-group>
+          </el-form-item>
+          <el-form-item v-if="ValidityShow(evaluationForm[item.prop])" :label="`请填写理由和建议：`" :prop="item.prop2">
+            <el-input v-model="evaluationForm[item.prop2]" type="textarea"></el-input>
+          </el-form-item>
+        </div>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <!-- <el-button @click="evaluationDialogVisible = false">取消</el-button> -->
+        <el-button type="primary" @click="submitEvaluation">提交</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 <script>
-import { getExamDetail, putExam } from 'api'
+import { getExamDetail, putExam, updateEvaluation } from 'api'
 export default {
   name: 'ExamDetail',
   data () {
+    const formList = [
+      { label: '1. 本次培训课程内容，符合岗位技能需求，针对性强：', prop: 'content1', prop2: 'content1Suggestion' },
+      { label: '2. 培训教师专业水平高，对教学内容阐述明确、具体、完整：', prop: 'content2', prop2: 'content2Suggestion' },
+      { label: '3. 实训指导教师实操技能强，实训指导方法灵活：', prop: 'content3', prop2: 'content3Suggestion' },
+      { label: '4. 有与培训规模相适应的理论教室、实训场地及设施设备：', prop: 'content4', prop2: 'content4Suggestion' },
+      { label: '5. 培训机构的培训过程管理工作规范，要求严格：', prop: 'content5', prop2: 'content5Suggestion' },
+      { label: '6. 培训时间和培训方式安排合理：', prop: 'content6', prop2: 'content6Suggestion' },
+      { label: '7. 能够按照培训计划安排的内容和课时进行教学：', prop: 'content7', prop2: 'content7Suggestion' },
+      { label: '8. 通过培训提高了技能，对你今后的工作有较大的帮助：', prop: 'content8', prop2: 'content8Suggestion' },
+      { label: '9. 你对本次培训的总体评价：', prop: 'content9', prop2: 'content9Suggestion' }
+    ]
     return {
       examData: {},
       form: {},
       durationTime: 0,
       timer: null,
-      result: null
+      result: null,
+
+      evaluationDialogVisible: false,
+      formList,
+      evaluationForm: {
+        content1: "",
+        content2: "",
+        content3: "",
+        content4: "",
+        content5: "",
+        content6: "",
+        content7: "",
+        content8: "",
+        content9: "",
+        content1Suggestion: "",
+        content2Suggestion: "",
+        content3Suggestion: "",
+        content4Suggestion: "",
+        content5Suggestion: "",
+        content6Suggestion: "",
+        content7Suggestion: "",
+        content8Suggestion: "",
+        content9Suggestion: ""
+      },
+      rules: {
+        content1: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+        content2: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+        content3: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+        content4: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+        content5: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+        content6: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+        content7: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+        content8: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+        content9: [
+          { required: true, message: '请选择评价', trigger: 'change' }
+        ],
+        
+        content1Suggestion: [],
+        content2Suggestion: [],
+        content3Suggestion: [],
+        content4Suggestion: [],
+        content5Suggestion: [],
+        content6Suggestion: [],
+        content7Suggestion: [],
+        content8Suggestion: [],
+        content9Suggestion: []
+      },
+      ratingArr: ['满意', '比较满意', '一般', '比较不满意', '不满意']
     }
   },
   mounted () {
@@ -66,6 +164,18 @@ export default {
           this.durationTime = this.examData.duration * 60
           this.startTimer()
         }
+
+        // 满意度测评
+        if (!this.examData.hasEvaluation) {
+          // 满意度测评
+          this.createEvaluation({ courseId: this.examData.courseId })
+
+          // 弹框进行满意度测评
+          this.evaluationDialogVisible = true
+
+          this.examData.hasEvaluation = true
+        }
+
       }).catch (() => {
         this.examData = {}
       })
@@ -136,6 +246,31 @@ export default {
     },
     toDetail () {
       this.$router.replace({ path: "/exam/res/" + this.result.id})
+    },
+
+    submitEvaluation () {
+      this.$refs['form'].validate((valid) => {
+        if (!valid) return
+
+        updateEvaluation({ courseId: this.examData.courseId, ...this.evaluationForm }).then(() => {
+          this.$message.success(`提交成功`)
+          this.evaluationDialogVisible = false
+        })
+      })
+    },
+    ValidityShow (field) {
+      return field && field.includes('不满意')
+    },
+    contentChange (val, prop) {
+      this.evaluationForm[prop] = ''
+
+      if (val && val.includes('不满意')) {
+        this.rules[prop] = [
+          { required: true, message: '请填写理由和建议', trigger: 'change' }
+        ]
+      } else {
+        this.rules[prop] = []
+      }
     }
   },
   components: {

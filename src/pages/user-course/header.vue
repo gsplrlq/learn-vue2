@@ -13,6 +13,9 @@
             <!-- <span>{{ userInfo.sex === 'male' ? '男' : '女' }}</span> -->
             <span>{{ userInfo.mobile }}</span>
           </p>
+          <p v-if="userInfo.institutionInfo" class="other">
+            机构名称：{{ userInfo.institutionInfo.institutionName }}
+          </p>
         </div>
       </div>
       <div class="right">
@@ -79,6 +82,7 @@ export default {
         width: 140px;
         height: 140px;
         border-radius: 50%;
+        background: #fff;
         box-sizing: border-box;
         border: 4px solid #fff;
         & > img
@@ -94,7 +98,7 @@ export default {
           color: #fff;
           font-weight: 600;
         .other
-          margin-top: 6px;
+          margin-top: 15px;
           font-size: 14px;
           color: #fff;
           & > span

@@ -220,7 +220,14 @@ export default {
             if (index === -1) {
               return;
             }
-            if (index === this.videoList.length - 1 && !this.courseDetail.hasEvaluation) {
+
+            if (index === this.videoList.length - 1) {
+              this.createHistory()
+            }
+            
+            // if (index === this.videoList.length - 1 && !this.courseDetail.hasEvaluation) {
+            const f = false
+            if (f) {
               // 满意度测评
               createEvaluation({ courseId: this.$route.params.id })
 
@@ -350,6 +357,9 @@ export default {
     }
   },
   mounted () {
+    if(!this.$route.query.videoId) {
+      return this.$message.error('视频异常，无法播放，请联系管理员')
+    }
     this.getChapter()
   },
   destroyed () {
