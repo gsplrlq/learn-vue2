@@ -20,7 +20,7 @@
             </p>
             <p class="learn">
               <span class="rate">已学 {{ item.percent || 0 }}%</span>
-              <span class="duration">用时 {{ getTime(item) }}小时</span>
+              <span class="duration">用时 {{ getTime(item) }}</span>
               <span v-if="item.chapterTitle" class="chapter">学习至 {{ item.chapterTitle }}</span>
             </p>
             <p class="other">
@@ -99,7 +99,9 @@ export default {
       return ((item.progress / item.duration) * 100).toFixed(2)
     },
     getTime (item) {
-      return (item.progress / 3600).toFixed(0)
+      const hours = Math.floor(item.progress / 3600);
+      const minutes = Math.floor((item.progress % 3600) / 60);
+      return `${hours}小时${minutes}分钟`;
     },
     goCourse (item) {
       this.$router.push({ path: '/course/' + item.id })

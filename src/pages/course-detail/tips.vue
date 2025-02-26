@@ -70,7 +70,7 @@ export default {
       if(!this.lastest.videoId) {
         return this.$message.error('暂无视频')
       }
-      if(!this.lastest.classId) {
+      if(this.lastest.publicType === 0 && !this.lastest.classId) {
         return this.$message.error('您未加入当前课程所在班级，请联系管理员。')
       }
       this.$router.push(`/video/${this.lastest.id}?videoId=${this.lastest.videoId}&class=${this.$route.query.class}`)
