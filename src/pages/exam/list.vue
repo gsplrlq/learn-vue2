@@ -32,8 +32,13 @@
         <div v-if="item.courseName" class="trainingPackage">
           所属课程: {{ item.courseName }}
         </div>
-
-        <div v-if="item.examFlag == 'yes'" class="btn" @click="handleLessonClick(item)">开始考试</div>
+        
+        <template v-if="item.passFlag">
+          <div class="right">
+            <div class="btn pass">考试已通过</div>
+          </div>
+        </template>
+        <div v-else-if="item.examFlag == 'yes'" class="btn" @click="handleLessonClick(item)">开始考试</div>
         <template v-else>
           <div class="right">
             <div class="btn unable">无法考试</div>
@@ -140,6 +145,10 @@ export default {
 .list-item .btn.unable {
   background-color: #c8c9cc;
   cursor: not-allowed;
+}
+.list-item .btn.pass {
+  background-color: green;
+  cursor: default;
 }
 .list-item .time {
   font-size: 14px;

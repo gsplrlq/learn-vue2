@@ -63,7 +63,7 @@
   </div>
 </template>
 <script>
-import { getExamDetail, putExam, updateEvaluation } from 'api'
+import { getExamDetail, putExam, createEvaluation, updateEvaluation } from 'api'
 export default {
   name: 'ExamDetail',
   data () {
@@ -168,7 +168,7 @@ export default {
         // 满意度测评
         if (!this.examData.hasEvaluation) {
           // 满意度测评
-          this.createEvaluation({ courseId: this.examData.courseId })
+          createEvaluation({ courseId: this.examData.courseId })
 
           // 弹框进行满意度测评
           this.evaluationDialogVisible = true
