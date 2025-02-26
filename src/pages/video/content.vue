@@ -324,11 +324,11 @@ export default {
     },
     createHistory () {
       createStudyHistory({
-        "courseId": this.$route.params.id,
+        "courseId": Number(this.$route.params.id),
         "chapterId": this.playObj.id,
         "fileId": this.playObj.fileId,
         "progress": this.player.getCurrentTime(),
-        "classId": this.$route.query.class
+        "classId": Number(this.$route.query.class) || null
       })
     },
     submitEvaluation () {
