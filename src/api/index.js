@@ -103,6 +103,10 @@ export function getLessonList (data) {
 export function getLessonDetail (id) {
   return http.get(`public/client/course/details/${id}`)
 }
+// 加入班级
+export function joinClass (data) {
+  return http.post(`client/classUserInfo/joinClass`, data)
+}
 // 课程章节
 export function getLessonChapter (data) {
   return http.post('/client/chapter/list', data)

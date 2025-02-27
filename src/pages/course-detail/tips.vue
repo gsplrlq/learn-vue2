@@ -56,6 +56,7 @@
   </div>
 </template>
 <script>
+import { joinClass } from 'api'
 export default {
   props: {
     lastest: {
@@ -70,10 +71,16 @@ export default {
       if(!this.lastest.videoId) {
         return this.$message.error('暂无视频')
       }
-      if(this.lastest.publicType === 0 && !this.lastest.classId) {
-        return this.$message.error('您未加入当前课程所在班级，请联系管理员。')
+      if(!this.lastest.classId) {
+        joinClass({ courseId: this.lastest.id }).then((res) => {
+          this.$message.success('加入班级成功')
+          this.$router.push(`/video/${this.lastest.id}?videoId=${this.lastest.videoId}&class=${res.data}`)
+        })
+        // return this.$message.error('您未加入当前课程所在班级，请联系管理员。')
+      } else {
+
+        this.$router.push(`/video/${this.lastest.id}?videoId=${this.lastest.videoId}&class=${this.lastest.classId}`)
       }
-      this.$router.push(`/video/${this.lastest.id}?videoId=${this.lastest.videoId}&class=${this.lastest.classId}`)
     }
   }
 }
