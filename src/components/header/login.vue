@@ -169,6 +169,7 @@ export default {
       this.logout().then(() => {
         this.showUserInfo = false
         this.$router.push('/home')
+        location.reload()
       }).catch(() => {
         this.$message.error('退出登录失败')
       })

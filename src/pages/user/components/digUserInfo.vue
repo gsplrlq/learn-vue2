@@ -243,6 +243,7 @@ export default {
           setTimeout(() => {
             this.logout()
             this.$router.replace('/home')
+            location.reload()
             this.showLogin(true)
           }, 500)
         }

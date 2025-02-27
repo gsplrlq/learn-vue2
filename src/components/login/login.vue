@@ -178,6 +178,7 @@ export default {
         this.setUserInfo(data)
         // 关闭弹窗
         this.setShowLogin(false)
+        location.reload()
       }).catch(() => {
         this.isLoading = false
       })
