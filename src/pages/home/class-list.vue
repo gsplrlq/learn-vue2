@@ -11,7 +11,7 @@
     <template v-if="list.length">
       <el-row :gutter="12">
         <el-col v-for="(course, index) in list" :key="index" :span="6">
-          <el-card class="course-item">
+          <el-card class="course-item" shadow="hover">
             <div slot="header" class="clearfix">
               <span>{{ course.name }}</span>
               <el-button style="float: right; padding: 3px 0" type="text" @click="handleCourseClick(course)">查看详情</el-button>
