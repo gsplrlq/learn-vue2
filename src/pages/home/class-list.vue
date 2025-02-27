@@ -16,9 +16,17 @@
               <span>{{ course.name }}</span>
               <el-button style="float: right; padding: 3px 0" type="text" @click="handleCourseClick(course)">查看详情</el-button>
             </div>
-            <p>班主任: {{ course.teacherName }}</p>
-            <p>班级人数: {{ course.classSize }}</p>
-            <p>课程名称: {{ course.courseName }}</p>
+            <div class="flex" style="display: flex;">
+              <img
+                src="https://iconfont.alicdn.com/p/illus/preview_image/YRtGHXZOsjwu/6af62e6b-87f8-42ba-8d7f-b8c33b3a8830.png"
+                style="height: 45px; margin-right: 10px;"
+              />
+              <div>
+                <p>班主任: {{ course.teacherName }}</p>
+                <p>人数: {{ course.classSize }}</p>
+                <p>课程: {{ course.courseName }}</p>
+              </div>
+            </div>
           </el-card>
         </el-col>
       </el-row>
