@@ -290,7 +290,7 @@ export default {
       this.player.dispose(); //销毁
 
       this.$nextTick(() => {
-        this.$router.push({ path: this.$route.path, query: { videoId: video.videoId} })
+        this.$router.push({ path: this.$route.path, query: { videoId: video.videoId, class: this.$route.query.class} })
         this.getVideo();
       });
     },

@@ -18,6 +18,9 @@
             <p class="title">
               {{ item.title }}
             </p>
+            <p class="institution">
+              机构：{{ item.institutionName }}
+            </p>
             <p class="learn">
               <span class="rate">已学 {{ item.percent || 0 }}%</span>
               <span class="duration">用时 {{ getTime(item) }}</span>
@@ -146,6 +149,7 @@ export default {
       padding: 30px 0;
       border-bottom: 1px solid #eff1f0;
       cursor: pointer;
+      position relative;
       &:last-child
         border-bottom: none;
       .img-box
@@ -159,17 +163,22 @@ export default {
       .course-content
         flex: 1;
         margin-left: 30px;
+        .institution
+          font-size: 14px;
+          color: #787d82;
+          margin-bottom: 10px;
         .title
           font-size: 18px;
           font-weight: 700;
           line-height: 30px;
+          margin-bottom: 15px;
           .status
             float: right;
             margin-right: 25px;
             font-size: 14px;
             color: #787d82;
         .learn
-          padding: 10px 0 22px;
+          padding: 10px 0;
           & > span
             display: inline-block;
             vertical-align: middle;
@@ -182,6 +191,9 @@ export default {
             &.rate
               color: #B70005;
         .other
+          position: absolute;
+          right: 0;
+          bottom: 30px;
           & > span
             margin-right: 100px;
             display: inline-block;

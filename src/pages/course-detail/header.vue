@@ -14,6 +14,7 @@
         <h2 class="title">
           {{ base.title }}
         </h2>
+        <div class="institution">机构：{{ base.institutionName }}</div>
         <div class="overview" :title="base.courseDesc">{{ base.courseDesc }}</div>
         <div v-if="base.teacherInfo" class="information">
           <div class="teacher">
@@ -87,6 +88,11 @@ export default {
           font-size: 32px;
           color: #fff;
           line-height: 48px;
+        .institution
+          color: #fff;
+          font-size: 18px;
+          line-height: 24px;
+          margin-bottom: 8px;
         .overview
           color: rgba(255,255,255,0.8);
           font-size: 14px;

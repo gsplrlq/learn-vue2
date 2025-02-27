@@ -6,9 +6,9 @@
           <div class="info first">
             <h2 class="title">
               {{ item.examName }} 
-              <el-tag :type="getType(item)" size="small">{{ item.examType === 'trainingPackage' ? '套餐' : '公开' }}</el-tag>
+              <!-- <el-tag :type="getType(item)" size="small">{{ item.examType === 'trainingPackage' ? '套餐' : '公开' }}</el-tag> -->
             </h2>
-            <div v-if="item.trainingPackageName" class="plan">所属套餐: {{ item.trainingPackageName }}</div>
+            <!-- <div v-if="item.trainingPackageName" class="plan">所属套餐: {{ item.trainingPackageName }}</div> -->
           </div>
 
           <div class="info">
