@@ -73,5 +73,5 @@ export default {
   .course-list-container
     padding: 25px 0;
     .course-item
-     cursor pointer
+     cursor default
 </style>
