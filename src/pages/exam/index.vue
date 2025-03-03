@@ -18,7 +18,7 @@ import LessonSearch from './search.vue'
 // import LessonNav from './nav.vue'
 import LessonList from './list.vue'
 // import Pagination from 'components/pagination/pagination.vue'
-import { getExamList } from 'api'
+import { getExamList, getInformationCollStatus } from 'api'
 export default {
   data () {
     return {
@@ -49,6 +49,18 @@ export default {
     }
   },
   mounted () {
+    getInformationCollStatus().then(res => {
+      if(!res.data) {
+        this.$confirm('用户信息不完善, 是否跳转并完善用户信息?', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+          }).then(() => {
+            this.$router.push({ path: '/user' })
+          }).catch(() => {         
+          });
+      }
+    })
     this.getLessonListData()
   },
   methods: {

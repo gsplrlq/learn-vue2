@@ -14,7 +14,7 @@
           <i class="iconfont">&#xe600;</i>编辑
         </mooc-button> -->
       </dt>
-      <dd class="bind-item">
+      <!-- <dd class="bind-item">
         <i class="el-icon el-icon-user"></i>
         <div class="bind-introduction">
           <p class="bind-title">
@@ -24,7 +24,7 @@
           <p class="bind-subtitle">用户昵称</p>
         </div>
         <el-button type="text" @click="handleEditClick(1)">修改</el-button>
-      </dd>
+      </dd> -->
       <dd class="bind-item">
         <i class="iconfont">&#xe61a;</i>
         <div class="bind-introduction">
@@ -36,7 +36,7 @@
         </div>
         <el-button type="text" @click="handleEditClick(2)">修改</el-button>
       </dd>
-      <dd class="bind-item">
+      <!-- <dd class="bind-item">
         <i class="el-icon el-icon-postcard"></i>
         <div class="bind-introduction">
           <p class="bind-title">
@@ -52,13 +52,12 @@
         <div class="bind-introduction">
           <p class="bind-title">
             <span class="bind-type">地址</span>
-            <!-- {{ addresscode }} -->
             {{ userinfo.currentHouseholdLocation }}
           </p>
           <p class="bind-subtitle">用户详细地址</p>
         </div>
         <el-button type="text" @click="handleEditClick(5)">修改</el-button>
-      </dd>
+      </dd> -->
       <dd class="bind-item">
         <i class="iconfont">&#xe61e;</i>
         <div class="bind-introduction">
@@ -68,6 +67,16 @@
           <p class="bind-subtitle">用于保护账号信息和登录安全</p>
         </div>
         <el-button type="text" @click="handleEditClick(3)">修改</el-button>
+      </dd>
+      <dd class="bind-item">
+        <i class="iconfont">&#xe61e;</i>
+        <div class="bind-introduction">
+          <p class="bind-title">
+            <span class="bind-type">个人资料</span>
+          </p>
+          <p class="bind-subtitle">完整的个人资料信息, 参加考试前需完善资料</p>
+        </div>
+        <el-button type="text" @click="openUserInfo">去完善</el-button>
       </dd>
       <!-- <dd class="bind-item">
         <i class="iconfont">&#xe646;</i>
@@ -82,11 +91,14 @@
     </dl>
 
     <UserInfo ref="userInfo" :data="userinfo"></UserInfo>
+    <UserInfoAll ref="userInfoAll" :data="userinfo"></UserInfoAll>
+
   </div>
 </template>
 <script>
 import { codeToText } from 'element-china-area-data'
 import UserInfo from "./components/digUserInfo.vue";
+import UserInfoAll from "./components/UserInfoAll.vue";
 export default {
   props: {
     userinfo: {
@@ -94,7 +106,8 @@ export default {
     }
   },
   components: {
-    UserInfo
+    UserInfo,
+    UserInfoAll
   },
   data () {
     return {
@@ -128,6 +141,9 @@ export default {
     handleEditClick (type) {
       this.$refs.userInfo.open(type)
     },
+    openUserInfo () {
+      this.$refs.userInfoAll.open()
+    }
   },
   beforeDestroy () {
     clearTimeout(this.timer)

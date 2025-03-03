@@ -27,7 +27,14 @@ export function userRegister (data) {
 export function getUserInfo () {
   return http.get('/client/user/user/getUserInfo')
 }
+export function getSelfInfo () {
+  return http.get('/client/user/user/getSelfInfo')
+}
 // 编辑账号绑定信息
+export function updateUser (data) {
+  return http.post('/client/user/user/update', data)
+}
+
 export function updateUserAvatar (data) {
   return http.post('/client/user/user/updateAttr', data)
 }
@@ -46,6 +53,7 @@ export function updateUserIdCard (data) {
 export function updateUserAddress (data) {
   return http.post('/client/user/user/updateAddress', data)
 }
+
 
 
 // 获取用户课程信息接口
@@ -199,6 +207,9 @@ export function putExam (data) {
 }
 export function getExamResult (id) {
   return http.get(`/client/userExam/details/${id}`)
+}
+export function getInformationCollStatus () {
+  return http.get('/client/user/user/getInformationCollStatus')
 }
 
 // 签到
