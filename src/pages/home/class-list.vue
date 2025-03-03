@@ -18,7 +18,7 @@
             </div>
             <div class="flex" style="display: flex;">
               <img
-                src="https://iconfont.alicdn.com/p/illus/preview_image/YRtGHXZOsjwu/6af62e6b-87f8-42ba-8d7f-b8c33b3a8830.png"
+                src="@/assets/images/class_bg.png"
                 style="height: 45px; margin-right: 10px;"
               />
               <div>
