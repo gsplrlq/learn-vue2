@@ -36,8 +36,13 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="户籍类型" prop="householdRegistrationType">
-              <el-input v-model.trim="editForm.householdRegistrationType" placeholder="请输入户籍类型"></el-input>
+            <el-form-item label="户籍性质" prop="householdRegistrationType">
+              <el-select v-model="editForm.householdRegistrationType" style="width: 100%;" placeholder="请选择户籍性质">
+                <el-option label="本市农村" value="本市农村"></el-option>
+                <el-option label="本市城镇" value="本市城镇"></el-option>
+                <el-option label="外省农村" value="外省农村"></el-option>
+                <el-option label="外省城镇" value="外省城镇"></el-option>
+              </el-select>
             </el-form-item>
           </el-col>
 
@@ -55,7 +60,19 @@
           
           <el-col :span="12">
             <el-form-item label="学历" prop="education">
-              <el-input v-model.trim="editForm.education" placeholder="请输入学历"></el-input>
+              <el-select v-model="editForm.education" style="width: 100%;" placeholder="请选择学历">
+                <el-option label="初中" value="初中"></el-option>
+                <el-option label="高中" value="高中"></el-option>
+                <el-option label="中专" value="中专"></el-option>
+                <el-option label="中技" value="中技"></el-option>
+                <el-option label="大专" value="大专"></el-option>
+                <el-option label="本科" value="本科"></el-option>
+                <el-option label="硕士" value="硕士"></el-option>
+                <el-option label="博士" value="博士"></el-option>
+                <el-option label="博士后" value="博士后"></el-option>
+                <el-option label="MBA" value="MBA"></el-option>
+                <el-option label="EMBA" value="EMBA"></el-option>
+              </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="12">
@@ -63,7 +80,20 @@
               <el-input v-model.trim="editForm.graduationSchool" placeholder="请输入毕业院校"></el-input>
             </el-form-item>
           </el-col>
-          
+
+          <!-- <el-col :span="12">
+            <el-form-item label="证件类型" prop="idCardType">
+              <el-select v-model="editForm.idCardType" placeholder="请选择证件类型">
+                <el-option label="身份证" value="身份证"></el-option>
+                <el-option label="港澳居民来往内地通行证" value="港澳居民来往内地通行证"></el-option>
+                <el-option label="台湾居民来往内地通行证" value="台湾居民来往内地通行证"></el-option>
+                <el-option label="港澳居民居住证" value="港澳居民居住证"></el-option>
+                <el-option label="台湾居民居住证" value="台湾居民居住证"></el-option>
+                <el-option label="其他" value="其他"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col> -->
+
           <el-col :span="12">
             <el-form-item label="专业" prop="major">
               <el-input v-model.trim="editForm.major" placeholder="请输入专业"></el-input>
@@ -71,7 +101,22 @@
           </el-col>
           <el-col :span="12">
             <el-form-item label="人员类别" prop="personnelCategory">
-              <el-input v-model.trim="editForm.personnelCategory" placeholder="请输入人员类别"></el-input>
+              <el-select v-model="editForm.personnelCategory" style="width: 100%;" placeholder="请选择人员类别">
+                <el-option label="在职人员" value="在职人员"></el-option>
+                <el-option label="就业援助对象" value="就业援助对象"></el-option>
+                <el-option label="高校毕业生" value="高校毕业生"></el-option>
+                <el-option label="应届高校毕业生" value="应届高校毕业生"></el-option>
+                <el-option label="残疾人" value="残疾人"></el-option>
+                <el-option label="退役军人" value="退役军人"></el-option>
+                <el-option label="失业人员" value="失业人员"></el-option>
+                <el-option label="青年失业者" value="青年失业者"></el-option>
+                <el-option label="去产能、纾解外迁或长期停产停工人员" value="去产能、纾解外迁或长期停产停工人员"></el-option>
+                <el-option label="来京务工人员" value="来京务工人员"></el-option>
+                <el-option label="转业干部、退役军人、随军家属等优抚人" value="转业干部、退役军人、随军家属等优抚人"></el-option>
+                <el-option label="银发人员（退休人员）" value="银发人员（退休人员）"></el-option>
+                <el-option label="低收入农户" value="低收入农户"></el-option>
+                <el-option label="其他" value="其他"></el-option>
+              </el-select>
             </el-form-item>
           </el-col>
 
@@ -82,7 +127,7 @@
           </el-col>
           <el-col :span="12">
             <el-form-item label="是否有证书" prop="whetherCertificate">
-              <el-radio-group v-model="editForm.whetherCertificate">
+              <el-radio-group v-model="editForm.whetherCertificate" @change="editForm.certificateLevel = editForm.vocationalCertificate = editForm.certificateType = ''; $refs.editForm.clearValidate(['vocationalCertificate','certificateLevel','certificateType'])">
                 <el-radio label="是">是</el-radio>
                 <el-radio label="否">否</el-radio>
               </el-radio-group>
@@ -96,7 +141,13 @@
           </el-col>
           <el-col :span="12">
             <el-form-item label="证书级别" prop="certificateLevel">
-              <el-input v-model.trim="editForm.certificateLevel" placeholder="请输入证书级别"></el-input>
+              <el-select v-model="editForm.certificateLevel" style="width: 100%;" placeholder="请选择证书级别">
+                <el-option label="高级技师（一级）" value="高级技师（一级）"></el-option>
+                <el-option label="技师（二级）" value="技师（二级）"></el-option>
+                <el-option label="高级工（三级）" value="高级工（三级）"></el-option>
+                <el-option label="中级工（四级）" value="中级工（四级）"></el-option>
+                <el-option label="初级工（五级）" value="初级工（五级）"></el-option>
+              </el-select>
             </el-form-item>
           </el-col>
 
@@ -105,7 +156,6 @@
               <el-input v-model.trim="editForm.certificateType" placeholder="请输入证书类型"></el-input>
             </el-form-item>
           </el-col>
-          
         </el-row>
       </el-form>
       <template slot="footer">
@@ -122,44 +172,7 @@ export default {
   name: 'XXX', // XXX
   data () {
     return {
-      rules: {
-        userName: [
-          { required: true, message: '请输入昵称', trigger: 'blur' }
-        ],
-        idCard: [
-          { required: true, message: '请输入身份证', trigger: 'blur' }
-        ],
-        currentHouseholdLocation: [
-          { required: true, message: '请输入现居住地', trigger: 'blur' }
-        ],
-        graduationSchool: [
-          { required: true, message: '请输入毕业院校', trigger: 'blur' }
-        ],
-        major: [
-          { required: true, message: '请输入专业', trigger: 'blur' }
-        ],
-        personnelCategory: [
-          { required: true, message: '请输入人员类别', trigger: 'blur' }
-        ],
-        certificateType: [
-          { required: true, message: '请输入证书类型', trigger: 'blur' }
-        ],
-        sex: [
-          { required: true, message: '请选择性别', trigger: 'change' }
-        ],
-        birthdate: [
-          { required: true, message: '请选择生日', trigger: 'change' }
-        ],
-        householdRegistrationType: [
-          { required: true, message: '请输入户籍类型', trigger: 'blur' }
-        ],
-        domicileLocation: [
-          { required: true, message: '请输入户口所在地', trigger: 'blur' }
-        ],
-        education: [
-          { required: true, message: '请输入学历', trigger: 'blur' }
-        ],
-      },
+      
       dialogVisible: false,
       isLoading: false,
       editForm: {
@@ -185,6 +198,60 @@ export default {
       totalSecond: 60,
       second: 60,
       timer: null
+    }
+  },
+  computed: {
+    rules () {
+      const d = {
+        userName: [
+          { required: true, message: '请输入昵称', trigger: 'blur' }
+        ],
+        idCard: [
+          { required: true, message: '请输入身份证', trigger: 'blur' }
+        ],
+        currentHouseholdLocation: [
+          { required: true, message: '请输入现居住地', trigger: 'blur' }
+        ],
+        graduationSchool: [
+          { required: true, message: '请输入毕业院校', trigger: 'blur' }
+        ],
+        major: [
+          { required: true, message: '请输入专业', trigger: 'blur' }
+        ],
+        personnelCategory: [
+          { required: true, message: '请选择人员类别', trigger: 'change' }
+        ],
+        // certificateType: [
+        //   { required: true, message: '请输入证书类型', trigger: 'blur' }
+        // ],
+        sex: [
+          { required: true, message: '请选择性别', trigger: 'change' }
+        ],
+        birthdate: [
+          { required: true, message: '请选择生日', trigger: 'change' }
+        ],
+        householdRegistrationType: [
+          { required: true, message: '请选择户籍性质', trigger: 'change' }
+        ],
+        domicileLocation: [
+          { required: true, message: '请输入户口所在地', trigger: 'blur' }
+        ],
+        education: [
+          { required: true, message: '请选择学历', trigger: 'change' }
+        ],
+      }
+      if(this.editForm.whetherCertificate === '是') {
+        d.certificateLevel = [
+          { required: true, message: '请选择证书级别', trigger: 'change' }
+        ]
+        d.vocationalCertificate = [
+          { required: true, message: '请输入职业证书', trigger: 'blur' }
+        ]
+        d.certificateType = [
+          { required: true, message: '请输入证书类型', trigger: 'blur' }
+        ]
+      }
+      return d
     }
   },
   methods: {

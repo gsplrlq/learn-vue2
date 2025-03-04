@@ -55,7 +55,7 @@ export default {
 </script>
 <style lang="stylus" scoped>
   .course-detail-header
-    height: 200px;
+    height: 230px;
     background-image: linear-gradient(90deg, #19172D, #645DB7);
     .header
       height: 100%;
