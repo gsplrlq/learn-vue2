@@ -31,8 +31,21 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="身份证" prop="idCard">
-              <el-input v-model.trim="editForm.idCard" placeholder="请输入身份证"></el-input>
+            <el-form-item label="证件类型" prop="certificateType">
+              <el-select v-model="editForm.certificateType" style="width: 100%;" placeholder="请选择证件类型">
+                <el-option label="身份证" value="身份证"></el-option>
+                <el-option label="港澳居民来往内地通行证" value="港澳居民来往内地通行证"></el-option>
+                <el-option label="台湾居民来往内地通行证" value="台湾居民来往内地通行证"></el-option>
+                <el-option label="港澳居民居住证" value="港澳居民居住证"></el-option>
+                <el-option label="台湾居民居住证" value="台湾居民居住证"></el-option>
+                <el-option label="其他" value="其他"></el-option>
+              </el-select>
+              <el-input v-model.trim="editForm.certificateType" placeholder="请输入证件类型"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="证件号" prop="idCard">
+              <el-input v-model.trim="editForm.idCard" placeholder="证件号"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
@@ -84,7 +97,7 @@
           <!-- <el-col :span="12">
             <el-form-item label="证件类型" prop="idCardType">
               <el-select v-model="editForm.idCardType" placeholder="请选择证件类型">
-                <el-option label="身份证" value="身份证"></el-option>
+                <el-option label="证件号" value="证件号"></el-option>
                 <el-option label="港澳居民来往内地通行证" value="港澳居民来往内地通行证"></el-option>
                 <el-option label="台湾居民来往内地通行证" value="台湾居民来往内地通行证"></el-option>
                 <el-option label="港澳居民居住证" value="港澳居民居住证"></el-option>
@@ -151,11 +164,7 @@
             </el-form-item>
           </el-col>
 
-          <el-col :span="12">
-            <el-form-item label="证书类型" prop="certificateType">
-              <el-input v-model.trim="editForm.certificateType" placeholder="请输入证书类型"></el-input>
-            </el-form-item>
-          </el-col>
+          
         </el-row>
       </el-form>
       <template slot="footer">
@@ -207,7 +216,7 @@ export default {
           { required: true, message: '请输入昵称', trigger: 'blur' }
         ],
         idCard: [
-          { required: true, message: '请输入身份证', trigger: 'blur' }
+          { required: true, message: '证件号', trigger: 'blur' }
         ],
         currentHouseholdLocation: [
           { required: true, message: '请输入现居住地', trigger: 'blur' }
@@ -222,7 +231,7 @@ export default {
           { required: true, message: '请选择人员类别', trigger: 'change' }
         ],
         // certificateType: [
-        //   { required: true, message: '请输入证书类型', trigger: 'blur' }
+        //   { required: true, message: '请输入证件类型', trigger: 'blur' }
         // ],
         sex: [
           { required: true, message: '请选择性别', trigger: 'change' }
@@ -248,7 +257,7 @@ export default {
           { required: true, message: '请输入职业证书', trigger: 'blur' }
         ]
         d.certificateType = [
-          { required: true, message: '请输入证书类型', trigger: 'blur' }
+          { required: true, message: '请输入证件类型', trigger: 'blur' }
         ]
       }
       return d

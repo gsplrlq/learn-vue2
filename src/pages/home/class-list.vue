@@ -12,19 +12,19 @@
       <el-row :gutter="12">
         <el-col v-for="(course, index) in list" :key="index" :span="6">
           <el-card class="course-item" shadow="hover">
-            <div slot="header" class="clearfix">
-              <span>{{ course.name }}</span>
+            <div slot="header" class="header">
+              <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ course.name }}</div>
               <el-button style="float: right; padding: 3px 0" type="text" @click="handleCourseClick(course)">查看详情</el-button>
             </div>
-            <div class="flex" style="display: flex;">
+            <div class="content">
               <img
                 src="@/assets/images/class_bg.png"
                 style="height: 45px; margin-right: 10px;"
               />
               <div>
-                <p>班主任: {{ course.teacherName }}</p>
-                <p>人数: {{ course.classSize }}</p>
-                <p>课程: {{ course.courseName }}</p>
+                <div class="text">班主任: {{ course.teacherName }}</div>
+                <div class="text">人数: {{ course.classSize }}</div>
+                <div class="text">课程: {{ course.courseName }}</div>
               </div>
             </div>
           </el-card>
@@ -74,4 +74,18 @@ export default {
     padding: 25px 0;
     .course-item
      cursor default
+     .header
+      display: flex
+      justify-content: space-between
+      line-height: 22px
+    .content 
+      display: flex;
+      justify-content: space-between
+      .text
+        flex: 1;
+        width: 210px;
+        margin-bottom: 5px;
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: ellipsis;
 </style>
