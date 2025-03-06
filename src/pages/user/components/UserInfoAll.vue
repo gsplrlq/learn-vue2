@@ -139,7 +139,7 @@
           </el-col>
           <el-col :span="12">
             <el-form-item label="是否有证书" prop="whetherCertificate">
-              <el-radio-group v-model="editForm.whetherCertificate" @change="editForm.certificateLevel = editForm.vocationalCertificate = editForm.certificateType = ''; $refs.editForm.clearValidate(['vocationalCertificate','certificateLevel','certificateType'])">
+              <el-radio-group v-model="editForm.whetherCertificate" @change="editForm.certificateLevel = editForm.vocationalCertificate = ''; $refs.editForm.clearValidate(['vocationalCertificate','certificateLevel','certificateType'])">
                 <el-radio label="是">是</el-radio>
                 <el-radio label="否">否</el-radio>
               </el-radio-group>
