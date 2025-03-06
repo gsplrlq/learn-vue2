@@ -40,7 +40,6 @@
                 <el-option label="台湾居民居住证" value="台湾居民居住证"></el-option>
                 <el-option label="其他" value="其他"></el-option>
               </el-select>
-              <el-input v-model.trim="editForm.certificateType" placeholder="请输入证件类型"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">

@@ -59,6 +59,10 @@ export default {
       default () {
         return []
       }
+    },
+    infoStatus: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -69,6 +73,18 @@ export default {
   methods: {
     // 考试点击事件
     handleLessonClick (lesson) {
+      if(!this.infoStatus) {
+        this.$confirm('用户信息不完善, 是否跳转并完善用户信息?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$router.push({ path: '/user' })
+        }).catch(() => {         
+        });
+        
+        return
+      }
       const path = {path: `/exam/${lesson.id}` }
       if(lesson.trainingPackageId) path.query = {trainingPackageId: lesson.trainingPackageId}
       this.$router.push(path)

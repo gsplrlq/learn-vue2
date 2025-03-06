@@ -7,7 +7,7 @@
     <!-- <lesson-nav :list="navList" :params.sync="params" /> -->
 
     <!-- 列表 -->
-    <lesson-list :list="lessonList" :sort.sync="sort" @change="getLessonListData" />
+    <lesson-list :list="lessonList" :info-status="infoStatus" :sort.sync="sort" @change="getLessonListData" />
     
     <!-- 分页 -->
     <!-- <pagination :total="total" :page.sync="page" :size="size" @change="handlePaginationChange" /> -->
@@ -46,19 +46,21 @@ export default {
           typeCategoryList: []
         },
       ],
+      infoStatus: false
     }
   },
   mounted () {
     getInformationCollStatus().then(res => {
+      this.infoStatus = res.data
       if(!res.data) {
         this.$confirm('用户信息不完善, 是否跳转并完善用户信息?', '提示', {
-            confirmButtonText: '确定',
-            cancelButtonText: '取消',
-            type: 'warning'
-          }).then(() => {
-            this.$router.push({ path: '/user' })
-          }).catch(() => {         
-          });
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$router.push({ path: '/user' })
+        }).catch(() => {         
+        });
       }
     })
     this.getLessonListData()
