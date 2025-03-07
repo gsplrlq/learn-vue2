@@ -328,7 +328,7 @@ export default {
         "chapterId": this.playObj.id,
         "fileId": this.playObj.fileId,
         "progress": this.player.getCurrentTime(),
-        "classId": Number(this.$route.query.class) || null
+        "classId": this.courseDetail.classId || null
       })
     },
     submitEvaluation () {
