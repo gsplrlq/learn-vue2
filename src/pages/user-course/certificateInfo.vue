@@ -5,7 +5,7 @@
         <div v-for="(item,index) in filterList" :key="index" class="list-item">
           <div class="info first">
             <h2 class="title" :title="item.certificateName">{{ item.certificateName }}</h2>
-            <div class="plan">考试名称: {{ item.examName }}</div>
+            <div class="plan">课程名称: {{ item.courseName }}</div>
           </div>
   
           <div class="info">
