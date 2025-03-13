@@ -136,7 +136,7 @@
           </el-col>
           <el-col :span="12">
             <el-form-item label="具体类型" prop="concreteType">
-              <el-select v-model="editForm.concreteType" style="width: 100%;" placeholder="请选择具体类型">
+              <el-select v-model="editForm.concreteType" style="width: 100%;" multiple placeholder="请选择具体类型">
                 <el-option label="在职人员" value="在职人员"></el-option>
                 <el-option label="在校学生" value="在校学生"></el-option>
                 <el-option label="离校两年内未就业高校毕业生" value="离校两年内未就业高校毕业生"></el-option>
@@ -218,7 +218,7 @@ export default {
         "graduationSchool": "",
         "major": "",
         "personnelCategory": "",
-        "concreteType": "",
+        "concreteType": [],
         "jobStatus": "",
         "company": "",
         "whetherCertificate": "",
@@ -253,6 +253,9 @@ export default {
         ],
         major: [
           { required: true, message: '请输入专业', trigger: 'blur' }
+        ],
+        jobStatus: [
+          { required: true, message: '请选择就业状态', trigger: 'change' }
         ],
         personnelCategory: [
           { required: true, message: '请选择人员类别', trigger: 'change' }
