@@ -143,7 +143,7 @@
                 <el-option label="残疾人" value="残疾人"></el-option>
                 <el-option label="退役军人" value="退役军人"></el-option>
                 <el-option label="4050人员" value="4050人员"></el-option>
-                <el-option label="青年失业者" value="青年失业者"></el-option>
+                <el-option label="灵活就业人员" value="灵活就业人员"></el-option>
                 <el-option label="退休人员" value="退休人员"></el-option>
                 <el-option label="农村转移劳动力" value="农村转移劳动力"></el-option>
                 <el-option label="随军家属" value="随军家属"></el-option>
