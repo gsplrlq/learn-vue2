@@ -63,11 +63,11 @@
               <el-input v-model.trim="editForm.currentHouseholdLocation" placeholder="请输入现居住地"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :span="12">
+          <!-- <el-col :span="12">
             <el-form-item label="户口所在地" prop="domicileLocation">
               <el-input v-model.trim="editForm.domicileLocation" placeholder="请输入户口所在地"></el-input>
             </el-form-item>
-          </el-col>
+          </el-col> -->
           
           
           <el-col :span="12">
@@ -111,22 +111,49 @@
               <el-input v-model.trim="editForm.major" placeholder="请输入专业"></el-input>
             </el-form-item>
           </el-col>
+          
+          <el-col :span="12">
+            <el-form-item label="就业状态" prop="jobStatus">
+              <el-select v-model="editForm.jobStatus" style="width: 100%;" placeholder="请选择就业状态">
+                <el-option label="在职" value="在职"></el-option>
+                <el-option label="求职" value="求职"></el-option>
+                <el-option label="在读" value="在读"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
           <el-col :span="12">
             <el-form-item label="人员类别" prop="personnelCategory">
               <el-select v-model="editForm.personnelCategory" style="width: 100%;" placeholder="请选择人员类别">
                 <el-option label="在职人员" value="在职人员"></el-option>
-                <el-option label="就业援助对象" value="就业援助对象"></el-option>
-                <el-option label="高校毕业生" value="高校毕业生"></el-option>
-                <el-option label="应届高校毕业生" value="应届高校毕业生"></el-option>
+                <el-option label="一般求职者" value="一般求职者"></el-option>
+                <el-option label="登记失业人员" value="登记失业人员"></el-option>
+                <el-option label="就业困难人员" value="就业困难人员"></el-option>
+                <el-option label="离校未就业高校毕业生" value="离校未就业高校毕业生"></el-option>
+                <el-option label="在校生" value="在校生"></el-option>
+                <el-option label="其他" value="其他"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="具体类型" prop="concreteType">
+              <el-select v-model="editForm.concreteType" style="width: 100%;" placeholder="请选择具体类型">
+                <el-option label="在职人员" value="在职人员"></el-option>
+                <el-option label="在校学生" value="在校学生"></el-option>
+                <el-option label="离校两年内未就业高校毕业生" value="离校两年内未就业高校毕业生"></el-option>
                 <el-option label="残疾人" value="残疾人"></el-option>
                 <el-option label="退役军人" value="退役军人"></el-option>
-                <el-option label="失业人员" value="失业人员"></el-option>
+                <el-option label="4050人员" value="4050人员"></el-option>
                 <el-option label="青年失业者" value="青年失业者"></el-option>
-                <el-option label="去产能、纾解外迁或长期停产停工人员" value="去产能、纾解外迁或长期停产停工人员"></el-option>
+                <el-option label="退休人员" value="退休人员"></el-option>
+                <el-option label="农村转移劳动力" value="农村转移劳动力"></el-option>
+                <el-option label="随军家属" value="随军家属"></el-option>
                 <el-option label="来京务工人员" value="来京务工人员"></el-option>
-                <el-option label="转业干部、退役军人、随军家属等优抚人" value="转业干部、退役军人、随军家属等优抚人"></el-option>
-                <el-option label="银发人员（退休人员）" value="银发人员（退休人员）"></el-option>
-                <el-option label="低收入农户" value="低收入农户"></el-option>
+                <el-option label="长期失业人员" value="长期失业人员"></el-option>
+                <el-option label="就业援助对象" value="就业援助对象"></el-option>
+                <el-option label="港澳台人员" value="港澳台人员"></el-option>
+                <el-option label="归国留学生" value="归国留学生"></el-option>
+                <el-option label="去产能、纾解外迁或长期停产停工人员" value="去产能、纾解外迁或长期停产停工人员"></el-option>
+                <el-option label="企业分流职工" value="企业分流职工"></el-option>
                 <el-option label="其他" value="其他"></el-option>
               </el-select>
             </el-form-item>
@@ -137,7 +164,7 @@
               <el-input v-model.trim="editForm.company" placeholder="请输入工作单位"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :span="12">
+          <el-col :span="24">
             <el-form-item label="是否有证书" prop="whetherCertificate">
               <el-radio-group v-model="editForm.whetherCertificate" @change="editForm.certificateLevel = editForm.vocationalCertificate = ''; $refs.editForm.clearValidate(['vocationalCertificate','certificateLevel','certificateType'])">
                 <el-radio label="是">是</el-radio>
@@ -162,7 +189,6 @@
               </el-select>
             </el-form-item>
           </el-col>
-
           
         </el-row>
       </el-form>
@@ -192,6 +218,8 @@ export default {
         "graduationSchool": "",
         "major": "",
         "personnelCategory": "",
+        "concreteType": "",
+        "jobStatus": "",
         "company": "",
         "whetherCertificate": "",
         "vocationalCertificate": "",
@@ -200,7 +228,7 @@ export default {
         "sex": "",
         "birthdate": "",
         "householdRegistrationType": "",
-        "domicileLocation": "",
+        // "domicileLocation": "",
         "education": ""
       },
       totalSecond: 60,
@@ -229,6 +257,9 @@ export default {
         personnelCategory: [
           { required: true, message: '请选择人员类别', trigger: 'change' }
         ],
+        concreteType: [
+          { required: true, message: '请选择具体类型', trigger: 'change' }
+        ],
         // certificateType: [
         //   { required: true, message: '请输入证件类型', trigger: 'blur' }
         // ],
@@ -241,9 +272,9 @@ export default {
         householdRegistrationType: [
           { required: true, message: '请选择户籍性质', trigger: 'change' }
         ],
-        domicileLocation: [
-          { required: true, message: '请输入户口所在地', trigger: 'blur' }
-        ],
+        // domicileLocation: [
+        //   { required: true, message: '请输入户口所在地', trigger: 'blur' }
+        // ],
         education: [
           { required: true, message: '请选择学历', trigger: 'change' }
         ],

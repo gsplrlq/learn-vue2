@@ -56,7 +56,6 @@
   </div>
 </template>
 <script>
-import { joinClass } from 'api'
 export default {
   props: {
     lastest: {
