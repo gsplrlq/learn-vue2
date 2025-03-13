@@ -174,13 +174,13 @@
           </el-col>
 
           <el-col :span="12">
-            <el-form-item label="职业证书" prop="vocationalCertificate">
-              <el-input v-model.trim="editForm.vocationalCertificate" placeholder="请输入职业证书"></el-input>
+            <el-form-item label="证书的职业" prop="vocationalCertificate">
+              <el-input v-model.trim="editForm.vocationalCertificate" placeholder="请输入证书的职业"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="证书级别" prop="certificateLevel">
-              <el-select v-model="editForm.certificateLevel" style="width: 100%;" placeholder="请选择证书级别">
+            <el-form-item label="证书的等级" prop="certificateLevel">
+              <el-select v-model="editForm.certificateLevel" style="width: 100%;" placeholder="请选择证书的等级">
                 <el-option label="高级技师（一级）" value="高级技师（一级）"></el-option>
                 <el-option label="技师（二级）" value="技师（二级）"></el-option>
                 <el-option label="高级工（三级）" value="高级工（三级）"></el-option>
