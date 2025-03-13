@@ -136,7 +136,7 @@
           </el-col>
           <el-col :span="12">
             <el-form-item label="具体类型" prop="concreteType">
-              <el-select v-model="editForm.concreteType" style="width: 100%;" multiple placeholder="请选择具体类型">
+              <el-select v-model="editForm.concreteType" style="width: 100%;" multiple collapse-tags collapse-tags-tooltip placeholder="请选择具体类型">
                 <el-option label="在职人员" value="在职人员"></el-option>
                 <el-option label="在校学生" value="在校学生"></el-option>
                 <el-option label="离校两年内未就业高校毕业生" value="离校两年内未就业高校毕业生"></el-option>
