@@ -24,6 +24,7 @@ const CartConfirm = () => import('pages/cart/confirm.vue') // 购物车确认路
 const CartPay = () => import('pages/cart/pay.vue') // 购物车支付路由
 
 const SignIn = () => import('pages/sign/index.vue') // 线下课签到路由 (手机端)
+const Satisfaction = () => import('pages/satisfaction/index.vue') // 满意度路由 (手机端)
 
 // const ReadIndex = () => import('pages/read/index.vue') // 专栏路由
 // const ReadDetaiil = () => import('pages/read-detail/index.vue') // 专栏详情路由
@@ -156,9 +157,15 @@ const routes = [
 
   {
     path: '/sign-in/:id',
-    name: 'SignIn',
+    name: 'signIn',
     component: SignIn,
   },
+  {
+    path: '/satisfaction/:id',
+    name: 'satisfaction',
+    component: Satisfaction,
+  },
+  
 
   // 放弃路由
   // {

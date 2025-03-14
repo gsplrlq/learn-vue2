@@ -219,3 +219,8 @@ export function getSignIn (trainingCourseId) {
 export function submitSignIn (data) {
   return http.post('/client/offlineTrainingCourse/submit', data)
 }
+
+// 满意度测评
+export function submitEvaluation (data) {
+  return http.post('/client/offlineTrainingCourse/updateOfflineSatisfactionEvaluation', data)
+}
