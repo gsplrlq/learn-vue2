@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { getSignIn, submitEvaluation } from 'api';
+import { getSignIn, submitEvaluation, validateEvaluation } from 'api';
 export default {
   data () {
     const formList = [
@@ -54,6 +54,24 @@ export default {
       { label: '8. 通过培训提高了技能，对你今后的工作有较大的帮助：', prop: 'content8', prop2: 'content8Suggestion' },
       { label: '9. 你对本次培训的总体评价：', prop: 'content9', prop2: 'content9Suggestion' }
     ]
+    const validateMobile = (rule, value, callback) => {
+      if (!value) {
+        callback(new Error('请输入手机号'));
+      } else if (!/^1[3456789]\d{9}$/.test(value)) {
+        callback(new Error('请输入正确的手机号'));
+      } else {
+        validateEvaluation({
+          trainingCourseId: this.$route.params.id,
+          mobile:value
+        }).then(res => {
+          if (res.data) {
+            callback(new Error('该手机号已提交过测评'));
+          } else {
+            callback();
+          }
+        });
+      }
+    }
     return {
       courseName: '',
       trainingCourseName: '',
@@ -83,8 +101,7 @@ export default {
       },
       rules: {
         mobile: [
-          { required: true, message: '请输入手机号', trigger: 'blur' },
-          { pattern: /^1[3456789]\d{9}$/, message: '请输入正确的手机号', trigger: 'blur' }
+          { validator: validateMobile, trigger: 'blur' }
         ],
         content1: [
           { required: true, message: '请选择评价', trigger: 'change' }

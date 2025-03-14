@@ -224,3 +224,6 @@ export function submitSignIn (data) {
 export function submitEvaluation (data) {
   return http.post('/client/offlineTrainingCourse/updateOfflineSatisfactionEvaluation', data)
 }
+export function validateEvaluation (data) {
+  return http.post('/client/offlineTrainingCourse/validate', data)
+}
