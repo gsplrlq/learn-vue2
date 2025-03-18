@@ -4,7 +4,7 @@
       <div class="main-content content-wrap">
         <!-- left -->
         <div class="left-area">
-          <ThePlayer :playing-video="playObj" />
+          <ThePlayer v-show="fSeek" :playing-video="playObj" />
         </div>
         <!-- right -->
         <!-- <div class="right-area">
@@ -103,6 +103,7 @@ export default {
       player: null,
       playObj: {},
       videoList: [],
+      fSeek: false,
 
       currentNavIndex: 0,
       navList: [
@@ -190,6 +191,7 @@ export default {
           height: "485px",
           vid: videoId, // 如果是私有加密播放请传入 vid/playauth/encryptType
           playauth: playauth,
+          autoplay: false,
           // from: "vuedemo", // 仅在demo使用，正式环境请删除
           // 自定义组件请参考：https://video.aliyuncs.com/player/presentation/index.html?type=pictureAD
           components: [
@@ -242,7 +244,14 @@ export default {
             if(nextVideo) this.update(nextVideo);
           });
           player.on('ready', () => {
+            console.log('rrr', this.playObj.progress);
+            
             player.seek(this.playObj.progress)
+
+            setTimeout(() => {
+              this.fSeek = true
+            }, 1000)
+
           });
 
           // 套餐付费课静止拖动
@@ -255,13 +264,15 @@ export default {
             player.on('timeupdate', () => {
               if (!player.tag.seeking) {
                 // 更新最近一次的播放位置
+                console.log('timeupdate');
+                
                 lastTime = player.getCurrentTime();
               }
             })
 
             player.on('seeking', () => {
               var delta = player.getCurrentTime() - lastTime;
-              if (Math.abs(delta) > 0.01) {
+              if (Math.abs(delta) > 0.01 && this.fSeek) {
                 console.log("Seeking is disabled");
                 // 判断为拖动，自动跳回原来的位置
                 // (iOS QQ浏览器无效，因为QQ浏览器不支持获取和修改currentTime属性)
@@ -270,6 +281,7 @@ export default {
             });
 
             player.on('ended', () => {
+                console.log('ended');
                 lastTime = 0;
             });
           }
