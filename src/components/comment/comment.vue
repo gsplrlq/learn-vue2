@@ -5,8 +5,9 @@
       <div class="star-box">
         <span class="title">综合评分</span>
         <span class="score">{{ comment.score }}</span>
-        <mooc-star :value="comment.score / 2" :size="18" disabled />
-      </div>
+        <el-rate v-model="starData" allow-half disabled style="width: 220px; height: 34px;" :colors="['rgb(255, 153, 0)','rgb(255, 153, 0)','rgb(255, 153, 0)']"></el-rate>
+        <!-- <mooc-star :value="comment.score / 2" :size="18" disabled /> -->
+      </div> 
 
       <div v-if="catalog.hasStudy && !comment.userEvaluated" class="search-btn" @click="dialogFormVisible = true">
         我要评价
@@ -84,6 +85,11 @@ export default {
         score: 0
       },
       loading: true
+    }
+  },
+  computed: {
+    starData () {
+      return this.comment.score / 2
     }
   },
   mounted () {
@@ -167,6 +173,8 @@ export default {
         float: right;
       .star-box
         flex: 1;
+        display flex
+        align-items center
         & > span
           display: inline-block;
           vertical-align:  middle;
@@ -189,6 +197,8 @@ export default {
           vertical-align: middle;
           .star-item
             margin-right: 3px;
+        >>> .el-rate__icon
+          font-size: 34px;
       .score-box
         margin-left: 50px;
         & > span
