@@ -215,6 +215,7 @@ export default {
           //播放下一个视频
           player.on("ended", () => {
             clearTimeout(this.timer)
+            this.createHistory()
             console.log("播放结束");
             let index = this.videoList.findIndex(
               (item) => item.videoId === this.playObj.videoId,
@@ -223,9 +224,9 @@ export default {
               return;
             }
 
-            if (index === this.videoList.length - 1) {
-              this.createHistory()
-            }
+            // if (index === this.videoList.length - 1) {
+            //   this.createHistory()
+            // }
             
             // if (index === this.videoList.length - 1 && !this.courseDetail.hasEvaluation) {
             const f = false
@@ -246,12 +247,18 @@ export default {
           player.on('ready', () => {
             console.log('rrr', this.playObj.progress);
             
-            player.seek(this.playObj.progress)
+            if(this.playObj.percent < 95) {
+              player.seek(this.playObj.progress)
+  
+              setTimeout(() => {
+                this.fSeek = true
+              }, 1000)
+            }
 
-            setTimeout(() => {
-              this.fSeek = true
-            }, 1000)
-
+          });
+          player.on("play", () => {
+            this.createHistory()
+            this.startTimer()
           });
 
           // 套餐付费课静止拖动
@@ -259,7 +266,7 @@ export default {
 
           // 禁止拖动
           const flag = true
-          if(flag) {
+          if(flag && this.playObj.percent < 95) {
             let lastTime = 0;
             player.on('timeupdate', () => {
               if (!player.tag.seeking) {
@@ -320,8 +327,6 @@ export default {
       getVideoAuth({ videoId: this.playObj.videoId, courseId: this.$route.params.id }).then(res => {
         this.playObj.playauth = res.data
         this.createPlayer(this.playObj);
-
-        this.startTimer()
       }).catch(() => {
         setTimeout(() => {
           this.$router.go(-1);

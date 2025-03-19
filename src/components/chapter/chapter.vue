@@ -9,7 +9,7 @@
         {{ item.introduction }}
       </p>
       <ul>
-        <li v-for="(term, index) in item.chapterList" :key="index" class="term-item" :class="{'jump': term.type === 1}" @click="toLearn(term, catalog)">
+        <li v-for="(term, index) in item.chapterList" :key="index" class="term-item" :class="{'jump': term.type === 1 || term.percent > 95}" @click="toLearn(term, catalog)">
           <p>
             <span class="iconfont play">&#xe615;</span>
             <span>
@@ -20,8 +20,8 @@
               <el-tag v-if="term.type === 1" type="success">链接</el-tag>
             </span>
             <span v-if="term.type === 0" class="right">
-              <i v-if="term.percent == 100" class="iconfont complete">&#xe60f;</i>
-              <span v-else-if="term.percent > 0 && term.percent < 100" class="doning">
+              <i v-if="term.percent > 95" class="iconfont complete">&#xe60f;</i>
+              <span v-else-if="term.percent > 0 && term.percent < 95" class="doning">
                 最近学习
                 <i class="iconfont">&#xe601;</i>
               </span>
@@ -55,9 +55,11 @@ export default {
   },
   methods: {
     toLearn (lastest, course) {
-      if(course.courseType === 2) return
+      // if(course.courseType === 2) return
 
-      // this.$router.push({ path: '/video/' + course.id, query: { videoId: lastest.videoId }})
+      if(lastest.percent > 95) {
+        this.$router.push({ path: '/video/' + course.id, query: { videoId: lastest.videoId }})
+      }
     }
   },
 }
