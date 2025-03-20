@@ -242,18 +242,23 @@ export default {
             }
 
             const nextVideo = this.videoList[index + 1];
-            if(nextVideo) this.update(nextVideo);
+            if(nextVideo) {
+              this.$message.success('视频播放完成，即将跳转至下一章。')
+              setTimeout(() => {
+                this.update(nextVideo);
+              }, 2000);
+            }
           });
           player.on('ready', () => {
             console.log('rrr', this.playObj.progress);
             
-            if(this.playObj.percent < 95) {
-              player.seek(this.playObj.progress)
-  
-              setTimeout(() => {
-                this.fSeek = true
-              }, 100)
-            }
+            // if(this.playObj.percent < 95) {
+            player.seek(this.playObj.progress)
+
+            setTimeout(() => {
+              this.fSeek = true
+            }, 100)
+            // }
 
           });
           player.on("play", () => {
@@ -320,6 +325,10 @@ export default {
           this.videoList = this.videoList.concat(...d.chapterList)
         });
         this.playObj = this.videoList.find(v => v.videoId === this.$route.query.videoId)
+        if(!this.playObj) {
+          this.fSeek = true
+          return this.$message.error('视频异常，无法播放，请联系管理员')
+        }
         this.getVideo()
       })
     },
