@@ -3,7 +3,7 @@
     <div class="video m-center">
       <div class="main-content content-wrap">
         <!-- left -->
-        <div class="left-area">
+        <div v-loading.fullscreen.lock="!fSeek" class="left-area">
           <ThePlayer v-show="fSeek" :playing-video="playObj" />
         </div>
         <!-- right -->
@@ -252,7 +252,7 @@ export default {
   
               setTimeout(() => {
                 this.fSeek = true
-              }, 1000)
+              }, 100)
             }
 
           });
@@ -265,7 +265,7 @@ export default {
           // if(this.courseDetail.courseType === 2 && this.courseDetail.trainingPackage) {
 
           // 禁止拖动
-          const flag = true
+          const flag = false
           if(flag && this.playObj.percent < 95) {
             let lastTime = 0;
             player.on('timeupdate', () => {

@@ -9,7 +9,7 @@
         {{ item.introduction }}
       </p>
       <ul>
-        <li v-for="(term, index) in item.chapterList" :key="index" class="term-item" :class="{'jump': term.type === 1 || term.percent > 95}" @click="toLearn(term, catalog)">
+        <li v-for="(term, index) in item.chapterList" :key="index" class="term-item" :class="{'jump': term.type === 1 || term.percent > 95 || catalog.hasStudy}" @click="toLearn(term, catalog)">
           <p>
             <span class="iconfont play">&#xe615;</span>
             <span>
@@ -57,7 +57,7 @@ export default {
     toLearn (lastest, course) {
       // if(course.courseType === 2) return
 
-      if(lastest.percent > 95) {
+      if(lastest.percent > 95 || course.hasStudy) {
         this.$router.push({ path: '/video/' + course.id, query: { videoId: lastest.videoId }})
       }
     }

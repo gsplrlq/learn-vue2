@@ -73,7 +73,8 @@ export default {
   .course-list-container
     padding: 25px 0;
     .course-item
-     cursor default
+      margin-bottom: 10px;
+      cursor default
      .header
       display: flex
       justify-content: space-between
