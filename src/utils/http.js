@@ -40,6 +40,7 @@ service.interceptors.response.use(
     if (data.code === 401) {
       store.commit('login/SET_SHOW_LOGIN', true)
       store.dispatch('login/logout')
+      window.location.href = '/';
       return Promise.resolve({
         code: -1,
         msg: data.msg
@@ -58,6 +59,7 @@ service.interceptors.response.use(
       setTimeout(() => {
         store.commit('login/SET_SHOW_LOGIN', true)
         store.dispatch('login/logout')
+        window.location.href = '/';
         return Promise.resolve({
           code: -1,
           msg: data.msg
