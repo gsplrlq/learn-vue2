@@ -110,6 +110,13 @@ export default {
       this.$router.push({ path: '/course/' + item.id })
     },
     goLearn (item) {
+      if(item.autoClass === 0 && !item.classId) {
+        return this.$message.error('请联系管理员加入班级')
+      }
+      if(!item.videoId) {
+        return this.$message.error('暂无视频')
+      }
+
       this.$router.push({ path: '/video/' + item.id, query: { videoId: item.videoId }})
     }
   },

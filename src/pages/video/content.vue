@@ -394,6 +394,9 @@ export default {
     if(!this.$route.query.videoId) {
       return this.$message.error('视频异常，无法播放，请联系管理员')
     }
+    setTimeout(() => {
+      this.fSeek = true
+    }, 2000)
     // this.getChapter()
   },
   destroyed () {
