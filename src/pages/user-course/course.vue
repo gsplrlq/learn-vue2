@@ -23,7 +23,7 @@
             </p>
             <p class="learn">
               <span class="rate">已学 {{ item.percent || 0 }}%</span>
-              <span class="duration">用时 {{ getTime(item) }}</span>
+              <span class="duration">学习时间 {{ getTime(item) }}</span>
               <span v-if="item.chapterTitle" class="chapter">学习至 {{ item.chapterTitle }}</span>
             </p>
             <p class="other">
