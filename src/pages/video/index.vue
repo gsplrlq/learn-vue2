@@ -4,13 +4,13 @@
     <video-header :base="courseDetail" />
 
     <!-- 内容部分 -->
-    <video-content :course-detail="courseDetail" />
+    <video-content ref="content" :course-detail="courseDetail" />
   </div>
 </template>
 <script>
 import VideoHeader from './header.vue'
 import VideoContent from './content.vue'
-import { getLessonDetail, getLessonChapter, joinClass } from 'api'
+import { getLessonDetail, joinClass } from 'api'
 export default {
   name: 'XXX', // XXX
   components: {
@@ -37,13 +37,15 @@ export default {
     // 获取课程详情
     getCourseDetailData (classId) {
       getLessonDetail(this.$route.params.id).then(res => {
-        getLessonChapter({'courseId': this.$route.params.id}).then(res2 => {
-          res.data.chapter = res2.data
-          res.data.classId = classId
-          res.data.hasStudy = true
+        res.data.classId = classId
+        res.data.hasStudy = true
 
-          this.courseDetail = res.data
-        })
+        this.courseDetail = res.data
+        this.$refs.content.getChapter()
+        // getLessonChapter({'courseId': this.$route.params.id}).then(res2 => {
+        //   res.data.chapter = res2.data
+
+        // })
       }).catch (() => {
         this.courseDetail = {}
       })
