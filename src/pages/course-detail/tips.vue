@@ -68,7 +68,7 @@ export default {
   methods: {
     handleClick () {
       if(this.lastest.autoClass === 0 && !this.lastest.classId) {
-        return this.$message.error('无法加入班级，请联系管理员。')
+        return this.$message.error('请联系管理员加入班级')
       }
       if(!this.lastest.videoId) {
         return this.$message.error('暂无视频')
