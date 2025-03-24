@@ -25,8 +25,6 @@
 // import Search from 'components/search/search.vue'
 import MNav from './nav.vue'
 import LoginArea from './login.vue'
-import { getHeader } from 'api/common.js'
-import { ERR_OK } from 'api/config.js'
 export default {
   data () {
     return {
@@ -53,23 +51,8 @@ export default {
     }
   },
   mounted () {
-    // this.getHeaderData()
   },
   methods: {
-    // 获取头部导航数据
-    getHeaderData () {
-      getHeader().then(res => {
-        let { code, data, msg } = res
-        if (code === ERR_OK) {
-          this.navList = data
-        } else {
-          this.$message.error(msg)
-          this.navList = []
-        }
-      }).catch(() => {
-        this.navList = []
-      })
-    }
   },
   components: {
     MNav,

@@ -265,7 +265,16 @@ export default {
             this.createHistory()
             this.startTimer()
           });
+          player.on("pause", () => {
+            this.createHistory()
+          });
+          player.on("startSeek", () => {
+            this.createHistory()
+          });
 
+          player.on("completeSeek", () => {
+            this.createHistory()
+          });
           // 套餐付费课静止拖动
           // if(this.courseDetail.courseType === 2 && this.courseDetail.trainingPackage) {
 

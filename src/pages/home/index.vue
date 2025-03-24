@@ -57,7 +57,6 @@ import ClassList from './class-list.vue'
 // import Article from './article.vue'
 // import Teacher from './teacher.vue'
 // import Student from './student.vue'
-// import { postBannerList, getHomeCourse, getArticle, getTeacher, getAllStar } from 'api/home.js'
 import { postBannerList, getHomeCourse } from 'api'
 export default {
   name: 'Home',

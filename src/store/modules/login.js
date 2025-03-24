@@ -27,17 +27,6 @@ const actions = {
     return new Promise((resolve) => {
       commit(types.SET_USER_INFO, '')
       resolve()
-      // axios.get('/mock/user/logout').then(res => {
-      //   const { code } = res
-      //   if (code === ERR_OK) {
-      //     commit(types.SET_USER_INFO, '')
-      //     resolve()
-      //   } else {
-      //     reject()
-      //   }
-      // }).catch(() => {
-      //   reject()
-      // })
     })
   }
 }

@@ -29,12 +29,6 @@ module.exports = {
           '/api': ''
         }
       },
-      // '/mock': {
-      //   target: 'http://localhost:4300',
-      //   pathRewrite: {
-      //     '/mock': ''
-      //   }
-      // }
     }
   },
   lintOnSave: true

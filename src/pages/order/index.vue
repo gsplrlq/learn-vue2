@@ -20,11 +20,6 @@
 </template>
 <script>
 import List from './list.vue'
-import Recharge from './recharge.vue'
-import Coupon from './coupon.vue'
-import Consult from './consult.vue'
-import Bill from './bill.vue'
-import Invoice from './invoice.vue'
 export default {
   data () {
     return {
@@ -35,11 +30,6 @@ export default {
   created () {
     this.navList = [
       { id: 1, title: '我的订单', component: 'list' },
-      // { id: 2, title: '我的余额', component: 'recharge' },
-      // { id: 4, title: '我的优惠券', component: 'coupon' },
-      // { id: 5, title: '课程咨询', component: 'consult' },
-      // { id: 6, title: '发票管理', component: 'invoice' },
-      // { id: 7, title: '消费记录', component: 'bill' }
     ]
   },
   computed: {
@@ -49,11 +39,6 @@ export default {
   },
   components: {
     List,
-    Recharge,
-    Coupon,
-    Consult,
-    Bill,
-    Invoice
   }
 }
 </script>

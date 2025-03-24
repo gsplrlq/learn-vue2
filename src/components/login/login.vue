@@ -47,7 +47,6 @@
 </template>
 <script>
 import { mapMutations } from 'vuex'
-// import { userLogin, userRegister } from 'api/user.js'
 import { 
   sendSmsCode, 
   // verifySmsCode, 

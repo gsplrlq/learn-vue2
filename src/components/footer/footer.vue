@@ -30,8 +30,6 @@
   </div>
 </template>
 <script>
-import { getFooter } from 'api/common.js'
-import { ERR_OK } from 'api/config.js'
 export default {
   data () {
     return {
@@ -42,23 +40,8 @@ export default {
     this.year = new Date().getFullYear()
   },
   mounted () {
-    // this.getFooterData()
   },
   methods: {
-    // 获取底部版权数据
-    getFooterData () {
-      getFooter().then(res => {
-        let { code, data, msg } = res
-        if (code === ERR_OK) {
-          this.linkList = data
-        } else {
-          this.$message.error(msg)
-          this.linkList = []
-        }
-      }).catch(() => {
-        this.linkList = []
-      })
-    }
   }
 }
 </script>

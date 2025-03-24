@@ -74,8 +74,6 @@
 <script>
 import CartHeader from './cart-header.vue'
 import Empty from 'components/empty/empty.vue'
-import { getCartList, deleteCart } from 'api/cart.js'
-import { ERR_OK } from 'api/config.js'
 import { setCheckLessons } from 'utils/cache.js'
 export default {
   data () {
@@ -101,20 +99,7 @@ export default {
       this.$set(this.cartList, index, course)
     },
     // 删除事件
-    handleDeleteClick (item) {
-      const params = {
-        id: item.id
-      }
-      deleteCart(params).then(res => {
-        const { code, msg } = res
-        if (code === ERR_OK) {
-          this.$message.success(msg)
-          this.getCartListData()
-        } else {
-          this.$message.error(msg)
-        }
-      }).catch(() => {
-      })
+    handleDeleteClick () {
     },
     // 去结算
     handleAccountClick () {
@@ -131,17 +116,7 @@ export default {
     },
     // 获取购物车列表接口数据
     getCartListData () {
-      getCartList().then(res => {
-        let { code, data, msg } = res
-        if (code === ERR_OK) {
-          this.cartList = this.normalizeCartData(data)
-        } else {
-          this.cartList = []
-          this.$message.error(msg)
-        }
-      }).catch(() => {
-        this.cartList = []
-      })
+      this.cartList = []
     },
     // 获取总计金额
     getTotal () {

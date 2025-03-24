@@ -35,9 +35,6 @@
           <p class="price">
             <span v-if="item.isDiscount" class="new">{{ item.amount }}</span>
             <span class="old" :class="{'is-discount': item.isDiscount}">¥{{ item.amount }}</span>
-            <!-- <span class="price-right">
-              <span v-if="!item.isBuy" class="cart" @click.stop="handleAddCartClick(item)">加入购物车</span>
-            </span> -->
             <span class="price-right">
               <router-link :to="{ path: '/cart/confirm/' + item.id, query: { type: 2 }}">
                 <div class="cart">购买</div>
@@ -55,8 +52,6 @@
 </template>
 <script>
 import Empty from 'components/empty/empty.vue'
-import { addCart } from 'api/cart.js'
-import { ERR_OK } from 'api/config.js'
 export default {
   props: {
     list: {
@@ -86,25 +81,6 @@ export default {
     handleFilterClick (filter, index) {
       this.currentFilterIndex = index
       this.$emit('update:sort', filter.code)
-    },
-    // 加入购物车
-    handleAddCartClick (item) {
-      const params = item
-      addCart(params).then(res => {
-        const { code, msg } = res
-        if (code === ERR_OK) {
-          this.$confirm('添加购物车成功', '提示', {
-            confirmButtonText: '去购物车结算',
-            cancelButtonText: '再逛逛',
-            type: 'success'
-          }).then(() => {
-            this.$router.push('/cart')
-          })
-        } else {
-          this.$message.error(msg)
-        }
-      }).catch(() => {
-      })
     },
     // 课程点击事件
     handleLessonClick (lesson) {

@@ -18,9 +18,7 @@ import LessonSearch from './search.vue'
 import LessonNav from './nav.vue'
 import LessonList from './list.vue'
 import Pagination from 'components/pagination/pagination.vue'
-import { getHot } from 'api/common.js'
 import { getLessonNav, getTrainList } from 'api'
-import { ERR_OK } from 'api/config.js'
 export default {
   data () {
     return {
@@ -36,7 +34,6 @@ export default {
     }
   },
   mounted () {
-    // this.getHotData()
     this.getLessonNavData()
     this.getLessonListData()
   },
@@ -45,20 +42,6 @@ export default {
     handlePaginationChange (page) {
       this.page = page
       this.getLessonListData()
-    },
-    // 获取热搜词数据
-    getHotData () {
-      getHot().then(res => {
-        let { code, data, msg } = res
-        if (code === ERR_OK) {
-          this.hotList = data
-        } else {
-          this.hotList = []
-          this.$message.error(msg)
-        }
-      }).catch(() => {
-        this.hotList = []
-      })
     },
     // 获取导航数据
     getLessonNavData () {

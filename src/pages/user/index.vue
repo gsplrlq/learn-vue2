@@ -38,10 +38,6 @@
 </template>
 <script>
 import AccountBind from "./account-bind.vue"
-import Information from "./information.vue"
-import Log from "./log.vue"
-import Authenticate from "./authenticate.vue"
-import MAddress from "./address.vue"
 import { mapGetters } from 'vuex'
 import UserInfo from "./components/digUserInfo.vue";
 export default {
@@ -55,10 +51,6 @@ export default {
   created () {
     this.navList = [
       { id: 1, title: "账号信息", componentName: "account-bind" },
-      // { id: 2, title: "个人信息", componentName: "information" },
-      // { id: 3, title: "操作记录", componentName: "log" },
-      // { id: 4, title: "实名认证", componentName: "authenticate" },
-      // { id: 5, title: "收件地址", componentName: "m-address" }
     ];
   },
   methods: {
@@ -89,10 +81,6 @@ export default {
   },
   components: {
     AccountBind,
-    Information,
-    Log,
-    Authenticate,
-    MAddress,
     UserInfo
   }
 };
