@@ -9,7 +9,7 @@
         {{ item.introduction }}
       </p>
       <ul>
-        <li v-for="(term, index) in item.chapterList" :key="index" class="term-item" :class="{'jump': term.type === 1 || term.percent > 95 || catalog.hasStudy}" @click="toLearn(term, catalog)">
+        <li v-for="(term, index) in item.chapterList" :key="index" class="term-item jump" :class="{'jump': term.type === 1 || term.percent > 95 || catalog.hasStudy}" @click="toLearn(term, catalog)">
           <p>
             <span class="iconfont play">&#xe615;</span>
             <span>
@@ -55,11 +55,14 @@ export default {
   },
   methods: {
     toLearn (lastest, course) {
-      // if(course.courseType === 2) return
-
-      if(lastest.percent > 95 || course.hasStudy) {
-        this.$router.push({ path: '/video/' + course.id, query: { videoId: lastest.videoId }})
+      if(course.autoClass === 0 && !course.classId) {
+        return this.$message.error('请联系管理员加入班级')
       }
+      if(!lastest.videoId) {
+        return this.$message.error('暂无视频')
+      }
+
+      this.$router.push({ path: '/video/' + course.id, query: { videoId: lastest.videoId }})
     }
   },
 }
