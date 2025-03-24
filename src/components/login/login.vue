@@ -46,7 +46,6 @@
   </div>
 </template>
 <script>
-// import crypto from 'crypto-js'
 import { mapMutations } from 'vuex'
 // import { userLogin, userRegister } from 'api/user.js'
 import { 

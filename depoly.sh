@@ -15,7 +15,8 @@ cd dist
 git init
 git add -A
 git commit -m 'depoly脚本更新'
-git remote add origin https://github.com/wangtunan/vue-mooc.git
-git config user.name 'wangtunan'
-git config user.email 'why583440138@gmail.com'
-git push -f origin master:gh-pages
+# git remote add origin https://github.com/wangtunan/vue-mooc.git
+# git config user.name 'wangtunan'
+# git config user.email 'why583440138@gmail.com'
+git pull origin dev
+git push origin dev
