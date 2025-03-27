@@ -252,9 +252,11 @@ export default {
           player.on('ready', () => {
             console.log('rrr', this.playObj.progress);
             
-            if(this.playObj.percent !== 100 && this.playObj.progress) {
-              player.seek(this.playObj.progress)
-            }
+            player.seek(this.playObj.progress)
+
+            // if(this.playObj.percent !== 100 && this.playObj.progress) {
+            // }
+            
             setTimeout(() => {
               this.fSeek = true
             }, 100)
