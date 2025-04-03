@@ -243,13 +243,18 @@ export default {
 
             const nextVideo = this.videoList[index + 1];
             if(nextVideo) {
+              // const timer1 = setTimeout(() => {
+              //   this.update(nextVideo);
+              // }, 5000);
               this.$confirm('视频播放完成，是否继续至下一章?', '提示', {
                 confirmButtonText: '确定',
                 cancelButtonText: '取消',
                 type: 'warning'
               }).then(() => {
                 this.update(nextVideo);
-              })
+              }).catch(() => {
+                // clearTimeout(timer1);
+              });
             } else this.$message.success('视频播放完成')
           });
           player.on('ready', () => {
