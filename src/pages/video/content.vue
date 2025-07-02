@@ -191,6 +191,7 @@ export default {
           height: "485px",
           vid: videoId, // 如果是私有加密播放请传入 vid/playauth/encryptType
           playauth: playauth,
+          authTimeout: 3600 * 10, // 授权时长，单位秒
           autoplay: false,
           // from: "vuedemo", // 仅在demo使用，正式环境请删除
           // 自定义组件请参考：https://video.aliyuncs.com/player/presentation/index.html?type=pictureAD
