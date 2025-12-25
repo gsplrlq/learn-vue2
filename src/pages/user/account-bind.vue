@@ -92,7 +92,6 @@
 
     <UserInfo ref="userInfo" :data="userinfo"></UserInfo>
     <UserInfoAll ref="userInfoAll" :data="userinfo"></UserInfoAll>
-
   </div>
 </template>
 <script>
